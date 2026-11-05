@@ -6,7 +6,7 @@ import { portraitRegistry } from './src/content/portrait-registry';
 export default defineConfig({
   output: 'static',
   devToolbar: { enabled: false },
-  site: process.env.SITE_URL || 'https://veracto-showcase.example',
+  site: 'https://veracto.ai',
   integrations: [
     {
       name: 'approved-selected-portraits',

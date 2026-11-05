@@ -1,0 +1,1189 @@
+{
+  "scope": "Original selected source and approved public imagery. Both Russian and English are preserved.",
+  "files": [
+    {
+      "path": "astro.config.ts",
+      "sha256": "08b1e2dd64c28b082ff7ed8e1b2dbd88a65f4e83cf08d4220d1887982baf7da7"
+    },
+    {
+      "path": "public/brand-mark.svg",
+      "sha256": "9c0fca72928218c9840ee1b38afb271fbe6ef656d744eb95acfb77dfa2616f7d"
+    },
+    {
+      "path": "public/favicon-180.png",
+      "sha256": "345d6f0d57e909630c1b41e610749e043573ab795fcbe4960170cc5316aaa79f"
+    },
+    {
+      "path": "public/favicon-48.png",
+      "sha256": "503c2ebdec144078611c6947a2e6e0665f0a93713790a0eeb8b5418b7bf1406c"
+    },
+    {
+      "path": "public/favicon-512.png",
+      "sha256": "935dd5ca6dafda479397e886ade9188979c71cb570d5061e0f0b4b9470ae25b7"
+    },
+    {
+      "path": "public/favicon-96.png",
+      "sha256": "57ef0b543b82fbdc2d387ad71b67e3a8994d4d83b128758edf84c2f1b62b6209"
+    },
+    {
+      "path": "public/favicon.ico",
+      "sha256": "9f2d9e5a267e0c426bca1dcd70b2ff470aa5b47b94ea5cdde794a5a8a63fcbea"
+    },
+    {
+      "path": "public/favicon.svg",
+      "sha256": "70bc39699b59885ceecc12f76cd437992b11a378d3aeb3a5ccf8a0306f686a0b"
+    },
+    {
+      "path": "public/fonts/manrope-LICENSE.txt",
+      "sha256": "d826ab6583b12c26807d8716a545bdbbb672df04f48608a364ba9efdbe501c30"
+    },
+    {
+      "path": "public/fonts/noto-serif-display-LICENSE.txt",
+      "sha256": "db8996c5a848ed595b67a61f65ba528f2c9220da9f21488031702221c7d0c857"
+    },
+    {
+      "path": "public/robots.txt",
+      "sha256": "cac58e8e5f79868840be18c918d806f1eac1dd3babf96196b4a0a45a97be68f6"
+    },
+    {
+      "path": "src/assets/consulting/research-sources-20261007.png",
+      "sha256": "7e0cb06968cc2c930d2201a7dd6cd0e01ca02d574b7ee134baecbc2a227b2dd0"
+    },
+    {
+      "path": "src/assets/consulting/workbench-20261007.png",
+      "sha256": "0d606514e721a48e49e1abec99f0b35afb80871898651d02826dce84df3743d9"
+    },
+    {
+      "path": "src/assets/design-lab/home-pathways.png",
+      "sha256": "076bbcf0d85b2c6fd726e2aa72afb7ccdab3c42d5fdb6ca6a2196fd2ea6cc3fc"
+    },
+    {
+      "path": "src/assets/design-lab/home-pathways.webp",
+      "sha256": "0adce20e61a5cd11b67198afb688ffd006fb570948d1816dcdb8ffb4e3051d95"
+    },
+    {
+      "path": "src/assets/design-lab/image-hero-layout.png",
+      "sha256": "d2452d74747b55b0096097c49d9296af120b64c1f5dfebd570d093a1ba027267"
+    },
+    {
+      "path": "src/assets/design-lab/image-hero-layout.webp",
+      "sha256": "2f12cdc2a83abfb931d4141d436ddd66863db197adb92a6312fecfec48b85b35"
+    },
+    {
+      "path": "src/assets/design-lab/organisation-decision.png",
+      "sha256": "0d1c3c8091c39880bb006319ee84cd8830c1193a1fcef48749f1917c9e7d50e0"
+    },
+    {
+      "path": "src/assets/design-lab/organisation-decision.webp",
+      "sha256": "7004d6674afe5525cb44ddcb85ca3c41d0661f1c81d75a67312fe425dfabd959"
+    },
+    {
+      "path": "src/assets/design-lab/organisations-hero-concept.png",
+      "sha256": "aaabcada2659d67473561da73e9ca2229f215545c123b7d5d88829ff53c7f79c"
+    },
+    {
+      "path": "src/assets/design-lab/organisations-hero-concept.webp",
+      "sha256": "efbfb57d78ba1b04c28bc5161a203d194f4a485c293edb13a1ef99a5809aea9c"
+    },
+    {
+      "path": "src/assets/design-lab/research-connected.png",
+      "sha256": "3cdc58cc603f8be7652860768fb5b0ba5be0c7fe580491bd658f9c7093cb5181"
+    },
+    {
+      "path": "src/assets/design-lab/research-connected.webp",
+      "sha256": "147d860c5a8f5b6759ad4f09f656a79ae66390548d7d10494772d186db59804d"
+    },
+    {
+      "path": "src/assets/design-lab/researchers-hero-concept.png",
+      "sha256": "ffe1aba8d7d508cc3311edbf7767b603d9b263f26e517279fec9d93b0a6693c3"
+    },
+    {
+      "path": "src/assets/design-lab/researchers-hero-concept.webp",
+      "sha256": "529fe7845d3b95512f2e9654af1f4a93c418a4e6eb5ce8e662c2fd1e82266c34"
+    },
+    {
+      "path": "src/assets/design-lab/static-studies/claim-review-original.png",
+      "sha256": "a9d91dc3d3f6298c94bb289162ab25908002bdff130dd9cccd9b03c3988d4a2f"
+    },
+    {
+      "path": "src/assets/design-lab/static-studies/handover-original.png",
+      "sha256": "d67a74a5f465dff863772533aba23189cc6845d23099e869a16ba584fd77c3df"
+    },
+    {
+      "path": "src/assets/design-lab/static-studies/method-original.png",
+      "sha256": "4f7a14d41a8d54c9396ce2643e84b9df9bafdb90e44ef778fbe362045edfd720"
+    },
+    {
+      "path": "src/assets/design-lab/static-studies/organisation-original.png",
+      "sha256": "1edde8019669ea46fbb29b01e17c2945fb4b5746a796334a7c2b138a99ad1528"
+    },
+    {
+      "path": "src/assets/design-lab/static-studies/process-original.png",
+      "sha256": "20a2c44039ee6d814acfbf6ed6b2dfcb0f4e72844b3a91ea9f5b5943710ffaf6"
+    },
+    {
+      "path": "src/assets/design-lab/static-studies/research-original.png",
+      "sha256": "9145465c688afbc91aa0fa1c75840e9a08006204a58116e65b224e152c82942f"
+    },
+    {
+      "path": "src/assets/design-lab/static-studies/team-original.png",
+      "sha256": "49ffba27405b65a6e12286cd8f3a44569decec361f7ff6eb8a4a730e7f0489de"
+    },
+    {
+      "path": "src/assets/design-lab/team-protocol.png",
+      "sha256": "d86886c64c0f333736c6e7747559be0aae6b2575f5c0994bc6f6cac99e88734d"
+    },
+    {
+      "path": "src/assets/design-lab/team-protocol.webp",
+      "sha256": "d46f32181bffed7e34ebf4b42ff8fa186736ee73619122c8010b5d43fe78ec00"
+    },
+    {
+      "path": "src/assets/design-lab/teams-hero-concept.png",
+      "sha256": "9d284eb1e535210603ffb1e5a0fa57994245df836fa92ca7ae2f10fdfdd2a871"
+    },
+    {
+      "path": "src/assets/design-lab/teams-hero-concept.webp",
+      "sha256": "47206e7c8584cb4b6e3ed05595056d0eb5da4471190b17c8706c67de5b8950ef"
+    },
+    {
+      "path": "src/assets/portraits/processed/artem-paper-v1-320.webp",
+      "sha256": "e2c86769b13ce19e0b60338502921243e89a8ae4489e9d7290151c7784efbd00"
+    },
+    {
+      "path": "src/assets/portraits/processed/artem-paper-v1-640.webp",
+      "sha256": "d333af384fcf8f663d4a1c1ef5e5a2157a92bd952bdfa2a4fb6b3a6bd52b9bbf"
+    },
+    {
+      "path": "src/assets/portraits/processed/artem-paper-v1-960.webp",
+      "sha256": "01de9299a28d6908bff9df69918804c501e37a58aba6645e1dc48550ce304d51"
+    },
+    {
+      "path": "src/assets/portraits/processed/artem-paper-v1-full.webp",
+      "sha256": "26323d24ecd212fc71976c2a6ffc9c2a98438918e1f4648eb8ae06d8b2bf1a80"
+    },
+    {
+      "path": "src/assets/portraits/processed/paiva-paper-v3-320.webp",
+      "sha256": "9d8613c9db663dde62ee0ac83a4bcd92caff37c33f6c38becb65e30580573606"
+    },
+    {
+      "path": "src/assets/portraits/processed/paiva-paper-v3-640.webp",
+      "sha256": "f9b9fe6a560fec939acf2e7d76bee212f7c882ed280a657a5ad1248e8122ff44"
+    },
+    {
+      "path": "src/assets/portraits/processed/paiva-paper-v3-960.webp",
+      "sha256": "eed417bc6eab624a0d8302e22a47ddbe7e2cd6a829a401fdeff15124a3daae22"
+    },
+    {
+      "path": "src/assets/portraits/processed/paiva-paper-v3-full.webp",
+      "sha256": "aa6dc7100a8c596482d9bced395760969d67f6d6afbe429d92ea3d4fcf8111e9"
+    },
+    {
+      "path": "src/assets/portraits/processed/ratner-paper-v1-320.webp",
+      "sha256": "8016dee916915441d68f65ac4796a9df99418168c18ebb9a60396f0af3063216"
+    },
+    {
+      "path": "src/assets/portraits/processed/ratner-paper-v1-640.webp",
+      "sha256": "a08edd3bad5b3ea98bf56b3dfc8f4884751b2fd8a07051158dda1bc99a802950"
+    },
+    {
+      "path": "src/assets/portraits/processed/ratner-paper-v1-960.webp",
+      "sha256": "22642b9ca3b4f3606642c049d58a8f8eff5f6f3340ef1e11b665c49f3055f42f"
+    },
+    {
+      "path": "src/assets/portraits/processed/ratner-paper-v1-full.webp",
+      "sha256": "8c016914ea47e5b9eff924c5fce483a19c345600e5bfb594b9c3bdf51926c940"
+    },
+    {
+      "path": "src/assets/portraits/processed/romanenko-paper-v1-320.webp",
+      "sha256": "b48b59326f1422bcb24609ab7e701586c238dc03238788f0a6e6b04d68a83e00"
+    },
+    {
+      "path": "src/assets/portraits/processed/romanenko-paper-v1-640.webp",
+      "sha256": "53e57e51f2902d36e22b6d4167995140f8f19b71133de21105c5c3aa04685d89"
+    },
+    {
+      "path": "src/assets/portraits/processed/romanenko-paper-v1-960.webp",
+      "sha256": "505c58bd409294b5f2bb37cd54a73e7468383dd70a783c1fd7812790997de5ee"
+    },
+    {
+      "path": "src/assets/portraits/processed/romanenko-paper-v1-full.webp",
+      "sha256": "6abe1266e6b1b0313fb6a60efa8e1e4f29b36a5f7de324c430e968071c44cfd9"
+    },
+    {
+      "path": "src/assets/portraits/processed/shimanskaya-paper-v1-320.webp",
+      "sha256": "627f9bf1fcfbb6deaaa480a27f21c172f7e285fb74cede53b2516d3be03937ac"
+    },
+    {
+      "path": "src/assets/portraits/processed/shimanskaya-paper-v1-640.webp",
+      "sha256": "bbd1acfc373fd430bc22b5f1f21ace8fa91633ff755d9d2ccb90a8e5aa24d1a3"
+    },
+    {
+      "path": "src/assets/portraits/processed/shimanskaya-paper-v1-960.webp",
+      "sha256": "ff1d3a1a0338586da4c9fe70264db053fb50270fd1584950428dc18c5c97bf70"
+    },
+    {
+      "path": "src/assets/portraits/processed/shimanskaya-paper-v1-full.webp",
+      "sha256": "108a3d7666d045e4d5b3460015536ef9b73e8cb926b3885cc39c06d9e163bc17"
+    },
+    {
+      "path": "src/assets/portraits/processed/tim-paper-v1-320.webp",
+      "sha256": "3388aa2202887245120f8ff06befcb8de58d772b6abc90e1c904300b6aebb142"
+    },
+    {
+      "path": "src/assets/portraits/processed/tim-paper-v1-640.webp",
+      "sha256": "83a6236358e7907ddedd4e294b148773e5a0f408b4fc7ab73bff6c2c1d199242"
+    },
+    {
+      "path": "src/assets/portraits/processed/tim-paper-v1-960.webp",
+      "sha256": "30cd4299f11ed5f0a97aa0a06a3e937df1883e12373733d07af807c7ae18d487"
+    },
+    {
+      "path": "src/assets/portraits/processed/tim-paper-v1-full.webp",
+      "sha256": "9a93a1841ee93f2712d3d24c3614acf1d305852e8fffe4529a19eca9c7f155af"
+    },
+    {
+      "path": "src/components/layout/AnalyticsPreferences.astro",
+      "sha256": "e5279cc17d82c097d36c167d7521fd060ba71d103a66e6b399570c15f43159e8"
+    },
+    {
+      "path": "src/components/layout/FontAssets.astro",
+      "sha256": "d3ee250687fd44647e98fa5275aa0d7e2e1e10bad87469f75f2b919420ca2590"
+    },
+    {
+      "path": "src/components/layout/SiteControls.astro",
+      "sha256": "50df8d693f897fa1e22493ac1cb84a6c444f108d24c04c7e942955e36f1b8591"
+    },
+    {
+      "path": "src/components/layout/SiteFooter.astro",
+      "sha256": "70ac167e4f675de3c3e9115bb89230b9e86538c6faf12936fadd771b1ce4fccd"
+    },
+    {
+      "path": "src/components/layout/SiteFrame.astro",
+      "sha256": "c009a783c3b40da0693529ba2a05c5e2adc2d4b1768bf14c1faf813bc468b76c"
+    },
+    {
+      "path": "src/components/layout/SiteHeader.astro",
+      "sha256": "0abe2f7fac5227b31820dad507c81c5f0b55e83ad18c73300866df495db06b8b"
+    },
+    {
+      "path": "src/components/sections/ContentGridSection.astro",
+      "sha256": "0a031e916588232a768ec2dff0ed6f8d179443a492750e79701419632e2f88d3"
+    },
+    {
+      "path": "src/components/sections/IllustratedHero.astro",
+      "sha256": "ad11749b85010c0c9179eb47f747ef8650726e762543322ef05c4b08adf1888a"
+    },
+    {
+      "path": "src/components/sections/MarketEvidenceSection.astro",
+      "sha256": "3da6f39f055e4fd8b195ae740f85dd4d52258cf4cf51884f37096860f53b871a"
+    },
+    {
+      "path": "src/components/sections/NarrativeStory.astro",
+      "sha256": "81b91109bc0c77c7f28655a2309b69b5cd6c31ffaf19cae7a3d7703084ad253a"
+    },
+    {
+      "path": "src/components/sections/PeopleRail.astro",
+      "sha256": "0eea8222f9e8d8a31470eb7d6518786986b4a1aed4108ac6245dc095e8e6e821"
+    },
+    {
+      "path": "src/components/sections/PersonCard.astro",
+      "sha256": "aaadf3cd5b39193e1b90d6ade6bac71ba7275bb7f31b51396efb1a7e651325b0"
+    },
+    {
+      "path": "src/components/sections/StatementSection.astro",
+      "sha256": "c433dfd3c0159e9f5a3063a7f5755dcb9685d86f266ef4b2499bed75e446a203"
+    },
+    {
+      "path": "src/components/sections/TeamSection.astro",
+      "sha256": "4322b141293fb38a596a9baf648a4c3ab7a4678aae71e2036a3087610370dcae"
+    },
+    {
+      "path": "src/components/sections/WorkingExampleSection.astro",
+      "sha256": "a4a3f5d8a7c98d8811776edf20d5268592366fd3d8358050bfa1225b35284a43"
+    },
+    {
+      "path": "src/components/sections/narrative-story.css",
+      "sha256": "48963bd96497cbcab6847f28dd145c58cc7387dfd29b8f8270c434a807b9bb16"
+    },
+    {
+      "path": "src/components/sections/staticDiagrams/StaticDiagram.astro",
+      "sha256": "51e464206a173b28ff1dbc4cf39a9fc8b83265763b570d076af218126cb99ffe"
+    },
+    {
+      "path": "src/components/sections/staticDiagrams/StaticDiagramArtwork.astro",
+      "sha256": "89f5a01eaf7e2c8c84e307c67ef299dfc7d0e59b18dd30815ccd736d93e1c74a"
+    },
+    {
+      "path": "src/components/sections/studies/HandoverStudy.astro",
+      "sha256": "14a09f73680a99df399c6a24ae473bb88a8daf51d4c3675eb0de819271af6fb6"
+    },
+    {
+      "path": "src/components/sections/studies/HomeStudy.astro",
+      "sha256": "2077999e234cf54da9917eb53c5466cdd2fc73122344331c57c3ca3c5b1438c6"
+    },
+    {
+      "path": "src/components/sections/studies/MethodStudy.astro",
+      "sha256": "041c41784119202d8ba4ba97013b90121ba548164a369f5ab2b2a37bdda43ef7"
+    },
+    {
+      "path": "src/components/sections/studies/OrganisationStudy.astro",
+      "sha256": "8a0b9e40661a5a374ad4515e71f81bd68e2f7ae19396f9414c271fe60728a804"
+    },
+    {
+      "path": "src/components/sections/studies/ResearchRevision.astro",
+      "sha256": "cc927a0fa0a12995924c055b57e75ebd91bef52078ecc08dd0ee04ba0480dd2f"
+    },
+    {
+      "path": "src/components/sections/studies/StudyFrame.astro",
+      "sha256": "2bce1bfdc5154593c88a37e12422f3aa68f5256da92b93302161769d24201562"
+    },
+    {
+      "path": "src/components/sections/studies/TeamStudy.astro",
+      "sha256": "1c9ad96c85720e75330a9090272f4cd70e936bcd8cadadcee2c6bfd87e70e37b"
+    },
+    {
+      "path": "src/components/sections/studies/distinct-studies.css",
+      "sha256": "d46fb7b7eb71d40601362dc70a74fd2da38fb643f21ab934e6f71ab0d7f814e4"
+    },
+    {
+      "path": "src/components/sections/studies/handover-study.css",
+      "sha256": "df8d01fe227e9e543b447b18e6f9e3eb2123d1d8bb7aecbecdf633525b052d23"
+    },
+    {
+      "path": "src/components/sections/studies/home-study.css",
+      "sha256": "4867ea17fb5c61f95a5d6a6eda362d7abda48477915b4903842cc7498c135c3c"
+    },
+    {
+      "path": "src/components/sections/studies/method-study.css",
+      "sha256": "dce228e9cebf6e07d7b9fa7b32b216eb19bfaa8483fa007a2b6a60dca7795469"
+    },
+    {
+      "path": "src/components/sections/studies/research-revision.css",
+      "sha256": "4d13d20ad60c11501206a5f2418fedba3946d6541495b735deaf71020201902e"
+    },
+    {
+      "path": "src/components/sections/studies/team-study.css",
+      "sha256": "c0c53ed8555010788f773d44c02f46319165bc444c48ecf92c08d96ed7ee53e7"
+    },
+    {
+      "path": "src/components/ui/BenefitCard.astro",
+      "sha256": "78d02b24679c86636db4b55802ba4320a513fa80776b49e38ba0eb5a935cc673"
+    },
+    {
+      "path": "src/components/ui/BrandMark.astro",
+      "sha256": "3f593e29b26d2e25353e972dc9cccf8c74be40ef21bb69f40160007e177ab108"
+    },
+    {
+      "path": "src/components/ui/ButtonLink.astro",
+      "sha256": "ef43229eaec832f0df282760ce7a8c56ea6a401fd7f580d1ba55f336d2247510"
+    },
+    {
+      "path": "src/components/ui/Container.astro",
+      "sha256": "ad746c2bfcaf2b8bf465bd52d23bd2a31ede315daacd0d61b1316620c5429c09"
+    },
+    {
+      "path": "src/components/ui/DocumentationLink.astro",
+      "sha256": "24d712c208eb17584e54f2fa4b6e2f754f21cdf2bda541b6ba86818dcd8faf28"
+    },
+    {
+      "path": "src/components/ui/EditorialCard.astro",
+      "sha256": "2edecce195b906d85a369a9a4f805a6a22235960b0dabfdfdc8b9b11ecce71fd"
+    },
+    {
+      "path": "src/components/ui/MotionRule.astro",
+      "sha256": "dcd0e3a7229e7ff9ae04b06d32cfa05e71b81d814f24f7ee84b02b6697a7edb9"
+    },
+    {
+      "path": "src/components/ui/PageCallToAction.astro",
+      "sha256": "8bc8b1dc291398336c76f7bd8125911bf4deb16ad9514e058a240ce828b91d45"
+    },
+    {
+      "path": "src/components/ui/PageIntroduction.astro",
+      "sha256": "aa5daafa8577823091d1c108c95291423121fdc7bbd102455a940ee871c1bb11"
+    },
+    {
+      "path": "src/components/ui/SectionHeading.astro",
+      "sha256": "6c82bbfaaa432b13f91ece306958ead572360445371be0e1be5c1645e2ad1ed1"
+    },
+    {
+      "path": "src/components/ui/story-art/HandoverArtwork.astro",
+      "sha256": "e74a5632bd6a34a72398ded5f4ee932fcf106f5306a045d6a8531ddb904d8cff"
+    },
+    {
+      "path": "src/components/ui/story-art/HomeArtwork.astro",
+      "sha256": "13cbceda5e0f44060cec0b1b1ace60dea7034ce51a19c5fc23b4d0b665a1ef77"
+    },
+    {
+      "path": "src/components/ui/story-art/MethodArtwork.astro",
+      "sha256": "ab06d1b9253cf845d8b76b3b498e793cf7935f12ce4ede279fc16e1797534cad"
+    },
+    {
+      "path": "src/components/ui/story-art/OrganisationArtwork.astro",
+      "sha256": "abe0345f44554046cfab2b5724972efa8312c14bdd4b48590bddeafd3a02ff39"
+    },
+    {
+      "path": "src/components/ui/story-art/ResearchArtwork.astro",
+      "sha256": "a24bb6fa2dd9f2d0d652bc75018eec59b0c6b0fcf921feab0f4cdd2859795dda"
+    },
+    {
+      "path": "src/components/ui/story-art/TeamArtwork.astro",
+      "sha256": "7a2eba365ee5bc62088a228d1f485ee9af34d41c49a30a4179153f412a5f5ba1"
+    },
+    {
+      "path": "src/content/analytics.schema.ts",
+      "sha256": "537594882281e04f00c2cb8110f4e5818a53ee8d896a6aac84a660415bc793bc"
+    },
+    {
+      "path": "src/content/en/about.ts",
+      "sha256": "ff4c2f352dc13f205145cda0599117a104a3f5469be4bdb812838ba81e5a059a"
+    },
+    {
+      "path": "src/content/en/analytics.ts",
+      "sha256": "2af4282b3ba0bbee0cce38375e92be027906a4dc9af01ca99151237f8a35338c"
+    },
+    {
+      "path": "src/content/en/approach.ts",
+      "sha256": "41173ca3f78ac0c91529571dfa0688ee35544f715057735e843a13fe962daa96"
+    },
+    {
+      "path": "src/content/en/contact.ts",
+      "sha256": "5e22051b7eaac292febfd50d6f624cf902fe8d553dafb133a639960bb27b9dfc"
+    },
+    {
+      "path": "src/content/en/evidence.ts",
+      "sha256": "3947b46fb68bb3eb51ea27b848f5633c9cc84078b0247d8871055d8fe04ec8e5"
+    },
+    {
+      "path": "src/content/en/examples.ts",
+      "sha256": "f5fd8f521062c4aa3ea5911daa1b71053543f21c78755524e1632ebee31b85d7"
+    },
+    {
+      "path": "src/content/en/handover-story.ts",
+      "sha256": "4795391cabe2fde4e5f0d467fd26bab58c0be3a29c6818adecff617e7f6d8ba1"
+    },
+    {
+      "path": "src/content/en/hero-explorations.ts",
+      "sha256": "d4c7d9c86a4f4345440f1d837c5580c7d194fd5e32b3786ccad2f6739f6e3b31"
+    },
+    {
+      "path": "src/content/en/hero-gallery.ts",
+      "sha256": "ef6f9dec6a531d1b54060b211cd87f14d783c6ca988eff4ae934b1b1c7759c7d"
+    },
+    {
+      "path": "src/content/en/home-story.ts",
+      "sha256": "04414d2b15fec33686df97ab6368de6d18d8cca8df3190792a48a64ee42f61e9"
+    },
+    {
+      "path": "src/content/en/home.ts",
+      "sha256": "f7b448b4e33db9e443ef73ff92053e9331f3ecbafd9d4c430d40c2f2eea33f4a"
+    },
+    {
+      "path": "src/content/en/home/hero.ts",
+      "sha256": "e942ede0e5fc98dafa180637b68a47d725501a8074f6ed58d2694e64798bf10b"
+    },
+    {
+      "path": "src/content/en/home/outcomes.ts",
+      "sha256": "5b601d74cc29f27fb0afa8c61d48b5517578c376a367c65816e115c875e67d7f"
+    },
+    {
+      "path": "src/content/en/home/overview.ts",
+      "sha256": "5e94458489766a565f900708499f146a86e29f9ec1a345cb315d26fcf35b3843"
+    },
+    {
+      "path": "src/content/en/lab-collaboration.ts",
+      "sha256": "090ab1ffd18f17b0261237740cf77214e15048a4502fcfed841c9dd803bf032e"
+    },
+    {
+      "path": "src/content/en/lab-method.ts",
+      "sha256": "d9e0adf60ebfa8461c9f1349d66949166842d50911f833711bb09265ecc6e48c"
+    },
+    {
+      "path": "src/content/en/market-evidence.ts",
+      "sha256": "c326329b52b63cba932c88c5ad68b7fa84d369a0938e7b8364c6258a36cb6012"
+    },
+    {
+      "path": "src/content/en/method-story.ts",
+      "sha256": "c8183d7011d9be5f76b488c5ca57820d8bf3d065a7bdc4c3aa5c2d20a1ffb2ac"
+    },
+    {
+      "path": "src/content/en/organisation-story.ts",
+      "sha256": "4e768a64c4c1f300b261f9bcdcecf7b921a1770e239085419d2359be43cdfd55"
+    },
+    {
+      "path": "src/content/en/organisations.ts",
+      "sha256": "f32f8b76205b76dc566cdb3ed5811c6916895c49a5b2e967a1a386bc961b859e"
+    },
+    {
+      "path": "src/content/en/people.ts",
+      "sha256": "dd1034a427af61683e8ed01041cfccce3bcea5e0ae33cfd687cfbe8c0323cbed"
+    },
+    {
+      "path": "src/content/en/refresh-playback.ts",
+      "sha256": "b8b0efe439b5eb029d0444595be39236c8a188eadc173c1ee122eb7eaf77f0b2"
+    },
+    {
+      "path": "src/content/en/research-revision.ts",
+      "sha256": "585e04375f64a4c25e895fd41caf73c8f25f55c982fa3bd1e9443dd56eb768b1"
+    },
+    {
+      "path": "src/content/en/research-story.ts",
+      "sha256": "ee93689c9e143a74c62565b4566c28e603bf30a34a7cef6dbe781a968808e313"
+    },
+    {
+      "path": "src/content/en/researchTeams.ts",
+      "sha256": "2f73dedbbba412ef9b58508f74b0b8c631b972dc61a1363961182b153a93d26e"
+    },
+    {
+      "path": "src/content/en/researchers.ts",
+      "sha256": "1efa1e29d44ccc2f85dd2c7e480207ba261c0b66b59e8d80280167f15c932eb4"
+    },
+    {
+      "path": "src/content/en/site-study-labels.ts",
+      "sha256": "3c0868ca85a7a7bcfef6d82c93ec8a3feabe6d411d7066213172c52caf6d299d"
+    },
+    {
+      "path": "src/content/en/site.ts",
+      "sha256": "f9f0bc6b7ce6642299c99c5daa128d0f257fb50215f22a2d57e7d3358da7a7f9"
+    },
+    {
+      "path": "src/content/en/static-diagrams.ts",
+      "sha256": "306947ff516f24b28352ecf5afc433351167f75c7483c0b4f1f3a1771defbd03"
+    },
+    {
+      "path": "src/content/en/static-visuals.ts",
+      "sha256": "f14a93af87a2a295bcb34f094e896f370c5c87c8b43b9d26edb37ab2f5e68895"
+    },
+    {
+      "path": "src/content/en/stories.ts",
+      "sha256": "63736f18c7c14a72118bcd441ce9afcdf17d4aba8878892369c77db9094934f5"
+    },
+    {
+      "path": "src/content/en/team-story.ts",
+      "sha256": "09380422716b437c91fe14176266146207ebf755b2c8471dd733e965fcaad2c6"
+    },
+    {
+      "path": "src/content/en/team.ts",
+      "sha256": "38ca144cdd3e41c0145a6516ac6db52789806a1377afc5b61662db1dc5445b12"
+    },
+    {
+      "path": "src/content/en/visualization-refresh.ts",
+      "sha256": "37e1b67d2ed096b02536671c423c7d0396ba2c905f6a8c819ec01b73e1e79b36"
+    },
+    {
+      "path": "src/content/en/visualization-refresh/decisions.ts",
+      "sha256": "5fbf1c2ace253cacd5a89bd51f769c9f438e3be00529271fb3e245c8705084e5"
+    },
+    {
+      "path": "src/content/en/visualization-refresh/practice.ts",
+      "sha256": "6a445c59e666b9cb1a62d8743246b37d0fec4b65ef896214b948c7118e9a4bdf"
+    },
+    {
+      "path": "src/content/examples.schema.ts",
+      "sha256": "5398c77a4c85f7b994868cb63438b5ab85780b8849f3071a83b43d29ef0863e0"
+    },
+    {
+      "path": "src/content/hero-explorations.schema.ts",
+      "sha256": "978f9fc9f3938420fe98c4099670ff4ed692db73ed04409758d7bb2c2a501913"
+    },
+    {
+      "path": "src/content/hero-gallery.schema.ts",
+      "sha256": "0694af458d444072e1e1763159bb54f0bf0038c386e263e19b53f016f42dc407"
+    },
+    {
+      "path": "src/content/lab-studies.schema.ts",
+      "sha256": "914a36f9aac899a00bd560c852b00cf5207e5cb7acb7d3064e30062a2d57f77a"
+    },
+    {
+      "path": "src/content/market-evidence.schema.ts",
+      "sha256": "e50cd288f573aa7040e9da7f89b9c6f315721b11f2cb8b0ebb8732c17e28bfa0"
+    },
+    {
+      "path": "src/content/pages.schema.ts",
+      "sha256": "2437be71ea13a54d01878c4677e421b2126c597b0acd44e623db9cb8f68f3238"
+    },
+    {
+      "path": "src/content/people.schema.ts",
+      "sha256": "3b8909bba845f86379fbc9dd1c9ad4f7aacae79eb700f1ec6bb9836f44edd1a4"
+    },
+    {
+      "path": "src/content/portrait-registry.ts",
+      "sha256": "16fba797152827a9bbc174389cff4e3d4a68f8c6e2e224e2a6787e7524ede361"
+    },
+    {
+      "path": "src/content/research-revision.schema.ts",
+      "sha256": "a640926d201a19fdf658f42627aed9329fc0c9f112f7720a073fff67e427a938"
+    },
+    {
+      "path": "src/content/ru/about.ts",
+      "sha256": "45420681e4a905fc27c8c0560ddc4a455e2b57b5425ae1da6e1c2889e39a65a6"
+    },
+    {
+      "path": "src/content/ru/analytics.ts",
+      "sha256": "522a3e31f68c5d0894573fbb219dfb7fd3acf5555ee170950fb6a008b9b99041"
+    },
+    {
+      "path": "src/content/ru/approach.ts",
+      "sha256": "2c16d961da1753ca459fff0494c751b01ec6348060bf0834b7a23a7741683bda"
+    },
+    {
+      "path": "src/content/ru/contact.ts",
+      "sha256": "4f24c98cabf1547f5df28fd10c33c9bb230f849d5a6ddbab7c7f4919436edd54"
+    },
+    {
+      "path": "src/content/ru/evidence.ts",
+      "sha256": "2af53bf851af698486ba1916dd25c381f919bf1a0edad7163558ec892f4a2c74"
+    },
+    {
+      "path": "src/content/ru/examples.ts",
+      "sha256": "9c33d326f1bbb01162aded8fba22da555d6dad3f6c642734dc7acb8e64058587"
+    },
+    {
+      "path": "src/content/ru/handover-story.ts",
+      "sha256": "89685a66d89c50f11443d766f91710399d3015efc2c29da855d1ace94af85140"
+    },
+    {
+      "path": "src/content/ru/hero-explorations.ts",
+      "sha256": "ce8ff0c45a92befdacf6de5d7bfc80713e3bd2dfe7ed9c19de4f7a67c21135f2"
+    },
+    {
+      "path": "src/content/ru/hero-gallery.ts",
+      "sha256": "f683c7ce642ebe5ab7afce0d6cebe23fd3db341fab9e1b4dd272ab4c2ddd4a46"
+    },
+    {
+      "path": "src/content/ru/home-story.ts",
+      "sha256": "a303c3bd4415160c18938e9204917abe9f20b65925ed83811641d8790f982238"
+    },
+    {
+      "path": "src/content/ru/home.ts",
+      "sha256": "a8bc39d633f976ca35a2ec342e8d732112f7f8220b5c23c1f751bed15746e839"
+    },
+    {
+      "path": "src/content/ru/home/hero.ts",
+      "sha256": "41cb45a8cd60fce35273e83688fb0535b124602139d795bcb46ed88ee070f231"
+    },
+    {
+      "path": "src/content/ru/home/outcomes.ts",
+      "sha256": "4fac252d77506f5946f5e3eb94823b40078418e24e3a525bc93e0ec8dd09544f"
+    },
+    {
+      "path": "src/content/ru/home/overview.ts",
+      "sha256": "65a913fdccd9cd4c6c730699b3b721cd7e4d4a53b6ce0922afc4a94d0684502d"
+    },
+    {
+      "path": "src/content/ru/lab-collaboration.ts",
+      "sha256": "7c1bd492754ea8f813318dba49e3551c9e0b7a2a283fe5629ef78a3475185a30"
+    },
+    {
+      "path": "src/content/ru/lab-method.ts",
+      "sha256": "ee29ecfe012748dbb3f75f21f3bd3a7fa3714ca0a310fad0c04e567953d2c54f"
+    },
+    {
+      "path": "src/content/ru/market-evidence.ts",
+      "sha256": "c6543760cc5e51d68da538a41f7edc5f9d1f59270ba75691e24f6f874bf3ff8e"
+    },
+    {
+      "path": "src/content/ru/method-story.ts",
+      "sha256": "6ad2444240d5fafd50fe78c94fd18c400524305ce5dbcecfea7b8c0091a9c217"
+    },
+    {
+      "path": "src/content/ru/organisation-story.ts",
+      "sha256": "ec9b5d379bdcedbaa758303e4aeeacd1d632c3d2e754b6c39bc517389dbf7692"
+    },
+    {
+      "path": "src/content/ru/organisations.ts",
+      "sha256": "59d266489f8f1fbbb1d0fd5db942222e2f7cf8319185c12dfeb8b744a69fe934"
+    },
+    {
+      "path": "src/content/ru/people.ts",
+      "sha256": "49fe860ead364a76ccc994bb57b59f401bdcb6eda5f7622c0f7b1ba939794d76"
+    },
+    {
+      "path": "src/content/ru/refresh-playback.ts",
+      "sha256": "7e70f00773b49b9acaa6e92e87adfe63dc1803d1b3200432b191aecbad767b67"
+    },
+    {
+      "path": "src/content/ru/research-revision.ts",
+      "sha256": "f3afe52476e383ed5ac16bef794be8d04078524e53d209bad7190f2176f2da9e"
+    },
+    {
+      "path": "src/content/ru/research-story.ts",
+      "sha256": "826d14ffff2ebaf63950df61debc2016f78de41b1a6e948d0d853ab39b92ce5e"
+    },
+    {
+      "path": "src/content/ru/researchTeams.ts",
+      "sha256": "63f0843eef897e9b5bc8001527b53629b16fcd905d72c471bcb522bfb715ed7c"
+    },
+    {
+      "path": "src/content/ru/researchers.ts",
+      "sha256": "189151fce8af05a5765b2883bc8d623ad8665051de548a2f0ee74f175bd3d128"
+    },
+    {
+      "path": "src/content/ru/site-study-labels.ts",
+      "sha256": "8b29ae55a92df37085a9e936699a0e817b59a6eeee393057bcfb250a2db94229"
+    },
+    {
+      "path": "src/content/ru/site.ts",
+      "sha256": "041b3e191d8a06fe6e2f8d35c399dcc0f0595ce7c8baa22d5e9bed9515a846f8"
+    },
+    {
+      "path": "src/content/ru/static-diagrams.ts",
+      "sha256": "1d3f7453b0381b51a8887b3674c8305ad256869a1274fffed86c743243424cfd"
+    },
+    {
+      "path": "src/content/ru/static-visuals.ts",
+      "sha256": "39aad3650f341513e5836035131ed1c2a70a549b512d1d1d08ef7def5ad0a357"
+    },
+    {
+      "path": "src/content/ru/stories.ts",
+      "sha256": "605526e4751a2aa602acd46f683ff0c19154b31eafab61adf1f7367292b0db5e"
+    },
+    {
+      "path": "src/content/ru/team-story.ts",
+      "sha256": "a6527cf2694ad183ad7e84d63bda93d18311d474a062b7fc0e3ee5d1e8c515af"
+    },
+    {
+      "path": "src/content/ru/team.ts",
+      "sha256": "f39e668c2a71cb93224a068389a45b7d979160aa80c7f7639150dfc7581563ee"
+    },
+    {
+      "path": "src/content/ru/visualization-refresh.ts",
+      "sha256": "e4b7e7ad3f8c9767b7a5e2063021f0d4990baf8e3d379cb7c825fe8ad109b3b4"
+    },
+    {
+      "path": "src/content/ru/visualization-refresh/decisions.ts",
+      "sha256": "e4b21f8c29b0fff3cd91e0452cb3688f4a96a1f5f03c3c788acd645d7ff97f16"
+    },
+    {
+      "path": "src/content/ru/visualization-refresh/practice.ts",
+      "sha256": "4b5e8558aaf9412b5da3dc783d9537f10e9007e6eefd168e67f362542bef9806"
+    },
+    {
+      "path": "src/content/site-study-labels.schema.ts",
+      "sha256": "5e9d0e955ad7ba055b9b1134fb588926e5bad783ebb1067ea6765d4976e98807"
+    },
+    {
+      "path": "src/content/site.schema.ts",
+      "sha256": "ae81169a4268e9824d473e507c4f98e7b243ca79cd6ad2a56b1f13ab9eb25662"
+    },
+    {
+      "path": "src/content/static-diagrams.schema.ts",
+      "sha256": "47bb724180b4792d399c3ed4c2b748cba897c78b346106c0dc2e2e8e1de30164"
+    },
+    {
+      "path": "src/content/static-visuals.schema.ts",
+      "sha256": "65c473f054cf79bb8976ab234ab98f6c086d5fb126d01abe5911cc62e28748be"
+    },
+    {
+      "path": "src/content/stories.schema.ts",
+      "sha256": "55beb497664e9ed42605b092d8787f89b0f097f1744f5606cac67b7fb82ed614"
+    },
+    {
+      "path": "src/content/visualization-refresh.schema.ts",
+      "sha256": "d6fdef3e8f42483956d04276644e5d1f72bf0d0773e24e4394d49f5e7223bf52"
+    },
+    {
+      "path": "src/env.d.ts",
+      "sha256": "deca64590189ec63ab77aa1f74f86fde50d0e3f4f17afb68748e80cf36c59d49"
+    },
+    {
+      "path": "src/layouts/SiteLayout.astro",
+      "sha256": "a58b71f982b3a80cc83904b35b10f64fda9fbc09227c1df97018580f6b5f0b62"
+    },
+    {
+      "path": "src/layouts/StoryLabLayout.astro",
+      "sha256": "bea5b52c9140fc9d68a857ba060b80c7d8dcf875f75d06cdc34f7e3580fdb312"
+    },
+    {
+      "path": "src/pages/about.astro",
+      "sha256": "449460237d1eb0f4123647351f3909a3c6ad440915a4146258f5d708f3655223"
+    },
+    {
+      "path": "src/pages/approach.astro",
+      "sha256": "d1fa32ba618b696e30f7486c7b1bd07eaa601e1cb8901ad76a928f1e0a4e8f0d"
+    },
+    {
+      "path": "src/pages/contact.astro",
+      "sha256": "ca5c1d5a0c97b091de164f46387580a0fbe4e4f0e74b3b76c6298a8babfb0143"
+    },
+    {
+      "path": "src/pages/evidence.astro",
+      "sha256": "5aecefd2fdfe02c1958d17f92ff4a22b70b32a0c5b6b292a670f4c62ad581b8e"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "sha256": "fed1eae50c7542b9868f15a5ca7713a7b969a7d52fe60d58c045cec30bd1a744"
+    },
+    {
+      "path": "src/pages/method.astro",
+      "sha256": "d1fa32ba618b696e30f7486c7b1bd07eaa601e1cb8901ad76a928f1e0a4e8f0d"
+    },
+    {
+      "path": "src/pages/organisations.astro",
+      "sha256": "d4521d4fd97aa2d2e1b090cf8207bd5f8643eebc49e11788b1e31e73bd2d8bc8"
+    },
+    {
+      "path": "src/pages/privacy.astro",
+      "sha256": "5677e157ae72d1c5d7224f4d1b14f434efa3573ad026240241c1fe8ee8cad321"
+    },
+    {
+      "path": "src/pages/research-teams.astro",
+      "sha256": "95b9ed6fc052acb7eb4606deb85983cf6b2d086db98d11114d0777fea657fce8"
+    },
+    {
+      "path": "src/pages/researchers.astro",
+      "sha256": "7c5fd884bc27adf40bc36d547ed161f528295bc43faf657e46b4dad287d508a2"
+    },
+    {
+      "path": "src/pages/ru/about.astro",
+      "sha256": "43a85979be39689bce0f69c0ee648eb5e1335c5ccde258b2891958472962fa32"
+    },
+    {
+      "path": "src/pages/ru/approach.astro",
+      "sha256": "f0496345667f4cdf21fc99e2d7596dafec237503ced9b776530e6f3f3a2395a3"
+    },
+    {
+      "path": "src/pages/ru/contact.astro",
+      "sha256": "3b8667f07494d4e264b43940c8097f9556069fa74d229b8f114ad05377c95bcb"
+    },
+    {
+      "path": "src/pages/ru/evidence.astro",
+      "sha256": "6243db2a6c8835c0864bffcf0d2e547364726e6fb45180209861f072b8cea7ae"
+    },
+    {
+      "path": "src/pages/ru/index.astro",
+      "sha256": "cd6f36663bc6115ece1d6181172a73782183fac9a5ab5e9534b668c6df7569e9"
+    },
+    {
+      "path": "src/pages/ru/method.astro",
+      "sha256": "f0496345667f4cdf21fc99e2d7596dafec237503ced9b776530e6f3f3a2395a3"
+    },
+    {
+      "path": "src/pages/ru/organisations.astro",
+      "sha256": "5686983015afa1353404c39e27beb19a969da76b2901b92e3a644c003998a113"
+    },
+    {
+      "path": "src/pages/ru/privacy.astro",
+      "sha256": "f6009b8687752b57461d16d787a1bae28253c209f9cdcb32d9d8e46ad8093590"
+    },
+    {
+      "path": "src/pages/ru/research-teams.astro",
+      "sha256": "b0f7cf9fbe08afa1c3b74e2517f53e6454002e432e7eaa39675429ad54b8271e"
+    },
+    {
+      "path": "src/pages/ru/researchers.astro",
+      "sha256": "1bdf3eb70786b1f2642eded5d8fa85fd7d0cc8ce0ed551ac0b294de51d1f7d94"
+    },
+    {
+      "path": "src/pages/ru/services.astro",
+      "sha256": "301a83612ba5846f757dfecb3642f680a4bb3b1c1c92884dc9521b1dfa506f6a"
+    },
+    {
+      "path": "src/pages/ru/small-business.astro",
+      "sha256": "46f598dfd166542742b9bf5adb0c8ec696ff02a2112106773887290ebeec7d39"
+    },
+    {
+      "path": "src/pages/ru/team.astro",
+      "sha256": "62582cde1bbf2c68cda52cf2f246135383be052c662224cb2129023019dd21c5"
+    },
+    {
+      "path": "src/pages/ru/work.astro",
+      "sha256": "6243db2a6c8835c0864bffcf0d2e547364726e6fb45180209861f072b8cea7ae"
+    },
+    {
+      "path": "src/pages/services.astro",
+      "sha256": "8768300ff473415780c0c37a0a1d9572126167b4e68fd6bdba3c046f8d24e81e"
+    },
+    {
+      "path": "src/pages/small-business.astro",
+      "sha256": "0d2fe0ff3e359ac6ab2df1819d973d2f549b5c7d8fc982178c8b9ad347095842"
+    },
+    {
+      "path": "src/pages/team.astro",
+      "sha256": "4e5d358c867fb796b5d94376737b06a8aea29e968de074580e240f3be550e9dc"
+    },
+    {
+      "path": "src/pages/work.astro",
+      "sha256": "5aecefd2fdfe02c1958d17f92ff4a22b70b32a0c5b6b292a670f4c62ad581b8e"
+    },
+    {
+      "path": "src/scripts/analytics-context.ts",
+      "sha256": "e2b1844e96a75fa27e9b7aacdf071873f36f1d76db6fa9b8f5d37f2fc65798ca"
+    },
+    {
+      "path": "src/scripts/analytics.ts",
+      "sha256": "0742346bb81911ca70385c4f29af1fb1305e84a715e8e7db39b7e8756df9b7f4"
+    },
+    {
+      "path": "src/scripts/anchor-navigation.ts",
+      "sha256": "8bc3b185ee32ef753b815af6a47e6d60e9f2e8478c11198219726ff913ee24cf"
+    },
+    {
+      "path": "src/scripts/disclosure-motion.ts",
+      "sha256": "cd2282be32df90f4c1e8ce8384cd6001802e8ccec4bd8e78129c6afc5e28955c"
+    },
+    {
+      "path": "src/scripts/font-readiness.js",
+      "sha256": "95ed298e98bee53764d3884f3af92c55c229da3ef0f2dd4d7ad112e58877c8c8"
+    },
+    {
+      "path": "src/scripts/market-chart-motion.ts",
+      "sha256": "ecb7bd8694180708a9e311a70b791806922bc7e84daaa09f7535580934107f53"
+    },
+    {
+      "path": "src/scripts/motion-preference.ts",
+      "sha256": "09dcb9ba08e92328a95f82ac8d75983e0aee42548580e6b14154f8a41c5305a9"
+    },
+    {
+      "path": "src/scripts/motion-runtime.ts",
+      "sha256": "22b746bcbbf441eba52dc45d44f722271dbf3076a71141d2e172e6f7a237d194"
+    },
+    {
+      "path": "src/scripts/motion.ts",
+      "sha256": "23ba2c13c43103cd42021051997c292cdab15b599ca24d597c107b5cd4257648"
+    },
+    {
+      "path": "src/scripts/narrative-timing.ts",
+      "sha256": "0866f33582e8d83dfdcdfddae305c7d1817e064f24fa97d56d7500d5de62b723"
+    },
+    {
+      "path": "src/scripts/navigation-state.ts",
+      "sha256": "2bee5301f61569b432b25e0dbdcf29b70cd9e00d605f8871a4223fe6a4f88dbc"
+    },
+    {
+      "path": "src/scripts/page-transitions.ts",
+      "sha256": "02876ff9e42782ecbb96baffbc645218e74fe9d34c77f6a6c51840f0b457d669"
+    },
+    {
+      "path": "src/scripts/people-rail.ts",
+      "sha256": "87562b9fd190b0d7c83152f05ea406ea9f0a6ff64b5a345af29dd342d741c65c"
+    },
+    {
+      "path": "src/scripts/scene-player.ts",
+      "sha256": "29ad1060097d503f44b6479c791306cb1715daa592b4c20d08b62f4ce3372a9e"
+    },
+    {
+      "path": "src/scripts/site-navigation.ts",
+      "sha256": "ae32126055b47cdcf4b0e13abcf1fe63aee6d0483f74c97dcae3affe7eb01eae"
+    },
+    {
+      "path": "src/scripts/story-player.ts",
+      "sha256": "ab3d3e8f5ecbb4f6afc84bbe56fc32b5503887b3f849d4bac55481fdb59d405d"
+    },
+    {
+      "path": "src/scripts/studies/mobile-entry.ts",
+      "sha256": "a02eef541458f92641f1533db28fe47db6e3e5590bdf1dc3adfb7f65797f67d9"
+    },
+    {
+      "path": "src/scripts/studies/research-revision-effects.ts",
+      "sha256": "c5cfc31c5c3b999863b1fe488dc566b6193602cb6278d9c2f657bd55eb327cdc"
+    },
+    {
+      "path": "src/scripts/studies/research-revision-player.ts",
+      "sha256": "aa295e523f624195f975b39e211600153238ae64f31c8fa92746e2a7fa9eebbd"
+    },
+    {
+      "path": "src/scripts/studies/study-effects.ts",
+      "sha256": "aaf1a781d98a1686b604c750edff21ec28c69e281367b500fb1ee68f46de81a4"
+    },
+    {
+      "path": "src/scripts/studies/study-player.ts",
+      "sha256": "fbec45b5e980bd20157bcf213a0ff4ba8d1d6867a92f1b0b07452ba835f4ffc1"
+    },
+    {
+      "path": "src/styles/components/people-rail.css",
+      "sha256": "ba88fbc1326c2015cce91bb9dd8bcf88603195983c04743a49861be2568abbeb"
+    },
+    {
+      "path": "src/styles/components/site-header-forest.css",
+      "sha256": "1349bc502fe29200c52b557b1ee2a49cc1252c74c7d41fd4425a57000cb9a68d"
+    },
+    {
+      "path": "src/styles/components/site-header.css",
+      "sha256": "8d8c5c3acd4066c03e708b875541977a1e13535158247ee63fd9b77d61ed8bc2"
+    },
+    {
+      "path": "src/styles/fonts.css",
+      "sha256": "c38f87356fbb3da119fa8ed34d53ac3e6fe991e4186a29839d7ba06214b1e7e0"
+    },
+    {
+      "path": "src/styles/global.css",
+      "sha256": "910cd933c2d4fae57d13b6ffaf7d0a5080554e5ad9a73f69f636c61131fffb91"
+    },
+    {
+      "path": "src/styles/page-transitions.css",
+      "sha256": "1382ba69debf3b6e4da5b849cd9c294c7bc56cbcc25e00f8f4750761c6b27d99"
+    },
+    {
+      "path": "src/styles/reset.css",
+      "sha256": "3f4574469abf3dbc9b1cb447c81e2f3cf16c7c57c1eb6726bb534f7d31490081"
+    },
+    {
+      "path": "src/styles/tokens.css",
+      "sha256": "95b443e172afb201a7c938f52fa0590d995b782479a37319ff1cb13d50f042cc"
+    },
+    {
+      "path": "src/views/about/AboutClosingSection.astro",
+      "sha256": "887a5661ce093a241bafafbbff224e2c2a5bde2a1d656458b110c1957a733a79"
+    },
+    {
+      "path": "src/views/about/AboutPage.astro",
+      "sha256": "b2fd090bebc355e5e174db4ff7fa56cf0cfc6c6af9e35d4065f0529f38bc53e5"
+    },
+    {
+      "path": "src/views/approach/ApproachPage.astro",
+      "sha256": "bf4cdbfae2e3ff96cb609e382cb43aeecd444bae6389549078243e523b4b200e"
+    },
+    {
+      "path": "src/views/approach/sections/ApproachNavigation.astro",
+      "sha256": "efacf697d528573ad4e1b57eda2f0c382ed8df7c69d057c839e6eea5b593033c"
+    },
+    {
+      "path": "src/views/approach/sections/DecisionRailSection.astro",
+      "sha256": "bbf0f854aa22a110e7cfa349a4cc61bbdef2a81ba6b0818fbda19fd27a818b65"
+    },
+    {
+      "path": "src/views/approach/sections/HandoverKitSection.astro",
+      "sha256": "de0380fa5d7c88eecf6dc510f8d21657fc61b3f3abf792be7289ea722df6baef"
+    },
+    {
+      "path": "src/views/contact/ContactPage.astro",
+      "sha256": "83cc09c8661f5746da45171c54c422caf8163f4edeabc7de143f9614fb0ed4c8"
+    },
+    {
+      "path": "src/views/contact/sections/ContactDetailsSection.astro",
+      "sha256": "5c6da89bb9b18731cb5fa4dfe782a1ee93a5aa7c64bf7158ac7dd48e2de41e79"
+    },
+    {
+      "path": "src/views/evidence/EvidencePage.astro",
+      "sha256": "b883df11c29edf4b1ca0d64c8dcbc6e3937304d7e7ecc955cdb9f72201bb94a7"
+    },
+    {
+      "path": "src/views/home/HomePage.astro",
+      "sha256": "c869d7a17f1c0849ce041ea89582cfa46b241183a2734d32068d18d503541b28"
+    },
+    {
+      "path": "src/views/home/components/DecisionSummary.astro",
+      "sha256": "b1b32843b2290ec94c585e35bb47a7a161173a3a3c8ade53cda2662ca1896696"
+    },
+    {
+      "path": "src/views/home/components/RouteArtifactPreview.astro",
+      "sha256": "f4c7c9633b29edd1ff7b9e5f54df9e85d37d40af33c6c845a476ca070275f059"
+    },
+    {
+      "path": "src/views/home/sections/ApproachPreviewSection.astro",
+      "sha256": "de895c398379a80f060e467a41b7004be86c4513c415fb8345a5178b1b35a776"
+    },
+    {
+      "path": "src/views/home/sections/AudienceSection.astro",
+      "sha256": "423ae868b4baa077922bd8a6cd8552734ccf74e84b521f8305d92685985c3b54"
+    },
+    {
+      "path": "src/views/home/sections/TrustSection.astro",
+      "sha256": "fc3b5159173810504da00acafd30d2d2f18ff3c45a50a8820b5c865d77fe4ff9"
+    },
+    {
+      "path": "src/views/organisations/OrganisationsPage.astro",
+      "sha256": "fbf80c26c1a0ed1636ec3fb5f567785d6eb424aee5ccba9cb7616c31c064b685"
+    },
+    {
+      "path": "src/views/privacy/PrivacyPage.astro",
+      "sha256": "7580f448b4c4a70453804de9dcd6962d37bcf63ecc7034b63298b8ed2792ac35"
+    },
+    {
+      "path": "src/views/privacy/sections/PrivacyDetailsSection.astro",
+      "sha256": "e911ad7cf08df2a5bad894f794cf50b4f55344fc31257cb277724dab1a75ff86"
+    },
+    {
+      "path": "src/views/researchTeams/ResearchTeamsPage.astro",
+      "sha256": "e6e6c39ac5dc547251267f3cd9cb0c44890271867e72e308cf441a5ffe92dc0e"
+    },
+    {
+      "path": "src/views/researchers/ResearchersPage.astro",
+      "sha256": "426744a23fd4f1671e08d9ede083eaaa815eaf96fd2591136ffd3df1d6d41d6a"
+    },
+    {
+      "path": "src/views/storyLab/HeroCandidate.astro",
+      "sha256": "7f51b15d61cc36aee1d2edb26980298363e687b34621b470ec350ccdda4bb790"
+    },
+    {
+      "path": "src/views/storyLab/HeroCandidatePage.astro",
+      "sha256": "bb56009a08c1add42af171e69a8f8b5584e514764fc1a9a08920378eecc20458"
+    },
+    {
+      "path": "src/views/storyLab/HeroExplorationsSection.astro",
+      "sha256": "a32609d35a265e574fe5e1ed2e77caf687799e2b9a7532d4c4534ca1abe925b6"
+    },
+    {
+      "path": "src/views/storyLab/HeroGalleryPage.astro",
+      "sha256": "befabc9230a42d1fec863b6a1a4fff23c9bfcb575bc02a93e1dee1b1c1c06ca3"
+    },
+    {
+      "path": "src/views/storyLab/HeroGallerySection.astro",
+      "sha256": "00da7c5a4cf628f03049feac417b65e40f846245b64a789390286cce1072ba5c"
+    },
+    {
+      "path": "src/views/storyLab/StaticVisualsPage.astro",
+      "sha256": "a76afa65f54f44a3e23527c267ba66b14112a881911ddc1535bb9b9c923c7124"
+    },
+    {
+      "path": "src/views/storyLab/StoryArchivePage.astro",
+      "sha256": "6ad96b7407cc196eac9d7c7ea86b629d842680d07cd68e95da8933c92c2ee8fe"
+    },
+    {
+      "path": "src/views/storyLab/StoryLabPage.astro",
+      "sha256": "f7e958e0d8e52ed9ddb238a0635933c6731a47301f4bb152719a16106ea3ae39"
+    },
+    {
+      "path": "src/views/storyLab/VisualizationRefreshPage.astro",
+      "sha256": "09fb36c642a845dce7eeca05afeba3690ffc3d9ee5a23a130639064304907e5f"
+    },
+    {
+      "path": "src/views/storyLab/components/RefreshDiagram.astro",
+      "sha256": "45599d17922969c3add1b09a1287243fd75cedd940ce4369dfd1533a593962d9"
+    },
+    {
+      "path": "src/views/storyLab/components/RefreshNode.astro",
+      "sha256": "60fbef560d9b7529e572fd7d6ab5f37961aa4846db6c64ebf63f9ea556335ecb"
+    },
+    {
+      "path": "src/views/storyLab/components/RefreshStory.astro",
+      "sha256": "1934712d20f5f4c9a3a47ad35c537dc1feb06117e26cdd6d9d93ca0e32f1e146"
+    },
+    {
+      "path": "src/views/storyLab/lab-shell.css",
+      "sha256": "db1fa07ead2ba2e8139f170503f22b7c712e5ee8c3f720a047d8938741b01031"
+    },
+    {
+      "path": "src/views/storyLab/refresh-story.css",
+      "sha256": "176dd7a01e0fddfb1d8aa576882192dec93587493e5a9dbba4a00ec303f567af"
+    },
+    {
+      "path": "src/views/storyLab/refresh.css",
+      "sha256": "353e26204236d14d2a27d607145fb09b6d226f2e75aa5490a2b95f91f71267b8"
+    },
+    {
+      "path": "src/views/storyLab/scripts/refresh-motion.ts",
+      "sha256": "a8b12118fa4cb0cd10935f2843da8bdf80dab764bf543876c9cc49f4b02911fc"
+    },
+    {
+      "path": "src/views/storyLab/scripts/refresh-story-effects.ts",
+      "sha256": "20fec68c750523c851e63a78a6acbf4068afe27e404bb541b810c871fa65d0dc"
+    },
+    {
+      "path": "src/views/storyLab/scripts/refresh-story-layout.ts",
+      "sha256": "a142fbbfb9ad7ba8ae7212c59b1f14fef1bf3b4213fde5ad3766dad3ba0a8891"
+    },
+    {
+      "path": "src/views/storyLab/sections/RefreshGallerySection.astro",
+      "sha256": "6cf3af048cac538c0e5d4ccf6d21088fb99898a4175addc5dbe088d918580500"
+    },
+    {
+      "path": "src/views/storyLab/sections/StaticVisualStudies.astro",
+      "sha256": "d2c99db1dd7a2d33d0faeb8c0bd65ed773adef1385d346bfd468cd2a3d0ea230"
+    },
+    {
+      "path": "src/views/team/TeamPage.astro",
+      "sha256": "f48a0918652b847b0c62808e7f833bd64623aad110dab013835a97d3a76910df"
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 # Verification — 5 November 2026
 
-- Astro/TypeScript diagnostics and ESLint passed.
-- Static production build passed; fourteen English pages/redirects and their local asset references were checked.
-- Browser review covered home, companies, researchers, research teams and about at 402 and 1280 CSS pixels. No horizontal overflow or page exceptions were observed in that pass. Lazy images require decode/viewport-aware checking; local assets are checked separately by the static verifier.
-- Analytics is disabled in this portfolio edition.
-- Compatible dependency fixes were applied in the public lockfile. Last npm audit: zero high/critical advisories; moderate development-tool findings remain. This is not a complete security audit.
+- 296 selected original files match the source-snapshot manifest, including both Russian and English locales.
+- Astro/TypeScript diagnostics, ESLint and static production build pass.
+- Twenty-eight main pages/redirects and their referenced local assets pass static verification with English/Russian language expectations.
+- Public preview packaging rewrites deployment paths and disables analytics controls in generated HTML; original application source remains unchanged.
+- Browser checks cover both locales and the language switch at phone/desktop widths before final acceptance.
 
-No original business production service was changed and no business outcome was measured by this publication.
+The public build lockfile includes compatible dependency fixes from the initial preparation. Moderate development-tool advisories remain; no complete security audit is claimed. Original private source and production services are independent of this preview.

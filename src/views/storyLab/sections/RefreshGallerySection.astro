@@ -3,7 +3,7 @@ import RefreshDiagram from '@/views/storyLab/components/RefreshDiagram.astro';
 import type { VisualizationRefresh } from '@/content/visualization-refresh.schema';
 import '@/views/storyLab/refresh.css';
 import { refreshPlayback as playbackEn } from '@/content/en/refresh-playback';
-import { refreshPlayback as playbackRu } from '@/content/en/refresh-playback';
+import { refreshPlayback as playbackRu } from '@/content/ru/refresh-playback';
 type Props = { content: VisualizationRefresh; locale: 'en' | 'ru' };
 const { content: c, locale } = Astro.props;
 const prefix = locale === 'ru' ? '/ru' : '';

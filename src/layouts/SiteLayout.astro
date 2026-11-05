@@ -1,6 +1,7 @@
 ---
 import AnalyticsPreferences from '@/components/layout/AnalyticsPreferences.astro';
 import { analyticsCopy as analyticsEn } from '@/content/en/analytics';
+import { analyticsCopy as analyticsRu } from '@/content/ru/analytics';
 import FontAssets from '@/components/layout/FontAssets.astro';
 import '@/styles/reset.css';
 import '@/styles/global.css';
@@ -28,10 +29,18 @@ const englishPath =
   lang === 'en'
     ? Astro.url.pathname
     : Astro.url.pathname.replace(/^\/ru/, '') || '/';
+const russianPath =
+  lang === 'ru'
+    ? Astro.url.pathname
+    : `/ru${Astro.url.pathname === '/' ? '/' : Astro.url.pathname}`;
 const englishUrl = Astro.site ? new URL(englishPath, Astro.site) : undefined;
+const russianUrl = Astro.site ? new URL(russianPath, Astro.site) : undefined;
 const analyticsEnvironment = import.meta.env.SITE_ENVIRONMENT ?? 'development';
-const analyticsEnabled = false;
-const analyticsId = 'disabled-portfolio-preview';
+const analyticsEnabled = !Astro.url.pathname.includes('/visual-lab/');
+const analyticsId =
+  analyticsEnvironment === 'development'
+    ? 'd9aa4f96-351d-401b-9ca8-5cf4c0c4d30b'
+    : '65305834-054b-4acf-8290-4c4ed1f3bc6a';
 const siteVersion = import.meta.env.PUBLIC_SITE_VERSION ?? 'local';
 ---
 
@@ -48,7 +57,7 @@ const siteVersion = import.meta.env.PUBLIC_SITE_VERSION ?? 'local';
     <meta name="site-version" content={siteVersion} />
     {canonical && <link rel="canonical" href={canonical} />}
     {englishUrl && <link rel="alternate" hreflang="en" href={englishUrl} />}
-
+    {russianUrl && <link rel="alternate" hreflang="ru" href={russianUrl} />}
     {englishUrl && (
       <link rel="alternate" hreflang="x-default" href={englishUrl} />
     )}
@@ -75,7 +84,7 @@ const siteVersion = import.meta.env.PUBLIC_SITE_VERSION ?? 'local';
     </a>
     <slot />
     <AnalyticsPreferences
-      copy={analyticsEn}
+      copy={lang === 'ru' ? analyticsRu : analyticsEn}
       websiteId={analyticsId}
       enabled={analyticsEnabled}
       domains={

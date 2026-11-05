@@ -1,7 +1,7 @@
 ---
 import StaticDiagram from '@/components/sections/staticDiagrams/StaticDiagram.astro';
 import { staticDiagrams as diagramsEn } from '@/content/en/static-diagrams';
-import { staticDiagrams as diagramsRu } from '@/content/en/static-diagrams';
+import { staticDiagrams as diagramsRu } from '@/content/ru/static-diagrams';
 import SiteFrame from '@/components/layout/SiteFrame.astro';
 import ContentGridSection from '@/components/sections/ContentGridSection.astro';
 import PageCallToAction from '@/components/ui/PageCallToAction.astro';
@@ -10,7 +10,7 @@ import type { OrganisationsPageDefinition } from '@/content/pages.schema';
 import type { SiteChrome } from '@/content/site.schema';
 import MarketEvidenceSection from '@/components/sections/MarketEvidenceSection.astro';
 import { businessEvidence as evidenceEn } from '@/content/en/market-evidence';
-import { businessEvidence as evidenceRu } from '@/content/en/market-evidence';
+import { businessEvidence as evidenceRu } from '@/content/ru/market-evidence';
 
 type Props = { chrome: SiteChrome; page: OrganisationsPageDefinition };
 const { chrome, page } = Astro.props;

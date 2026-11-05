@@ -1,0 +1,16 @@
+---
+import { researchTeamsPage } from '@/content/ru/researchTeams';
+import { chrome, locale } from '@/content/ru/site';
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import ResearchTeamsPage from '@/views/researchTeams/ResearchTeamsPage.astro';
+---
+
+<SiteLayout
+  title={researchTeamsPage.meta.title}
+  description={researchTeamsPage.meta.description}
+  siteName={chrome.brand}
+  lang={locale}
+  skipLinkLabel={chrome.skipLinkLabel}
+>
+  <ResearchTeamsPage chrome={chrome} page={researchTeamsPage} />
+</SiteLayout>

@@ -1,4 +1,52 @@
 ---
-// The public portfolio edition has one language and no alternate locale link.
+import type { SiteChrome } from '@/content/site.schema';
+type Props = { chrome: SiteChrome; alternatePath: string };
+const { chrome, alternatePath } = Astro.props;
 ---
-<div class="site-controls" aria-label="English portfolio edition"></div>
+
+<div class="site-controls">
+  <a
+    class="language-link"
+    href={alternatePath}
+    lang={chrome.locale === 'en' ? 'ru' : 'en'}
+    hreflang={chrome.locale === 'en' ? 'ru' : 'en'}
+    aria-label={chrome.languageLabel}
+    title={chrome.languageLabel}
+  >
+    <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24">
+      <g
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 2a14.5 14.5 0 0 0 0 20a14.5 14.5 0 0 0 0-20M2 12h20" />
+      </g>
+    </svg>
+  </a>
+</div>
+
+<style>
+  .language-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.75rem;
+    min-block-size: 2.75rem;
+    border: 1px solid var(--forest);
+    border-radius: 4rem;
+    padding: 0;
+    color: var(--forest);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .language-link:hover {
+    background: var(--accent-soft);
+  }
+  .language-link:active {
+    background: var(--sage);
+  }
+</style>

@@ -1,0 +1,16 @@
+---
+import { privacyPage } from '@/content/ru/contact';
+import { chrome, locale } from '@/content/ru/site';
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import PrivacyPage from '@/views/privacy/PrivacyPage.astro';
+---
+
+<SiteLayout
+  title={privacyPage.meta.title}
+  description={privacyPage.meta.description}
+  siteName={chrome.brand}
+  lang={locale}
+  skipLinkLabel={chrome.skipLinkLabel}
+>
+  <PrivacyPage chrome={chrome} page={privacyPage} />
+</SiteLayout>

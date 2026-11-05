@@ -8,7 +8,7 @@
     'DOMContentLoaded',
     async () => {
       const text =
-        root.lang === 'ru' ? 'Veracto Research' : 'Veracto Research';
+        root.lang === 'ru' ? 'Veracto Исследования' : 'Veracto Research';
       try {
         await Promise.allSettled(
           [400, 500, 600, 700].map((weight) =>

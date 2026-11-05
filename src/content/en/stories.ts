@@ -13,7 +13,7 @@ export const labCopy = {
   title: 'Narrative laboratory.',
   intro:
     'Six stories, six visual techniques: compare, hand off, separate, assemble, branch and unfold. Each plays as its working material comes into view.',
-  language: 'Russian (original source)',
+  language: 'Русский',
   languageHref: '/ru/visual-lab/',
   context: 'See the stories in page context →',
   archiveLink: 'Earlier studies →',

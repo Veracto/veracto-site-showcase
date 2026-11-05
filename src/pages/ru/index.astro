@@ -1,0 +1,16 @@
+---
+import { homePage } from '@/content/ru/home';
+import { chrome, locale } from '@/content/ru/site';
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import HomePage from '@/views/home/HomePage.astro';
+---
+
+<SiteLayout
+  title={homePage.meta.title}
+  description={homePage.meta.description}
+  siteName={chrome.brand}
+  lang={locale}
+  skipLinkLabel={chrome.skipLinkLabel}
+>
+  <HomePage chrome={chrome} page={homePage} />
+</SiteLayout>

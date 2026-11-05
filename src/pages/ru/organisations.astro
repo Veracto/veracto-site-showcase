@@ -1,0 +1,16 @@
+---
+import { organisationsPage } from '@/content/ru/organisations';
+import { chrome, locale } from '@/content/ru/site';
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import OrganisationsPage from '@/views/organisations/OrganisationsPage.astro';
+---
+
+<SiteLayout
+  title={organisationsPage.meta.title}
+  description={organisationsPage.meta.description}
+  siteName={chrome.brand}
+  lang={locale}
+  skipLinkLabel={chrome.skipLinkLabel}
+>
+  <OrganisationsPage chrome={chrome} page={organisationsPage} />
+</SiteLayout>

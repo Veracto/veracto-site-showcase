@@ -19,6 +19,6 @@ As a Veracto co-founder, Tim Smykov worked on the product structure, interface, 
 
 ## Result
 
-The public edition includes the English site source, reviewed public imagery, responsive layouts and a reproducible static build. The preview is a portfolio copy; existing business deployment and client data are separate.
+The public edition includes the selected original bilingual site source, reviewed public imagery, responsive layouts and a reproducible static build. The preview is a portfolio copy; existing business deployment and client data are separate.
 
 The outcome demonstrated here is a working public interface. No adoption, conversion, revenue or return-on-investment claim is made without separate evidence.
