@@ -48,7 +48,7 @@ const siteVersion = import.meta.env.PUBLIC_SITE_VERSION ?? 'local';
     <meta name="site-version" content={siteVersion} />
     {canonical && <link rel="canonical" href={canonical} />}
     {englishUrl && <link rel="alternate" hreflang="en" href={englishUrl} />}
-    
+
     {englishUrl && (
       <link rel="alternate" hreflang="x-default" href={englishUrl} />
     )}
