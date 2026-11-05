@@ -1,10 +1,12 @@
 # Veracto — Consulting Website Case Study
 
-An independent public snapshot of the Veracto AI consulting website: three audience journeys, a shared visual system and a static, accessible implementation.
+A bilingual website for an AI consulting practice, designed around three audiences: companies, individual researchers and research teams. Each route explains how Veracto can help and gives visitors a clear next step.
+
+**My role:** As Veracto co-founder, I worked on the product and delivery of the site. [Explore the bilingual preview](https://timsmykov.github.io/veracto-site-showcase/) · [Read the case study](docs/case-study.md).
 
 ![Veracto desktop homepage](preview-1280.png)
 
-**Product and delivery work by Tim Smykov, Veracto co-founder, using AI-assisted development.** The wider project includes other co-founders, advisors and experts; the people shown in the site retain their own roles and authorship.
+The wider project includes other co-founders, advisors and experts; the people shown in the site retain their own roles and authorship.
 
 ## Explore
 
@@ -13,7 +15,7 @@ An independent public snapshot of the Veracto AI consulting website: three audie
 - [Product decisions](docs/case-study.md)
 - [Verification](docs/verification.md)
 
-The site helps companies, individual researchers and research teams understand where AI consulting may help and what a next conversation involves. It distinguishes evaluation, adoption support and training. It does not present a retired agent-platform concept as the current consulting practice.
+The site helps companies, individual researchers and research teams understand where AI consulting may help and what a next conversation involves. It distinguishes evaluation, adoption support and training.
 
 ## Implementation
 
