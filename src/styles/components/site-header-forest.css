@@ -1,0 +1,45 @@
+.site-header--forest {
+  background: var(--forest);
+  border-bottom-color: var(--muted);
+  color: var(--paper);
+  --focus: var(--paper);
+}
+.site-header--forest .brand,
+.site-header--forest .primary-menu > summary,
+.site-header--forest .language-link {
+  color: var(--paper);
+  border-color: var(--on-dark-muted);
+}
+.site-header--forest .primary-menu > summary {
+  background: transparent;
+}
+.site-header--forest .brand small {
+  color: #ffb39e;
+}
+.site-header--forest .language-link:hover,
+.site-header--forest .primary-menu > summary:hover {
+  background: var(--accent-soft);
+  color: var(--forest);
+}
+.site-header--forest nav {
+  --focus: var(--forest);
+}
+@media (min-width: 70rem) {
+  .site-header--forest nav {
+    background: transparent;
+    --focus: var(--paper);
+  }
+  .site-header--forest nav > ul > li > a {
+    color: var(--paper);
+  }
+  .site-header--forest .nav-group summary {
+    color: var(--paper);
+  }
+  .site-header--forest nav > ul > li > a:hover,
+  .site-header--forest .nav-group summary:hover {
+    color: var(--forest);
+  }
+  .site-header--forest .nav-group ul {
+    --focus: var(--forest);
+  }
+}

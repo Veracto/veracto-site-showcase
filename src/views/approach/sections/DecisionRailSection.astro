@@ -1,0 +1,218 @@
+---
+import Container from '@/components/ui/Container.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import StaticDiagramArtwork from '@/components/sections/staticDiagrams/StaticDiagramArtwork.astro';
+import type { StaticDiagramContent } from '@/content/static-diagrams.schema';
+import DocumentationLink from '@/components/ui/DocumentationLink.astro';
+import type { ApproachPageDefinition } from '@/content/pages.schema';
+import type { PageIntroduction } from '@/content/site.schema';
+type Props = {
+  illustration: StaticDiagramContent;
+  content: {
+    heading: PageIntroduction;
+    labels: ApproachPageDefinition['stepLabels'];
+    steps: ApproachPageDefinition['steps'];
+  };
+};
+const { content, illustration } = Astro.props;
+---
+
+<section
+  class="decision-rail section"
+  id="method-gates"
+  aria-labelledby="decision-rail-title"
+  data-diagram="method-gates"
+>
+  <Container>
+    <SectionHeading
+      id="decision-rail-title"
+      eyebrow={content.heading.eyebrow}
+      title={content.heading.title}
+      description={content.heading.description}
+    />
+    <StaticDiagramArtwork
+      id={illustration.id}
+      artwork={illustration.artwork}
+      alt={illustration.alt}
+    />
+    <ol>
+      {content.steps.map((step) => (
+        <li>
+          <span class="number">{step.number}</span>
+          <details class="stage">
+            <summary>
+              <h3>{step.title}</h3>
+              <p class="decision-line">{step.gate}</p>
+              <span class="disclosure-mark" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="stage-detail">
+              <p>{step.description}</p>
+              {step.reference && (
+                <DocumentationLink href={step.reference.href}>
+                  {step.reference.label}
+                </DocumentationLink>
+              )}
+              <p class="detail-label">{content.labels.details}</p>
+              <dl>
+                <div class="question">
+                  <dt>{content.labels.question}</dt>
+                  <dd>{step.question}</dd>
+                </div>
+                <div class="artifact">
+                  <dt>{content.labels.artifact}</dt>
+                  <dd>{step.artifact}</dd>
+                </div>
+                <div class="gate">
+                  <dt>{content.labels.gate}</dt>
+                  <dd>{step.gate}</dd>
+                </div>
+              </dl>
+            </div>
+          </details>
+        </li>
+      ))}
+    </ol>
+  </Container>
+</section>
+<style>
+  .decision-rail {
+    background: var(--canvas);
+  }
+  .decision-rail :global(.container),
+  ol {
+    display: grid;
+    gap: 1rem;
+  }
+  ol {
+    gap: 0;
+    border-top: 1px solid var(--line-strong);
+    list-style: none;
+  }
+  li {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    border-bottom: 1px solid transparent;
+    padding-block: 1.5rem;
+    padding-left: 1.5rem;
+    margin-left: 1.25rem;
+    border-left: 1px solid var(--forest);
+  }
+  li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: -0.25rem;
+    bottom: 1rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-right: 1px solid var(--forest);
+    border-bottom: 1px solid var(--forest);
+    rotate: 45deg;
+  }
+  .number,
+  dt {
+    color: var(--ink-muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 1.35rem;
+    line-height: 1.25;
+  }
+  .number {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 1.5rem;
+    left: -1.25rem;
+    border: 1px solid var(--forest);
+    border-radius: 50%;
+    background: var(--paper);
+    color: var(--forest);
+  }
+  .stage p,
+  dd {
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+  summary {
+    min-height: 2.75rem;
+    padding-block: 0.25rem;
+    padding-right: 2rem;
+    position: relative;
+    list-style: none;
+    display: grid;
+    gap: 0.65rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--forest);
+  }
+  dl {
+    display: grid;
+    gap: 0.75rem;
+  }
+  dl div {
+    display: grid;
+    gap: 0.2rem;
+    border-left: 2px solid var(--oxblood);
+    padding-left: 0.8rem;
+  }
+  dl .artifact {
+    border: 1px solid var(--line);
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    background: var(--document);
+  }
+  dl .gate {
+    border-left-color: var(--rust);
+    padding: 1rem;
+    background: var(--sage);
+    border-radius: 0 1rem 1rem 0;
+  }
+  dd {
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+  @media (min-width: 58rem) {
+    li {
+      grid-template-columns: minmax(0, 1fr);
+      align-items: start;
+      gap: 2rem;
+    }
+    dl {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  .disclosure-mark {
+    position: absolute;
+    right: 0;
+    top: 0.25rem;
+    font-size: 1.5rem;
+  }
+  details[open] .disclosure-mark {
+    rotate: 45deg;
+  }
+  .stage-detail {
+    display: grid;
+    gap: 1rem;
+    padding-block: 1rem 0.5rem;
+  }
+  .detail-label {
+    font-size: var(--text-sm);
+    font-weight: 700;
+  }
+  @media (min-width: 58rem) {
+    summary {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+  }
+</style>

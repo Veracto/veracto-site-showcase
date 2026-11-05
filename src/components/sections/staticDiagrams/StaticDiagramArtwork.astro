@@ -1,0 +1,93 @@
+---
+import { Image } from 'astro:assets';
+import type { StaticDiagramId } from '@/content/static-diagrams.schema';
+import workbenchImage from '@/assets/consulting/workbench-20261007.png';
+import processImage from '@/assets/design-lab/static-studies/process-original.png';
+import researchImage from '@/assets/design-lab/static-studies/research-original.png';
+import teamImage from '@/assets/design-lab/static-studies/team-original.png';
+import organisationImage from '@/assets/design-lab/static-studies/organisation-original.png';
+import methodImage from '@/assets/design-lab/static-studies/method-original.png';
+import handoverImage from '@/assets/design-lab/static-studies/handover-original.png';
+import claimImage from '@/assets/design-lab/static-studies/claim-review-original.png';
+type Props = { artwork: StaticDiagramId; alt: string; id?: string };
+const { artwork, alt, id } = Astro.props;
+const images = {
+  workbench: workbenchImage,
+  process: processImage,
+  research: researchImage,
+  team: teamImage,
+  organisation: organisationImage,
+  method: methodImage,
+  handover: handoverImage,
+  'claim-review': claimImage,
+};
+---
+
+<figure id={id} class="static-artwork" data-static-diagram={artwork}>
+  <Image
+    src={images[artwork]}
+    alt={alt}
+    widths={[384, 768, 1152, 1536]}
+    sizes={
+      artwork === 'workbench'
+        ? '(min-width: 68rem) 46vw, 90vw'
+        : '(min-width: 48rem) 30rem, 80vw'
+    }
+    format="webp"
+    quality={98}
+    draggable="false"
+    loading="lazy"
+    decoding="async"
+  />
+</figure>
+<style>
+  .static-artwork {
+    --artwork-ratio: 2;
+    position: relative;
+    inline-size: min(
+      85%,
+      calc(20svh * var(--artwork-ratio)),
+      calc(10rem * var(--artwork-ratio))
+    );
+    aspect-ratio: var(--artwork-ratio);
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--canvas);
+    margin: 1rem auto 0.75rem;
+    scroll-margin-top: 6rem;
+  }
+  [data-static-diagram='workbench'] {
+    --artwork-ratio: 1.5;
+    inline-size: 100%;
+    max-inline-size: 64rem;
+    margin-block: 1.5rem;
+    border-radius: 1.5rem;
+  }
+  [data-static-diagram='workbench'] img {
+    object-fit: contain;
+    mix-blend-mode: normal;
+  }
+  [data-static-diagram='process'] {
+    --artwork-ratio: 3;
+  }
+  [data-static-diagram='team'] {
+    --artwork-ratio: 2.5;
+  }
+  [data-static-diagram='method'] {
+    --artwork-ratio: 1.5;
+  }
+  [data-static-diagram='claim-review'] {
+    --artwork-ratio: 2.8;
+  }
+  img {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    user-select: none;
+  }
+</style>

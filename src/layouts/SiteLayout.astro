@@ -1,0 +1,97 @@
+---
+import AnalyticsPreferences from '@/components/layout/AnalyticsPreferences.astro';
+import { analyticsCopy as analyticsEn } from '@/content/en/analytics';
+import FontAssets from '@/components/layout/FontAssets.astro';
+import '@/styles/reset.css';
+import '@/styles/global.css';
+import '@/styles/page-transitions.css';
+
+type Props = {
+  title: string;
+  description: string;
+  siteName: string;
+  skipLinkLabel: string;
+  lang?: string;
+};
+
+const {
+  title,
+  description,
+  siteName,
+  skipLinkLabel,
+  lang = 'en',
+} = Astro.props;
+const canonical = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site)
+  : undefined;
+const englishPath =
+  lang === 'en'
+    ? Astro.url.pathname
+    : Astro.url.pathname.replace(/^\/ru/, '') || '/';
+const englishUrl = Astro.site ? new URL(englishPath, Astro.site) : undefined;
+const analyticsEnvironment = import.meta.env.SITE_ENVIRONMENT ?? 'development';
+const analyticsEnabled = false;
+const analyticsId = 'disabled-portfolio-preview';
+const siteVersion = import.meta.env.PUBLIC_SITE_VERSION ?? 'local';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <FontAssets lang={lang} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f0ece2" />
+    <meta name="color-scheme" content="light" />
+    <meta name="site-version" content={siteVersion} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {englishUrl && <link rel="alternate" hreflang="en" href={englishUrl} />}
+    
+    {englishUrl && (
+      <link rel="alternate" hreflang="x-default" href={englishUrl} />
+    )}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg?v=veracto-coral-v2"
+    />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
+    <title>{title}</title>
+  </head>
+  <body class="public-site">
+    <a class="skip-link" href="#main-content">
+      {skipLinkLabel}
+    </a>
+    <slot />
+    <AnalyticsPreferences
+      copy={analyticsEn}
+      websiteId={analyticsId}
+      enabled={analyticsEnabled}
+      domains={
+        analyticsEnvironment === 'production'
+          ? 'veracto.ai,www.veracto.ai'
+          : 'dev.veracto.ai,localhost,127.0.0.1'
+      }
+    />
+  </body>
+</html>
+
+<script>
+  import { initialiseAnchorNavigation } from '@/scripts/anchor-navigation';
+  initialiseAnchorNavigation();
+  import { initialisePageTransitions } from '@/scripts/page-transitions';
+  initialisePageTransitions();
+  import { initialiseAnalytics } from '@/scripts/analytics';
+  initialiseAnalytics();
+</script>

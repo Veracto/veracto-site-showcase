@@ -1,0 +1,182 @@
+/* Finite narrative extension. No movement on semantic HTML or hit targets. */
+.cinema {
+  max-width: 82rem;
+  margin: auto;
+  padding: 1.25rem clamp(1.25rem, 4vw, 3rem) 4rem;
+}
+.cinema-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+.cinema h1 {
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  max-width: 19ch;
+}
+.cinema .intro-copy {
+  max-width: 48rem;
+  margin: 1.5rem 0;
+  color: var(--muted);
+}
+.cinema nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+.film {
+  container-type: inline-size;
+  padding-block: 3rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 1rem;
+}
+.film h2 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  max-width: 24ch;
+}
+.film header {
+  display: grid;
+  gap: 1rem;
+}
+.film header p {
+  max-width: 55ch;
+  color: var(--muted);
+}
+.film figure {
+  margin: 1.5rem 0 0;
+}
+.film svg {
+  width: 100%;
+  display: block;
+  height: auto;
+  max-height: min(30rem, 52svh);
+  overflow: visible;
+}
+.film .art {
+  fill: none;
+  stroke: var(--forest);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.film .paper {
+  fill: var(--document);
+}
+.film .shade {
+  fill: var(--sage);
+  stroke: none;
+}
+.film .accent {
+  stroke: var(--coral);
+  stroke-width: 4;
+}
+.film .review {
+  stroke: var(--rust);
+}
+.film .attention {
+  fill: var(--lime);
+}
+.film .ghost {
+  opacity: 0.35;
+}
+.film [data-leave] {
+  opacity: 0;
+}
+.film figcaption {
+  font-size: 0.85rem;
+  color: var(--muted);
+  max-width: 68ch;
+  margin: 1rem 0;
+}
+.beats {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  gap: 1rem;
+}
+.beats li {
+  min-width: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+.beats .beat-title {
+  margin: 0;
+  padding: 0.2rem 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--forest);
+}
+.beats p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+.film .reduced-note {
+  display: none;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.film[data-reduced='true'] .reduced-note {
+  display: block;
+}
+.cinema .disclosure {
+  margin: 1rem 0;
+}
+.cinema footer {
+  border-top: 1px solid var(--line);
+}
+.cinema * {
+  overflow-wrap: anywhere;
+}
+@container (min-width: 48rem) {
+  .beats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .film header {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: end;
+    gap: 3rem;
+  }
+}
+.film-compact {
+  padding-block: 0;
+  border-top: 0;
+}
+.film-compact header {
+  display: block;
+}
+.film-compact header h2 {
+  font-size: 1.6rem;
+}
+.film-compact header p {
+  font-size: 1rem;
+  margin-block: 0.75rem;
+}
+.film-compact .object-key {
+  font-size: 0.7rem;
+  gap: 0.5rem;
+}
+.film .object-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-around;
+  padding: 0;
+  margin: 1rem 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.film {
+  min-width: 0;
+}
+.film * {
+  overflow-wrap: anywhere;
+}

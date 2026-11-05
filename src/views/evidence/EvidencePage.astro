@@ -1,0 +1,29 @@
+---
+import SiteFrame from '@/components/layout/SiteFrame.astro';
+import ContentGridSection from '@/components/sections/ContentGridSection.astro';
+import StatementSection from '@/components/sections/StatementSection.astro';
+import PageCallToAction from '@/components/ui/PageCallToAction.astro';
+import PageIntroduction from '@/components/ui/PageIntroduction.astro';
+import type { EvidencePageDefinition } from '@/content/pages.schema';
+import type { SiteChrome } from '@/content/site.schema';
+
+type Props = { chrome: SiteChrome; page: EvidencePageDefinition };
+const { chrome, page } = Astro.props;
+---
+
+<SiteFrame chrome={chrome} currentPath={page.path}>
+  <PageIntroduction content={page.introduction} />
+  <StatementSection content={page.status} />
+  <ContentGridSection
+    content={page.standard}
+    id="evidence-standard"
+    tone="plain"
+  />
+  <ContentGridSection
+    content={page.publicity}
+    id="publication-levels"
+    tone="soft"
+    columns={2}
+  />
+  <PageCallToAction content={page.callToAction} />
+</SiteFrame>

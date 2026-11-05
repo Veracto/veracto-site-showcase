@@ -1,0 +1,60 @@
+---
+import Container from '@/components/ui/Container.astro';
+
+type Props = {
+  content: { eyebrow: string; title: string; description: string };
+  tone?: 'research' | 'research-team' | 'organisation';
+};
+const { content, tone } = Astro.props;
+---
+
+<header class:list={['page-introduction', tone && `tone-${tone}`]}>
+  <Container>
+    <div class="introduction-copy">
+      <h1>{content.title}</h1>
+      <p class="description">{content.description}</p>
+    </div>
+  </Container>
+</header>
+
+<style>
+  .page-introduction {
+    padding-block: clamp(2rem, 5vw, 5rem);
+  }
+
+  .tone-research {
+    background: var(--canvas);
+  }
+
+  .tone-organisation {
+    background: var(--canvas);
+  }
+
+  .tone-research-team {
+    background: var(--canvas);
+  }
+
+  .page-introduction :global(.container) {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .introduction-copy {
+    display: grid;
+    gap: 1.25rem;
+    min-width: 0;
+  }
+  h1 {
+    max-width: 24ch;
+    font-size: clamp(2rem, 4.5vw, 4.5rem);
+    letter-spacing: var(--display-h1-tracking);
+    line-height: var(--display-h1-leading);
+  }
+
+  .description {
+    max-width: 48rem;
+    color: var(--ink-muted);
+    font-size: var(--text-md);
+    line-height: 1.6;
+  }
+</style>

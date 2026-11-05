@@ -1,0 +1,193 @@
+---
+import ButtonLink from '@/components/ui/ButtonLink.astro';
+import Container from '@/components/ui/Container.astro';
+import type { ContactPageDefinition } from '@/content/pages.schema';
+
+type Props = { content: ContactPageDefinition };
+const { content } = Astro.props;
+---
+
+<section class="contact section" aria-labelledby="contact-title">
+  <Container>
+    <div class="contact-grid">
+      <div class="channel">
+        <p class="eyebrow">{content.introduction.eyebrow}</p>
+        <h1 id="contact-title">{content.introduction.title}</h1>
+        <p class="channel-description">{content.introduction.description}</p>
+        <!--email_off-->
+        <a class="email-action" href={`mailto:${content.email.address}`}>
+          {content.email.actionLabel}
+        </a>
+        <!--/email_off-->
+        <a class="telegram-action" href={content.telegram.href}>
+          {content.telegram.label}
+        </a>
+        <p class="safety-note">{content.email.safetyNote}</p>
+      </div>
+      <div class="preparation">
+        <h2>{content.brief.title}</h2>
+        <p class="preparation-description">{content.brief.description}</p>
+        <ol>
+          {content.steps.map((step, index) => (
+            <li>
+              <span>0{index + 1}</span>
+              <p>{step}</p>
+            </li>
+          ))}
+        </ol>
+        <div class="other-links">
+          <ButtonLink href={content.alternative.href} variant="secondary">
+            {content.alternative.label}
+          </ButtonLink>
+          <a href={content.privacyLink.href}>{content.privacyLink.label}</a>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .contact {
+    padding-block: clamp(1.5rem, 4vw, 4rem);
+    background: var(--paper-deep);
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .channel,
+  .preparation {
+    display: grid;
+    align-content: start;
+    gap: 1.25rem;
+    min-width: 0;
+  }
+
+  .channel {
+    --focus: var(--accent-soft);
+    border-radius: var(--radius-sm);
+    background: var(--forest);
+    padding: clamp(1.5rem, 5vw, 3rem);
+    color: var(--paper);
+  }
+
+  .channel .eyebrow {
+    color: var(--accent-soft);
+  }
+
+  h2 {
+    max-width: 19ch;
+    font-size: var(--text-xl);
+    line-height: var(--display-h2-leading);
+  }
+
+  .channel h1 {
+    max-width: 18ch;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: var(--display-h1-leading);
+    color: var(--paper);
+  }
+
+  .channel-description,
+  .preparation-description {
+    max-width: 40ch;
+    line-height: 1.6;
+  }
+
+  .email-action {
+    display: flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100vmax;
+    background: var(--paper);
+    padding: 0.75rem 1.25rem;
+    color: var(--forest);
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .telegram-action {
+    display: flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--on-dark-muted);
+    border-radius: 100vmax;
+    padding: 0.75rem 1rem;
+    color: var(--paper);
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+  }
+  .telegram-action:hover {
+    background: var(--paper);
+    color: var(--forest);
+  }
+
+  .email-action:hover {
+    background: var(--lime);
+  }
+
+  .safety-note {
+    border-left: 0.25rem solid var(--coral);
+    padding-left: 0.875rem;
+    color: var(--paper-muted);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  .preparation {
+    padding: clamp(0.5rem, 3vw, 1.5rem);
+  }
+
+  .preparation .eyebrow,
+  .preparation-description {
+    color: var(--ink-muted);
+  }
+
+  ol {
+    display: grid;
+    list-style: none;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: 0.75rem;
+    border-top: 1px solid var(--line-strong);
+    padding-block: 0.875rem;
+    line-height: 1.5;
+  }
+
+  li span {
+    color: var(--ink-muted);
+    font-size: var(--text-sm);
+  }
+
+  .other-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.25rem;
+  }
+
+  .other-links > a:not(.button-link) {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--forest);
+    font-size: var(--text-sm);
+  }
+
+  @media (min-width: 48rem) {
+    .contact-grid {
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+      align-items: start;
+      gap: clamp(2rem, 5vw, 5rem);
+    }
+  }
+</style>

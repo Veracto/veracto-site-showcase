@@ -1,0 +1,112 @@
+---
+import ButtonLink from '@/components/ui/ButtonLink.astro';
+import Container from '@/components/ui/Container.astro';
+
+type Props = {
+  id?: string;
+  content: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    label: string;
+    href: string;
+    secondary?: { label: string; href: string };
+  };
+};
+
+const { id, content } = Astro.props;
+---
+
+<section class="page-cta section" id={id}>
+  <Container>
+    <div class="contact-copy">
+      <h2>{content.title}</h2>
+      <p>{content.description}</p>
+    </div>
+    <div class="actions">
+      <ButtonLink href={content.href}>{content.label}</ButtonLink>
+      {content.secondary && (
+        <ButtonLink href={content.secondary.href} variant="secondary">
+          {content.secondary.label}
+        </ButtonLink>
+      )}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .page-cta {
+    scroll-margin-top: 6rem;
+    background: var(--paper);
+    color: var(--forest);
+    border-radius: 0;
+    padding-block: clamp(2rem, 5vw, 4rem);
+  }
+
+  .page-cta :global(.container),
+  .page-cta div,
+  .actions {
+    display: grid;
+    min-width: 0;
+    gap: 1rem;
+  }
+
+  .page-cta :global(.container) {
+    grid-template-columns: minmax(0, 1fr);
+    background: var(--sage);
+    padding: clamp(1.5rem, 5vw, 3.5rem);
+    border-radius: 2.5rem 2.5rem 2.5rem 0.75rem;
+  }
+
+  .contact-copy {
+    gap: 1.25rem;
+  }
+
+  h2 {
+    max-width: 26ch;
+    color: var(--forest);
+    font-size: var(--text-section-prose);
+    line-height: var(--display-h2-leading);
+  }
+
+  p {
+    max-width: 44ch;
+    color: var(--forest);
+    line-height: 1.6;
+  }
+
+  .page-cta :global(.button-link) {
+    width: 100%;
+    justify-content: center;
+    background: var(--forest);
+    color: var(--paper);
+  }
+
+  .actions {
+    gap: 0.75rem;
+  }
+
+  .page-cta .actions :global(.button-link--secondary) {
+    border-color: var(--forest);
+    background: transparent;
+    color: var(--forest);
+  }
+
+  .page-cta :global(.button-link:hover),
+  .page-cta :global(.button-link:active) {
+    background: var(--sage);
+    color: var(--forest);
+  }
+
+  @media (min-width: 56rem) {
+    .page-cta :global(.container) {
+      grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.6fr);
+      align-items: end;
+      gap: 3rem;
+    }
+
+    .actions {
+      align-content: center;
+    }
+  }
+</style>

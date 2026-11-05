@@ -1,0 +1,83 @@
+---
+import ButtonLink from '@/components/ui/ButtonLink.astro';
+import Container from '@/components/ui/Container.astro';
+import PersonCard from '@/components/sections/PersonCard.astro';
+import type { PersonProfile } from '@/content/people.schema';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import type { HomePageDefinition } from '@/content/pages.schema';
+
+type Props = {
+  content: HomePageDefinition['trust'];
+  founders: readonly PersonProfile[];
+};
+const { content, founders } = Astro.props;
+---
+
+<section class="trust section" aria-labelledby="trust-title">
+  <Container>
+    <SectionHeading
+      id="trust-title"
+      eyebrow={content.eyebrow}
+      title={content.title}
+      description={content.description}
+    />
+    <ul class="founders">
+      {founders.map((person) => (
+        <li>
+          <PersonCard person={person} variant="compact" />
+        </li>
+      ))}
+    </ul>
+    <div class="trust-links">
+      {content.items.map((item) => (
+        <ButtonLink href={item.href} variant="text">
+          {item.label}
+        </ButtonLink>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .trust {
+    background: var(--paper-deep);
+  }
+
+  .trust :global(.container) {
+    display: grid;
+  }
+
+  .founders {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+  }
+  .founders li {
+    display: grid;
+    gap: 0.7rem;
+    align-content: start;
+  }
+  .founders span {
+    color: var(--ink-muted);
+    font-size: var(--text-sm);
+  }
+
+  .trust :global(.container) {
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .trust-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+  }
+
+  .trust :global(.button-link) {
+    align-self: end;
+    margin-top: auto;
+  }
+</style>

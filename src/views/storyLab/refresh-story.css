@@ -1,0 +1,133 @@
+.refresh-story {
+  margin-bottom: 1.5rem;
+}
+.refresh-story-hint {
+  max-width: 44rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.refresh-story-controls:not([hidden]) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.refresh-story-controls button {
+  min-height: 2.75rem;
+  width: 12rem;
+  max-width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--forest);
+  border-radius: 2rem;
+  color: var(--forest);
+  background: var(--paper);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    background-color var(--motion-feedback) var(--motion-ease),
+    color var(--motion-feedback) var(--motion-ease);
+}
+.refresh-story-controls button:hover:enabled {
+  background: var(--forest);
+  color: var(--paper);
+}
+.refresh-story-controls button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.refresh-story-status {
+  flex-basis: 100%;
+  min-height: 1.6em;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.refresh-story-art {
+  max-width: 40rem;
+  margin-inline: auto;
+}
+.refresh-story-art svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.refresh-story-guide {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 2;
+}
+.refresh-story-halo {
+  fill: var(--accent-soft);
+  stroke: var(--forest);
+  stroke-width: 2;
+}
+.refresh-story-paper {
+  fill: var(--document);
+  stroke: var(--forest);
+  stroke-width: 2;
+}
+.refresh-story-record {
+  stroke: var(--muted);
+  stroke-width: 2;
+  fill: none;
+}
+.refresh-story-number {
+  fill: var(--forest);
+  font:
+    600 1.375rem Manrope,
+    sans-serif;
+}
+.refresh-story-packet {
+  opacity: 0;
+}
+.refresh-story-packet rect {
+  fill: var(--forest);
+}
+.refresh-story-packet path {
+  fill: none;
+  stroke: var(--paper);
+  stroke-width: 2;
+}
+.refresh-story-packet circle {
+  fill: var(--coral);
+}
+.refresh-story-packet.is-exception rect {
+  fill: var(--rust);
+}
+.refresh-story-stop {
+  stroke: var(--rust);
+  stroke-width: 4;
+  fill: none;
+}
+.refresh-story-steps {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0;
+  margin: 1rem 0 0;
+  list-style: none;
+  counter-reset: story-step;
+}
+.refresh-story-steps li {
+  counter-increment: story-step;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  background: var(--document);
+}
+.refresh-story-steps li::before {
+  content: counter(story-step, decimal-leading-zero) ' / ';
+  color: var(--muted);
+  font-weight: 600;
+}
+@media (min-width: 48rem) {
+  .refresh-story-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .refresh-story-status {
+    flex: 1 1 12rem;
+  }
+}

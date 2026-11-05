@@ -1,0 +1,68 @@
+---
+import PersonCard from '@/components/sections/PersonCard.astro';
+import type { PersonProfile } from '@/content/people.schema';
+import type { SiteChrome } from '@/content/site.schema';
+import '@/styles/components/people-rail.css';
+
+type Props = {
+  id: string;
+  people: readonly PersonProfile[];
+  controls: SiteChrome['peopleNavigation'];
+  specialisationLabel: string;
+  variant?: 'standard' | 'compact';
+  preview?: boolean;
+};
+const {
+  id,
+  people,
+  controls,
+  specialisationLabel,
+  variant = 'standard',
+  preview = false,
+} = Astro.props;
+---
+
+<div
+  class="people-rail"
+  data-people-rail
+  data-preview-count={preview ? 2 : undefined}
+>
+  {preview && (
+    <ul class="people-directory" aria-label={controls.label}>
+      {people.map((person) => (
+        <li>{person.title}</li>
+      ))}
+    </ul>
+  )}
+  <div
+    class="people-track trust-grid"
+    id={id}
+    role="region"
+    aria-label={controls.label}
+  >
+    {people.map((person) => (
+      <PersonCard
+        person={person}
+        variant={variant}
+        specialisationLabel={specialisationLabel}
+      />
+    ))}
+  </div>
+  {preview && (
+    <button
+      type="button"
+      class="people-toggle"
+      hidden
+      aria-controls={id}
+      aria-expanded="true"
+      data-expand-label={controls.expand}
+      data-collapse-label={controls.collapse}
+    >
+      {controls.collapse}
+    </button>
+  )}
+</div>
+<script>
+  import { initialisePeopleRails } from '@/scripts/people-rail';
+  initialisePeopleRails();
+</script>

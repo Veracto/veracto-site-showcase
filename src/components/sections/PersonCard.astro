@@ -1,0 +1,156 @@
+---
+import type { PersonProfile } from '@/content/people.schema';
+import {
+  portraitRegistry,
+  portraitDimensions,
+} from '@/content/portrait-registry';
+
+type Props = {
+  person: PersonProfile;
+  variant?: 'standard' | 'founder' | 'compact';
+  specialisationLabel?: string;
+};
+const { person, variant = 'standard', specialisationLabel } = Astro.props;
+const showPortrait =
+  (import.meta.env.DEV || import.meta.env.APPROVED_PORTRAITS) &&
+  person.portrait;
+const dimensions = person.portrait
+  ? portraitDimensions[person.portrait]
+  : [1122, 1402];
+const portraitName = person.portrait ? portraitRegistry[person.portrait] : '';
+const portraitBase = import.meta.env.DEV
+  ? `/src/assets/portraits/processed/${portraitName}`
+  : `/portraits/${portraitName}`;
+---
+
+<article class:list={['person', variant]} id={`person-${person.id}`}>
+  <div class="identity">
+    {showPortrait && (
+      <img
+        draggable="false"
+        src={`${portraitBase}-960.webp`}
+        srcset={`${portraitBase}-320.webp 320w, ${portraitBase}-640.webp 640w, ${portraitBase}-960.webp 960w, ${portraitBase}-full.webp ${dimensions[0]}w`}
+        sizes={
+          variant === 'founder'
+            ? '8rem'
+            : variant === 'compact'
+              ? '5rem'
+              : '(min-width: 70rem) min(22vw, 18rem, 23svh), min(90vw, 16rem)'
+        }
+        alt={person.title}
+        width={dimensions[0]}
+        height={dimensions[1]}
+        loading="lazy"
+        decoding="async"
+      />
+    )}
+    <div class="person-copy">
+      <p class="role">{person.role}</p>
+      <h3>{person.title}</h3>
+    </div>
+  </div>
+  {variant !== 'compact' && (
+    <>
+      <p>{person.description}</p>
+    </>
+  )}
+  <p class="expertise">
+    {variant === 'standard' && specialisationLabel && (
+      <span class="specialisation-label">{specialisationLabel}</span>
+    )}
+    {person.expertise}
+  </p>
+</article>
+
+<style>
+  .person {
+    min-width: 0;
+    display: grid;
+    align-content: start;
+    gap: 0.8rem;
+    border-top: 1px solid var(--line-strong);
+    padding-top: 1.25rem;
+  }
+  .identity {
+    display: grid;
+    gap: 1rem;
+    align-items: start;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    object-position: center bottom;
+    border-radius: 1.5rem;
+    background: var(--paper);
+  }
+  .person-copy {
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+  }
+  .role {
+    color: var(--ink-muted);
+    font-size: var(--text-sm);
+    font-weight: 700;
+  }
+  h3 {
+    overflow-wrap: break-word;
+  }
+  p {
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+  .expertise {
+    color: var(--ink);
+  }
+  .specialisation-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--ink-muted);
+    font-size: var(--text-sm);
+    font-weight: 700;
+  }
+  .standard img {
+    width: min(100%, 16rem);
+    margin-inline: auto;
+  }
+  @media (min-width: 70rem) {
+    .standard img {
+      width: min(100%, 18rem, 23svh);
+    }
+  }
+  .compact img {
+    width: 5rem;
+  }
+  .compact .identity:has(img) {
+    grid-template-columns: 5rem minmax(0, 1fr);
+  }
+  .compact h3 {
+    font-size: var(--text-lg);
+  }
+  .founder img {
+    width: 8rem;
+  }
+  @media (min-width: 36rem) {
+    .founder .identity:has(img) {
+      grid-template-columns: minmax(0, 1fr) 6rem;
+    }
+    .founder .person-copy {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .founder img {
+      grid-column: 2;
+      grid-row: 1;
+      width: 6rem;
+    }
+  }
+  @media (min-width: 68rem) {
+    .founder .identity {
+      min-height: 8rem;
+    }
+  }
+</style>

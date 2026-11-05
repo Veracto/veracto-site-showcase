@@ -1,0 +1,40 @@
+---
+import Container from '@/components/ui/Container.astro';
+import '@/components/sections/studies/distinct-studies.css';
+---
+
+<div class="site-study">
+  <Container>
+    <slot />
+  </Container>
+</div>
+
+<script>
+  import '@/scripts/studies/study-player';
+</script>
+
+<style>
+  .site-study {
+    padding-block: clamp(1rem, 3vw, 3rem);
+  }
+
+  .site-study :global(.study),
+  .site-study :global(.research-revision) {
+    margin-block: 0;
+    scroll-margin-top: 6rem;
+  }
+
+  .site-study :global(.study) {
+    padding-block: clamp(1.25rem, 3vw, 2.5rem);
+  }
+
+  .site-study :global(.research-revision) {
+    padding-block: clamp(1.25rem, 3vw, 2.5rem);
+    border-top: 1px solid var(--line);
+  }
+
+  .site-study :global(.study-heading),
+  .site-study :global(.revision-intro) {
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  }
+</style>

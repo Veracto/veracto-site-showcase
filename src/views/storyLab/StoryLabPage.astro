@@ -1,0 +1,86 @@
+---
+import ResearchRevision from '@/components/sections/studies/ResearchRevision.astro';
+import TeamStudy from '@/components/sections/studies/TeamStudy.astro';
+import OrganisationStudy from '@/components/sections/studies/OrganisationStudy.astro';
+import HomeStudy from '@/components/sections/studies/HomeStudy.astro';
+import MethodStudy from '@/components/sections/studies/MethodStudy.astro';
+import HandoverStudy from '@/components/sections/studies/HandoverStudy.astro';
+import type { ResearchRevision as RevisionContent } from '@/content/research-revision.schema';
+import type { LabStudies } from '@/content/lab-studies.schema';
+import '@/views/storyLab/lab-shell.css';
+import '@/components/sections/studies/distinct-studies.css';
+import HeroExplorationsSection from '@/views/storyLab/HeroExplorationsSection.astro';
+import { heroExplorations as heroEn } from '@/content/en/hero-explorations';
+import { heroExplorations as heroRu } from '@/content/en/hero-explorations';
+import { visualizationRefreshNavigation as refreshEn } from '@/content/en/visualization-refresh';
+import { visualizationRefreshNavigation as refreshRu } from '@/content/en/visualization-refresh';
+import { staticVisuals as staticEn } from '@/content/en/static-visuals';
+import { staticVisuals as staticRu } from '@/content/en/static-visuals';
+type Props = {
+  locale: 'en' | 'ru';
+  revision: RevisionContent;
+  studies: LabStudies;
+  copy: {
+    title: string;
+    intro: string;
+    language: string;
+    languageHref: string;
+    context: string;
+    archiveLink: string;
+  };
+};
+const { locale, copy, revision, studies } = Astro.props;
+const hero = locale === 'ru' ? heroRu : heroEn;
+---
+
+<main class="cinema">
+  <div class="cinema-top">
+    <a href={locale === 'ru' ? '/ru/visual-lab/' : '/visual-lab/'}>
+      veracto / narrative laboratory
+    </a>
+    <a href={copy.languageHref} lang={locale === 'en' ? 'ru' : 'en'}>
+      {copy.language}
+    </a>
+  </div>
+  <p class="eyebrow">ORGANIC INTELLIGENCE / NARRATIVE MOTION</p>
+  <h1>{copy.title}</h1>
+  <p class="intro-copy">{copy.intro}</p>
+  <nav class="lab-index" aria-label={copy.title}>
+    <a href={`${locale === 'ru' ? '/ru' : ''}/visual-lab/static/`}>
+      {locale === 'ru' ? staticRu.navigation : staticEn.navigation}
+    </a>
+    <a href={`${locale === 'ru' ? '/ru' : ''}/visual-lab/refresh/`}>
+      {locale === 'ru' ? refreshRu : refreshEn}
+    </a>
+    <a href="#hero-explorations">{hero.navigation}</a>
+    <a href="#research-revision">{revision.eyebrow}</a>
+    {(['team', 'organisation', 'home', 'method', 'handover'] as const).map(
+      (id) => (
+        <a href={`#study-${id}`}>{studies[id].eyebrow}</a>
+      ),
+    )}
+  </nav>
+  <HeroExplorationsSection content={hero} locale={locale} />
+  <ResearchRevision content={revision} />
+  <TeamStudy content={studies.team} />
+  <OrganisationStudy content={studies.organisation} />
+  <HomeStudy content={studies.home} />
+  <MethodStudy content={studies.method} />
+  <HandoverStudy content={studies.handover} />
+  <p class="lab-disclosure">{studies.disclosure}</p>
+  <footer>
+    <nav aria-label={copy.title}>
+      <a
+        href={
+          locale === 'ru' ? '/ru/visual-lab/archive/' : '/visual-lab/archive/'
+        }
+      >
+        {copy.archiveLink}
+      </a>
+      <a href={locale === 'ru' ? '/ru/' : '/'}>{copy.context}</a>
+    </nav>
+  </footer>
+</main>
+<script>
+  import '@/scripts/studies/study-player';
+</script>

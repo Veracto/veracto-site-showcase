@@ -1,0 +1,18 @@
+---
+import SiteFrame from '@/components/layout/SiteFrame.astro';
+import PageIntroduction from '@/components/ui/PageIntroduction.astro';
+import type { PrivacyPageDefinition } from '@/content/pages.schema';
+import type { SiteChrome } from '@/content/site.schema';
+import PrivacyDetailsSection from '@/views/privacy/sections/PrivacyDetailsSection.astro';
+
+type Props = {
+  chrome: SiteChrome;
+  page: PrivacyPageDefinition;
+};
+const { chrome, page } = Astro.props;
+---
+
+<SiteFrame chrome={chrome} currentPath={page.path}>
+  <PageIntroduction content={page.introduction} />
+  <PrivacyDetailsSection label={page.detailsLabel} sections={page.sections} />
+</SiteFrame>

@@ -1,0 +1,85 @@
+---
+import type { AnalyticsCopy } from '@/content/analytics.schema';
+type Props = {
+  copy: AnalyticsCopy;
+  websiteId: string;
+  enabled: boolean;
+  domains: string;
+};
+const { copy, websiteId, enabled, domains } = Astro.props;
+---
+
+{enabled && (
+  <div data-analytics-root data-website-id={websiteId} data-domains={domains}>
+    <button class="analytics-settings" type="button" data-analytics-settings>
+      {copy.settings}
+    </button>
+    <aside class="analytics-choice" aria-label={copy.title} hidden>
+      <strong>{copy.title}</strong>
+      <p>{copy.description}</p>
+      <div class="analytics-actions">
+        <button type="button" data-analytics-choice="on">
+          {copy.allow}
+        </button>
+        <button type="button" data-analytics-choice="off">
+          {copy.decline}
+        </button>
+        <a href={copy.privacyHref}>{copy.privacyLabel}</a>
+      </div>
+      <p data-analytics-excluded hidden>
+        {copy.excluded}
+      </p>
+    </aside>
+  </div>
+)}
+<style>
+  .analytics-settings {
+    display: block;
+    margin: 0;
+    width: 100%;
+    background: var(--forest);
+    color: var(--paper);
+    border: 0;
+    padding: 0.6rem 1rem;
+    font: inherit;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .analytics-choice {
+    position: fixed;
+    inset: auto 1rem 1rem;
+    margin-inline: auto;
+    max-width: 48rem;
+    z-index: 40;
+    border-radius: 1rem;
+    padding: 1rem;
+    background: var(--paper);
+    color: var(--forest);
+    box-shadow: 0 0.5rem 2rem #0003;
+  }
+  .analytics-choice[hidden] {
+    display: none;
+  }
+  .analytics-choice p {
+    margin-block: 0.5rem;
+    font-size: 1rem;
+  }
+  .analytics-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .analytics-actions button,
+  .analytics-actions a {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid currentColor;
+    border-radius: 0.6rem;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 0.95rem;
+    min-height: 2.75rem;
+    cursor: pointer;
+  }
+</style>

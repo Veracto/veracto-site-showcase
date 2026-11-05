@@ -1,0 +1,292 @@
+.research-revision {
+  margin-block: 3rem 5rem;
+  container-type: inline-size;
+}
+.revision-intro {
+  max-width: 52rem;
+  margin-block-end: 2.5rem;
+}
+.revision-intro h2 {
+  font-size: clamp(2.3rem, 5vw, 4.5rem);
+  margin-block: 1rem;
+}
+.revision-intro > p:last-child {
+  max-width: 48ch;
+  color: var(--muted);
+}
+.revision-sequence {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+.revision-chapter {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.revision-chapter:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 1.25rem;
+  height: 1.25rem;
+  border-left: 1px solid var(--forest);
+}
+.chapter-heading {
+  margin-block-end: 0.75rem;
+}
+.chapter-heading p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-block-end: 0.5rem;
+}
+.chapter-heading h3 {
+  font-size: 1.05rem;
+  max-width: 30ch;
+}
+.revision-paper {
+  position: relative;
+  isolation: isolate;
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.paper-layer {
+  position: absolute;
+  inset: 0;
+  background: var(--document);
+  border: 1px solid var(--line);
+  border-radius: 0.2rem 0.2rem 2.5rem 0.2rem;
+  z-index: -1;
+}
+.layer-back {
+  inset: 0.4rem -0.35rem -0.4rem 0.35rem;
+  background: var(--sage);
+  z-index: -2;
+}
+.paper-claim {
+  font-size: clamp(1.15rem, 4cqi, 1.7rem);
+  line-height: 1.32;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+.paper-claim > span:first-child:not(.claim-focus) {
+  display: block;
+}
+.claim-focus {
+  display: block;
+  position: relative;
+  margin-top: 0.3rem;
+}
+.claim-copy {
+  position: relative;
+}
+.claim-wash,
+.field-wash {
+  position: absolute;
+  inset: 0 -0.15rem;
+  background: var(--sage);
+  border-radius: 0.2rem 0.6rem 0.2rem 0.4rem;
+  transform-origin: left center;
+  z-index: -1;
+}
+.claim-ink {
+  position: absolute;
+  width: 100%;
+  height: 0.65rem;
+  bottom: -0.3rem;
+  left: 0;
+  overflow: visible;
+}
+.claim-ink path {
+  fill: none;
+  stroke: var(--forest);
+  stroke-width: 2;
+}
+.review-pen {
+  position: absolute;
+  width: 4.5rem;
+  height: 2.5rem;
+  right: 0;
+  top: 100%;
+  opacity: 0;
+  overflow: visible;
+}
+.review-pen path {
+  fill: var(--coral);
+  stroke: var(--forest);
+  stroke-width: 1.5;
+}
+.paper-rule {
+  height: 1px;
+  background: var(--line);
+  transform-origin: left center;
+  margin-block: 0.3rem 0.7rem;
+}
+.paper-field dt {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.paper-field dd {
+  margin: 0;
+  position: relative;
+  font-size: 1rem;
+  padding: 0.4rem 0.1rem;
+}
+.field-wash {
+  background: transparent;
+}
+.reference-thread {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-block: 0.65rem;
+}
+.reference-anchor {
+  border: 1px solid var(--forest);
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex: none;
+  font-weight: 700;
+}
+.reference-thread svg {
+  flex: 1;
+  min-width: 0;
+  height: 1.75rem;
+  overflow: visible;
+}
+.reference-thread path {
+  fill: none;
+  stroke: var(--forest);
+  stroke-width: 1.5;
+}
+.reference-thread .thread-base {
+  stroke: var(--line);
+  stroke-dasharray: 3 6;
+}
+.reference-receiver {
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--forest);
+  border-radius: 0.1rem 0.1rem 0.45rem 0.1rem;
+  padding: 0.35rem 0.25rem;
+  background: var(--document);
+  flex: none;
+}
+.reference-receiver i {
+  display: block;
+  height: 1px;
+  background: var(--muted);
+  margin-bottom: 0.3rem;
+}
+.paper-foot {
+  font-size: 0.875rem;
+  color: var(--muted);
+  max-width: 40ch;
+}
+.chapter-draft .claim-wash {
+  background: transparent;
+}
+.chapter-draft .field-wash {
+  background: var(--sage);
+}
+.chapter-draft .claim-ink,
+.chapter-review .claim-ink {
+  width: calc(100% - 4.5rem);
+}
+.chapter-draft .claim-ink path,
+.chapter-review .claim-ink path {
+  stroke: var(--rust);
+}
+.chapter-draft .claim-copy,
+.chapter-review .claim-copy {
+  color: var(--rust);
+}
+.chapter-review .paper-layer:not(.layer-back) {
+  background: var(--paper);
+  border-color: var(--rust);
+  border-radius: 1.5rem 0.2rem 2.5rem 0.2rem;
+}
+.chapter-review .claim-wash {
+  background: transparent;
+}
+.chapter-review .reference-thread {
+  flex-direction: row-reverse;
+}
+.chapter-review .reference-thread svg {
+  transform: scaleX(-1);
+}
+.chapter-review .reference-thread path {
+  stroke: var(--rust);
+}
+.chapter-revision .field-wash {
+  background: var(--sage);
+}
+.chapter-revision .paper-layer:not(.layer-back) {
+  border-top: 3px solid var(--forest);
+}
+.revision-disclosure {
+  font-size: 0.85rem;
+  max-width: 65ch;
+  color: var(--muted);
+  margin-top: 2rem;
+}
+@container (min-width: 42rem) {
+  .revision-sequence {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.5rem 2rem;
+  }
+  .revision-chapter::after {
+    display: none;
+  }
+  .chapter-heading {
+    min-height: 5rem;
+    margin-block-end: 1.25rem;
+  }
+  .chapter-heading p {
+    font-size: 0.8rem;
+  }
+  .chapter-heading h3 {
+    font-size: 1.15rem;
+  }
+  .revision-paper {
+    padding: clamp(1.25rem, 4cqi, 2.75rem);
+  }
+  .paper-field dt {
+    font-size: 0.78rem;
+  }
+  .paper-claim {
+    font-size: clamp(1.4rem, 3.2cqi, 2.3rem);
+    margin: 2rem 0;
+    flex: 1;
+  }
+  .paper-rule {
+    margin-block: 0.5rem 1.25rem;
+  }
+  .reference-thread {
+    margin-block: 1.2rem;
+  }
+  .reference-anchor {
+    width: 2rem;
+    height: 2rem;
+  }
+  .reference-thread svg {
+    height: 3rem;
+  }
+  .reference-receiver {
+    width: 2rem;
+    height: 2.5rem;
+    padding: 0.5rem 0.3rem;
+  }
+  .paper-foot {
+    font-size: 0.85rem;
+  }
+}

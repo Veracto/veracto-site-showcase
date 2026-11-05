@@ -1,0 +1,217 @@
+---
+import home from '@/assets/design-lab/home-pathways.webp';
+import researchers from '@/assets/design-lab/research-connected.webp';
+import teams from '@/assets/design-lab/team-protocol.webp';
+import organisations from '@/assets/design-lab/organisation-decision.webp';
+import type { HeroCandidate, HeroRoute } from '@/content/hero-gallery.schema';
+type Props = {
+  candidate: HeroCandidate;
+  route: HeroRoute;
+  index: number;
+  locale: 'en' | 'ru';
+  primary: string;
+  secondary: string;
+  contact: string;
+  eyebrow: string;
+};
+const {
+  candidate,
+  route,
+  index,
+  locale,
+  primary,
+  secondary,
+  contact,
+  eyebrow,
+} = Astro.props;
+const asset = { home, researchers, teams, organisations }[route];
+const prefix = locale === 'ru' ? '/ru' : '';
+const layout = ['split', 'editorial', 'workspace'][index];
+---
+
+<article
+  id={`${route}-${index + 1}`}
+  data-hero-variant={`${route}-${index + 1}`}
+>
+  <header class="candidate-caption">
+    <h2>
+      <a href={`#${route}-${index + 1}`}>{candidate.name} ↗</a>
+    </h2>
+    <p>{candidate.note}</p>
+  </header>
+  <div class:list={['hero-preview', layout]}>
+    <div class="brand">
+      veracto <span>by evidence lab</span>
+    </div>
+    <div class="hero-copy">
+      <p class="route-label">{eyebrow}</p>
+      <h3>{candidate.title}</h3>
+      <p class="body">{candidate.body}</p>
+      <div class="actions">
+        <a
+          class="primary"
+          href={route === 'home' ? `${prefix}/#routes` : `${prefix}/contact/`}
+        >
+          {route === 'home' ? primary : contact} ↗
+        </a>
+        <a class="secondary" href={`${prefix}/approach/`}>
+          {secondary} →
+        </a>
+      </div>
+    </div>
+    <figure>
+      <img
+        draggable="false"
+        src={asset.src}
+        width={asset.width}
+        height={asset.height}
+        alt=""
+        loading="lazy"
+      />
+    </figure>
+  </div>
+</article>
+<style>
+  article {
+    margin-bottom: 3rem;
+    scroll-margin-top: 1rem;
+  }
+  .candidate-caption {
+    margin-bottom: 1rem;
+  }
+  .candidate-caption h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+  }
+  .candidate-caption p {
+    max-width: 52rem;
+    color: var(--muted);
+  }
+  .hero-preview {
+    display: grid;
+    gap: 1.5rem;
+    padding: clamp(1.25rem, 4vw, 3.5rem);
+    border: 1px solid var(--line);
+    border-radius: 2rem;
+    background: #f5f0e3;
+    overflow: hidden;
+  }
+  .brand {
+    font-size: 1.65rem;
+    font-weight: 700;
+    letter-spacing: -0.06em;
+  }
+  .brand span {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    margin-left: 0.5rem;
+  }
+  .route-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+  .hero-copy h3 {
+    color: inherit;
+    margin: 0;
+    font-size: clamp(2rem, 4.5vw, 4.4rem);
+    line-height: 1.04;
+    letter-spacing: -0.045em;
+    max-width: 17ch;
+  }
+  .body {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    max-width: 42ch;
+    margin-block: 1.4rem;
+    line-height: 1.6;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+  }
+  .actions a {
+    min-height: 2.75rem;
+    padding: 0.8rem 1.15rem;
+    border-radius: 3rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+  .primary {
+    background: #103c2d;
+    color: #f5f0e3;
+  }
+  .secondary {
+    border: 1px solid currentColor;
+  }
+  figure {
+    margin: 0;
+    align-self: center;
+    min-width: 0;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1.5rem;
+  }
+  .editorial {
+    background: #e7ecd8;
+  }
+  .editorial .hero-copy h3 {
+    max-width: 22ch;
+  }
+  .workspace {
+    background: #103c2d;
+    color: #f5f0e3;
+  }
+  .workspace .brand span {
+    color: #ffb39e;
+  }
+  .workspace .primary {
+    background: #ffb39e;
+    color: #103c2d;
+  }
+  @media (min-width: 52rem) {
+    .split,
+    .workspace {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 2.5rem;
+    }
+    .brand {
+      grid-column: 1 / -1;
+      margin-bottom: 1.25rem;
+    }
+    .workspace figure {
+      transform: rotate(-3deg);
+      padding: 0.8rem;
+      background: #e7ecd8;
+      border-radius: 2rem;
+    }
+    .editorial .hero-copy {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      column-gap: 3rem;
+    }
+    .editorial .route-label {
+      grid-column: 1 / -1;
+    }
+    .editorial .hero-copy h3 {
+      grid-row: span 2;
+      font-size: clamp(3rem, 5vw, 5rem);
+    }
+    .editorial .body {
+      margin-top: 0.2rem;
+    }
+    .editorial figure {
+      width: 75%;
+      justify-self: end;
+      margin-top: 1rem;
+    }
+  }
+</style>

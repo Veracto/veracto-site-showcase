@@ -1,0 +1,84 @@
+---
+type Props = {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'text';
+};
+
+const { href, variant = 'primary' } = Astro.props;
+---
+
+<a class:list={['button-link', `button-link--${variant}`]} href={href}>
+  <span>
+    <slot />
+  </span>
+</a>
+
+<style>
+  .button-link {
+    display: inline-flex;
+    max-inline-size: 100%;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    border: 1px solid var(--forest);
+    border-radius: 4rem;
+    padding: 1rem 1.4rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    line-height: 1.6;
+    text-decoration: none;
+  }
+
+  .button-link span:first-child {
+    overflow-wrap: break-word;
+  }
+
+  .button-link--text:hover {
+    text-decoration-color: var(--coral);
+  }
+
+  .button-link--primary {
+    background: var(--navy-deep);
+    color: var(--canvas);
+  }
+
+  .button-link--primary:hover {
+    background: var(--accent-soft);
+    color: var(--forest);
+  }
+
+  .button-link--secondary {
+    border-color: var(--forest);
+    background: transparent;
+    color: var(--navy-deep);
+  }
+
+  .button-link--secondary:hover {
+    background: var(--accent-soft);
+    color: var(--forest);
+  }
+
+  .button-link:active {
+    background: var(--sage);
+    color: var(--forest);
+  }
+
+  .button-link--text {
+    min-height: 2.75rem;
+    border-radius: 0;
+    padding: 0.25rem 0;
+    color: currentColor;
+    border-color: transparent;
+    text-decoration: underline;
+    text-decoration-color: var(--coral);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.25em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .button-link {
+      transition: none;
+    }
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+import ButtonLink from '@/components/ui/ButtonLink.astro';
+import Container from '@/components/ui/Container.astro';
+import type { AboutPageDefinition } from '@/content/pages.schema';
+type Props = {
+  people: AboutPageDefinition['people'];
+  contact: AboutPageDefinition['callToAction'];
+};
+const { people, contact } = Astro.props;
+---
+
+<section class="about-closing section" aria-labelledby="about-closing-title">
+  <Container>
+    <div class="people-copy">
+      <p class="eyebrow">{people.eyebrow}</p>
+      <h2 id="about-closing-title">{people.title}</h2>
+      <p>{people.description}</p>
+      <ButtonLink href={people.href} variant="secondary">
+        {people.label}
+      </ButtonLink>
+    </div>
+    <div class="conversation">
+      <p class="eyebrow">{contact.eyebrow}</p>
+      <h3>{contact.title}</h3>
+      <p>{contact.description}</p>
+      <div class="actions">
+        <ButtonLink href={contact.href}>{contact.label}</ButtonLink>
+        {contact.secondary && (
+          <a href={contact.secondary.href}>{contact.secondary.label} →</a>
+        )}
+      </div>
+    </div>
+  </Container>
+</section>
+<style>
+  .about-closing {
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+  }
+  .about-closing :global(.container),
+  .people-copy,
+  .conversation,
+  .actions {
+    display: grid;
+    min-width: 0;
+    gap: 1.25rem;
+    align-content: start;
+  }
+  .about-closing :global(.container) {
+    gap: 2.5rem;
+  }
+  h2 {
+    font-size: var(--text-section-prose);
+  }
+  h3 {
+    font-size: var(--text-xl);
+  }
+  p {
+    max-width: 45ch;
+  }
+  .eyebrow {
+    color: var(--forest);
+  }
+  .conversation {
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  .about-closing :global(.button-link) {
+    justify-self: start;
+  }
+  .actions a {
+    color: var(--forest);
+    text-underline-offset: 0.3rem;
+  }
+  @media (min-width: 56rem) {
+    .about-closing :global(.container) {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 4rem;
+    }
+    .conversation {
+      border-top: 0;
+      border-left: 1px solid var(--line);
+      padding-top: 0;
+      padding-left: 3rem;
+    }
+  }
+</style>

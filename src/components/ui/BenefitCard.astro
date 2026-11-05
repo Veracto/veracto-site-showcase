@@ -1,0 +1,48 @@
+---
+import DocumentationLink from '@/components/ui/DocumentationLink.astro';
+type Props = {
+  title: string;
+  description: string;
+  reference?: { label: string; href: string } | undefined;
+};
+const { title, description, reference } = Astro.props;
+---
+
+<article class="benefit-card">
+  <h3>{title}</h3>
+  <p>{description}</p>
+  {reference && (
+    <DocumentationLink href={reference.href}>
+      {reference.label}
+    </DocumentationLink>
+  )}
+</article>
+
+<style>
+  .benefit-card {
+    display: grid;
+    align-content: start;
+    gap: 0.85rem;
+    min-width: 0;
+    height: 100%;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border-radius: 1.75rem 1.75rem 1.75rem 0.5rem;
+    background: var(--sage);
+  }
+  .benefit-card::before {
+    content: '';
+    width: 2.5rem;
+    height: 0.1875rem;
+    background: var(--coral);
+    border-radius: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  h3 {
+    font-size: var(--text-lg);
+    line-height: 1.25;
+  }
+  p {
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+</style>

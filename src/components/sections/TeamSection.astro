@@ -1,0 +1,75 @@
+---
+import Container from '@/components/ui/Container.astro';
+import PersonCard from '@/components/sections/PersonCard.astro';
+import PeopleRail from '@/components/sections/PeopleRail.astro';
+import type { SiteChrome } from '@/content/site.schema';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import type { TeamGroup } from '@/content/pages.schema';
+type Props = {
+  content: TeamGroup;
+  controls: SiteChrome['peopleNavigation'];
+  specialisationLabel: string;
+};
+const { content, controls, specialisationLabel } = Astro.props;
+---
+
+<section
+  id={content.kind}
+  class:list={['team section', content.kind]}
+  aria-labelledby={`${content.kind}-title`}
+>
+  <Container>
+    <SectionHeading
+      id={`${content.kind}-title`}
+      eyebrow={content.eyebrow}
+      title={content.title}
+      description={content.description}
+    />
+    {content.kind === 'supporters' ? (
+      <PeopleRail
+        id="team-experts"
+        people={content.items}
+        controls={controls}
+        specialisationLabel={specialisationLabel}
+      />
+    ) : (
+      <div class="team-grid">
+        {content.items.map((person) => (
+          <PersonCard person={person} variant="founder" />
+        ))}
+      </div>
+    )}
+  </Container>
+</section>
+
+<style>
+  .team {
+    background: var(--canvas);
+    border-top: 1px solid var(--line);
+  }
+  .supporters {
+    background: var(--sage);
+  }
+  .team :global(.container) {
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 4rem);
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem 2rem;
+  }
+  @media (min-width: 70rem) {
+    .supporters {
+      padding-block: 2.5rem;
+    }
+    .supporters :global(.container) {
+      gap: 2rem;
+    }
+  }
+  @media (min-width: 68rem) {
+    .founder .team-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

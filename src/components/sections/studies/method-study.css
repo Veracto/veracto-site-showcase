@@ -1,0 +1,145 @@
+.decision-root {
+  max-width: 42rem;
+  margin: auto;
+  text-align: left;
+}
+.branch-label {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+.decision-root h3,
+.method-branches h3 {
+  margin-bottom: 0.75rem;
+}
+.study .fork-graphic {
+  width: 100%;
+  height: 7rem;
+  display: none;
+}
+.mobile-method-stem {
+  display: block;
+  height: 2.5rem;
+  width: 1px;
+  margin-left: 0.75rem;
+  background: var(--forest);
+  transform-origin: top;
+}
+.fork-ghost {
+  fill: none;
+  stroke: var(--line);
+  stroke-dasharray: 3 6;
+}
+.branch-question {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.method-branches {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+  position: relative;
+  border-left: 1px solid var(--forest);
+  margin-left: 0.75rem;
+  padding-left: 1.5rem;
+}
+.simple-branch::before,
+.conditional-branch::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 2rem;
+  width: 1.5rem;
+  border-top: 1px solid var(--forest);
+}
+.simple-branch,
+.conditional-branch {
+  position: relative;
+}
+.conditional-branch::before {
+  top: 0.75rem;
+}
+.simple-branch {
+  padding: 2rem 1.5rem;
+  background: var(--sage);
+  border-radius: 2rem 0.4rem 2rem 0.4rem;
+}
+.branch-end {
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+.branch-end span {
+  display: block;
+  height: 3px;
+  width: 4rem;
+  background: var(--forest);
+  transform-origin: left;
+}
+.condition {
+  padding-left: 3rem;
+  font-weight: 700;
+}
+.method-path {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.method-path li {
+  position: relative;
+  padding: 0 0 2rem 3rem;
+}
+.branch-stem {
+  position: absolute;
+  left: 0.75rem;
+  top: 1.5rem;
+  bottom: 0;
+  width: 1px;
+  background: var(--forest);
+  transform-origin: top;
+}
+.branch-node {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--forest);
+  text-align: center;
+  font-size: 0.8rem;
+}
+.method-decision {
+  border-top: 1px solid var(--forest);
+  padding-top: 1rem;
+  margin-left: 3rem;
+}
+@container (min-width: 42rem) {
+  .branch-label {
+    font-size: 0.8rem;
+  }
+  .decision-root {
+    text-align: center;
+  }
+  .study .fork-graphic {
+    display: block;
+  }
+  .mobile-method-stem {
+    display: none;
+  }
+  .method-branches {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    border-left: 0;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .simple-branch::before,
+  .conditional-branch::before {
+    content: none;
+  }
+}

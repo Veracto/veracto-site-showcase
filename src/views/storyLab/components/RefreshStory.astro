@@ -1,0 +1,104 @@
+---
+import type {
+  RefreshId,
+  RefreshPlayback,
+} from '@/content/visualization-refresh.schema';
+import { storyLayout } from '@/views/storyLab/scripts/refresh-story-layout';
+import '@/views/storyLab/refresh-story.css';
+type Props = { id: RefreshId; content: RefreshPlayback };
+const { id, content: c } = Astro.props;
+const layout = storyLayout(id);
+---
+
+<div
+  class="refresh-story"
+  data-refresh-story={id}
+  data-play={c.play}
+  data-pause={c.pause}
+  data-resume={c.resume}
+  data-ready={c.ready}
+  data-running={c.running}
+  data-paused={c.paused}
+  data-complete={c.complete}
+  data-static={c.static}
+>
+  <p class="refresh-story-hint">{c.hint}</p>
+  <noscript>
+    <p class="refresh-story-hint">{c.static}</p>
+  </noscript>
+  <div class="refresh-story-controls" hidden>
+    <button type="button" data-story-toggle aria-controls={`story-art-${id}`}>
+      {c.play}
+    </button>
+    <button
+      type="button"
+      data-story-replay
+      aria-controls={`story-art-${id}`}
+      disabled
+    >
+      {c.replay}
+    </button>
+    <p class="refresh-story-status" role="status" aria-live="polite">
+      {c.ready}
+    </p>
+  </div>
+  <div class="refresh-story-art" id={`story-art-${id}`} aria-hidden="true">
+    <svg viewBox="0 0 400 240">
+      <path class="refresh-story-guide" d={layout.guide} />
+      {layout.points.map(([x, y], index) => (
+        <g>
+          <circle
+            class="refresh-story-halo"
+            cx={x}
+            cy={y}
+            r="37"
+            data-story-halo
+          />
+          <rect
+            class="refresh-story-paper"
+            x={x - 23}
+            y={y - 29}
+            width="46"
+            height="58"
+            rx="4"
+          />
+          <path
+            class="refresh-story-record"
+            d={`M${x - 13} ${y - 13}h26m-26 13h20m-20 13h26`}
+          />
+          <text
+            class="refresh-story-number"
+            x={id === 'handover' && index === 0 ? x + 50 : x}
+            y={id === 'handover' && index === 0 ? y + 8 : y + 55}
+            text-anchor="middle"
+          >
+            {index + 1}
+          </text>
+          {id === 'handover' && index === 2 && (
+            <g class="refresh-story-stop">
+              <path d={`M${x - 34} ${y - 34}l68 68m0-68-68 68`} />
+            </g>
+          )}
+        </g>
+      ))}
+      {layout.flights.map((flight) => (
+        <g
+          class:list={[
+            'refresh-story-packet',
+            { 'is-exception': flight.exception },
+          ]}
+          data-story-packet
+        >
+          <rect x="-15" y="-20" width="30" height="40" rx="3" />
+          <path d="M-8-10H8M-8 0H8M-8 10H3" />
+          <circle cx="12" cy="-17" r="5" />
+        </g>
+      ))}
+    </svg>
+  </div>
+  <ol class="refresh-story-steps">
+    {c.scenes[id].map((step) => (
+      <li data-story-step>{step}</li>
+    ))}
+  </ol>
+</div>

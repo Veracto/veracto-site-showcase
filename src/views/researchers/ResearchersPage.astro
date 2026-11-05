@@ -1,0 +1,36 @@
+---
+import StaticDiagram from '@/components/sections/staticDiagrams/StaticDiagram.astro';
+import { staticDiagrams as diagramsEn } from '@/content/en/static-diagrams';
+import { staticDiagrams as diagramsRu } from '@/content/en/static-diagrams';
+import SiteFrame from '@/components/layout/SiteFrame.astro';
+import ContentGridSection from '@/components/sections/ContentGridSection.astro';
+import PageCallToAction from '@/components/ui/PageCallToAction.astro';
+import IllustratedHero from '@/components/sections/IllustratedHero.astro';
+import type { ResearchersPageDefinition } from '@/content/pages.schema';
+import type { SiteChrome } from '@/content/site.schema';
+
+type Props = { chrome: SiteChrome; page: ResearchersPageDefinition };
+const { chrome, page } = Astro.props;
+const diagrams = chrome.locale === 'ru' ? diagramsRu : diagramsEn;
+---
+
+<SiteFrame heroLayout="viewport" chrome={chrome} currentPath={page.path}>
+  <IllustratedHero
+    content={page.introduction}
+    route="researchers"
+    primaryCta={{
+      ...page.callToAction,
+      label: chrome.navigation.at(-1)!.label,
+      href: '#contact',
+    }}
+    secondaryCta={page.documentation}
+  />
+  <ContentGridSection
+    content={page.work}
+    id="work"
+    tone={page.tone}
+    layout="benefits"
+  />
+  <StaticDiagram content={diagrams.claim} />
+  <PageCallToAction id="contact" content={page.callToAction} />
+</SiteFrame>

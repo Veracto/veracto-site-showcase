@@ -1,0 +1,217 @@
+---
+import type { OrganisationStudy } from '@/content/lab-studies.schema';
+type Props = { content: OrganisationStudy; eyebrow?: string };
+const { content: c, eyebrow = c.eyebrow } = Astro.props;
+---
+
+<section
+  class="study organisation-study"
+  id="study-organisation"
+  data-study-speed="2.5"
+  data-study-mobile-speed="3.2"
+  aria-labelledby="organisation-study-title"
+>
+  <header class="study-heading">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2 id="organisation-study-title">{c.title}</h2>
+    <p>{c.intro}</p>
+  </header>
+  <div class="two-registers">
+    <article class="forecast-register" data-study-step data-duration="2700">
+      <p class="register-label">{c.forecast.label}</p>
+      <h3 data-focus>{c.forecast.title}</h3>
+      <div class="forecast-envelope study-motion">
+        <span
+          class="forecast-outline"
+          data-fx="unfold"
+          data-at="400"
+          data-for="1700"
+          aria-hidden="true"
+        />
+        <p>{c.forecast.body}</p>
+      </div>
+      <p class="assumption">{c.assumptions}</p>
+    </article>
+    <article class="pilot-boundary" data-study-step data-duration="5100">
+      <p class="register-label">{c.pilot.label}</p>
+      <h3 data-focus>{c.pilot.title}</h3>
+      <svg
+        class="study-motion pilot-aperture"
+        viewBox="0 0 300 180"
+        aria-hidden="true"
+      >
+        <path
+          class="pilot-wash"
+          d="M49 24Q160 0 256 40L254 143Q156 189 42 145Z"
+          data-fx="assemble"
+          data-at="100"
+          data-for="1200"
+        />
+        <path
+          class="ink"
+          pathLength="1"
+          data-fx="draw"
+          data-at="500"
+          data-for="1400"
+          d="M80 30H45v120h35m140-120h35v120h-35"
+        />
+        <path
+          class="ink"
+          pathLength="1"
+          data-fx="draw"
+          data-at="2300"
+          data-for="900"
+          d="M103 63h90v55h-90Zm14 18h60m-60 18h43"
+        />
+        <path
+          class="ink"
+          pathLength="1"
+          data-fx="draw"
+          data-at="3700"
+          data-for="900"
+          d="M130 145h40m-20-10v20"
+        />
+      </svg>
+      <p>{c.pilot.body}</p>
+      <p class="boundary-note">{c.boundary}</p>
+    </article>
+    <article class="observation-register" data-study-step data-duration="3800">
+      <p class="register-label">{c.observations.label}</p>
+      <h3 data-focus>{c.observations.title}</h3>
+      <p>{c.observations.body}</p>
+      <ul class="observation-rows study-motion">
+        {c.rows.map((row, i) => (
+          <li>
+            <span
+              class="register-rule"
+              aria-hidden="true"
+              data-fx="draw-line"
+              data-at={String(600 + i * 1000)}
+              data-for="750"
+            />
+            {row}
+          </li>
+        ))}
+      </ul>
+      <p class="unknown-note">{c.unknown}</p>
+    </article>
+  </div>
+  <div class="decision-options">
+    <p>{c.decision}</p>
+    <ul>
+      {c.options.map((option) => (
+        <li>{option}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+<style>
+  .two-registers {
+    display: grid;
+    gap: 2rem;
+  }
+  .two-registers article {
+    min-width: 0;
+  }
+  .register-label {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .two-registers h3 {
+    margin-bottom: 1.5rem;
+  }
+  .forecast-envelope {
+    padding: 2rem 1.5rem;
+    position: relative;
+    margin-block: 1rem 2rem;
+  }
+  .forecast-envelope p {
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
+  .forecast-outline {
+    position: absolute;
+    inset: 0;
+    border: 1px dashed var(--muted);
+    border-radius: 2.5rem 0.3rem 2.5rem 0.3rem;
+  }
+  .assumption,
+  .boundary-note,
+  .unknown-note {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .pilot-boundary {
+    padding: 1.5rem;
+    border-block: 1px solid var(--forest);
+  }
+  .pilot-aperture {
+    width: 100%;
+    height: 11rem;
+  }
+  .pilot-wash {
+    fill: var(--sage);
+    stroke: none;
+  }
+  .boundary-note {
+    border-top: 1px solid var(--line);
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+  }
+  .observation-register {
+    border-left: 3px solid var(--forest);
+    padding-left: 1.5rem;
+    border-top: 1px solid var(--forest);
+    padding-top: 1.5rem;
+  }
+  .observation-rows {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+  .observation-rows li {
+    position: relative;
+    padding: 1rem 0;
+  }
+  .register-rule {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--forest);
+    transform-origin: left;
+  }
+  .decision-options {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .decision-options p {
+    color: var(--muted);
+  }
+  .decision-options ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .decision-options li {
+    border-left: 1px solid var(--forest);
+    padding-left: 0.85rem;
+  }
+  @container (min-width: 48rem) {
+    .two-registers {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .decision-options ul {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .observation-register {
+      border-top: 0;
+      padding-top: 0;
+    }
+  }
+</style>

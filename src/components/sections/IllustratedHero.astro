@@ -1,0 +1,217 @@
+---
+import { Image } from 'astro:assets';
+import ButtonLink from '@/components/ui/ButtonLink.astro';
+import Container from '@/components/ui/Container.astro';
+import home from '@/assets/design-lab/home-pathways.png';
+import researchers from '@/assets/consulting/research-sources-20261007.png';
+import teams from '@/assets/design-lab/team-protocol.png';
+import organisations from '@/assets/design-lab/organisation-decision.png';
+import type { CallToAction, PageIntroduction } from '@/content/site.schema';
+type Props = {
+  content: PageIntroduction;
+  route: 'home' | 'researchers' | 'teams' | 'organisations';
+  tone?: 'paper' | 'forest';
+  primaryCta: CallToAction;
+  secondaryCta?: CallToAction | undefined;
+};
+const {
+  content,
+  route,
+  primaryCta,
+  secondaryCta,
+  tone = 'paper',
+} = Astro.props;
+const image = { home, researchers, teams, organisations }[route];
+---
+
+<section
+  class:list={['hero illustrated-hero', `hero--${tone}`]}
+  data-hero-direction={tone === 'forest' ? 'material-forest' : 'material-light'}
+  data-hero-route={route}
+  aria-labelledby="hero-title"
+>
+  <Container>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-title">{content.title}</h1>
+        <p class="lead">{content.description}</p>
+        <div class="actions hero-actions">
+          <ButtonLink href={primaryCta.href}>{primaryCta.label}</ButtonLink>
+          {secondaryCta && (
+            <ButtonLink href={secondaryCta.href} variant="secondary">
+              {secondaryCta.label}
+            </ButtonLink>
+          )}
+        </div>
+      </div>
+      <figure class="hero-artwork">
+        <Image
+          draggable="false"
+          src={image}
+          widths={[384, 768, 1152, 1536]}
+          sizes="(min-width: 70rem) 53vw, (min-width: 52rem) 45vw, 90vw"
+          format="webp"
+          quality={98}
+          width={image.width}
+          height={image.height}
+          alt=""
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </Container>
+</section>
+<style>
+  .illustrated-hero {
+    min-block-size: 100svh;
+    display: grid;
+    align-items: center;
+    background: var(--hero-surface, var(--paper));
+    color: var(--hero-ink, var(--forest));
+    padding-block: clamp(4.25rem, 8vw, 7rem) clamp(0.75rem, 3vw, 3rem);
+  }
+  .hero--forest {
+    --hero-surface: var(--forest);
+    --hero-ink: var(--paper);
+    --focus: var(--paper);
+  }
+  .hero--forest .eyebrow,
+  .hero--forest .lead {
+    color: var(--on-dark-muted);
+  }
+  .hero--forest :global(.button-link--primary) {
+    background: #ffb39e;
+    border-color: #ffb39e;
+    color: var(--forest);
+  }
+  .hero--forest :global(.button-link--secondary) {
+    color: var(--paper);
+    border-color: var(--on-dark-muted);
+  }
+  .hero--forest :global(.button-link:hover),
+  .hero--forest :global(.button-link:active) {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: var(--forest);
+  }
+  .hero--forest img {
+    outline: 1px solid var(--on-dark-muted);
+    outline-offset: 0.5rem;
+  }
+  .hero-grid {
+    display: grid;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 3rem);
+  }
+  .hero-copy {
+    display: grid;
+    gap: 0.75rem;
+    min-width: 0;
+  }
+  h1 {
+    color: var(--hero-ink, var(--forest));
+    max-width: 17ch;
+    font-size: clamp(1.95rem, min(4.5vw, 7svh), 4.4rem);
+    line-height: var(--display-h1-leading);
+    letter-spacing: var(--display-h1-tracking);
+  }
+  .lead {
+    max-width: 42ch;
+    color: var(--hero-ink, var(--forest));
+    font-size: var(--text-md);
+    line-height: 1.6;
+  }
+  .hero-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+  .hero-actions :global(.button-link) {
+    align-self: stretch;
+    margin-top: 0;
+    text-align: center;
+    padding: 0.75rem 1.25rem;
+    justify-content: center;
+    font-size: var(--text-sm);
+  }
+  .hero-artwork {
+    min-width: 0;
+    margin: 0;
+  }
+  @media (max-height: 40rem) {
+    .hero-copy {
+      gap: 0.5rem;
+    }
+    .hero-actions {
+      margin-top: 0.25rem;
+    }
+  }
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-inline-size: 100%;
+    max-block-size: clamp(3.5rem, calc(100svh - 32rem), 28rem);
+    margin-inline: auto;
+    border-radius: 1.5rem;
+  }
+  @media (min-width: 52rem) {
+    img {
+      max-block-size: calc(100svh - 12rem);
+    }
+    .hero-copy {
+      gap: 1.25rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .hero-actions :global(.button-link) {
+      padding: 1rem 1.4rem;
+      font-size: var(--text-sm);
+    }
+    .hero-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+  @media (min-width: 70rem) {
+    .hero-grid {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 2rem;
+    }
+    h1 {
+      font-size: clamp(3rem, min(5.3vw, 7.2svh), 5rem);
+      max-width: 15ch;
+    }
+    .hero-artwork {
+      position: relative;
+      isolation: isolate;
+    }
+    .hero-artwork::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: -1.25rem 0.75rem 1.25rem -1.25rem;
+      background: var(--sage);
+      border-radius: 5rem 1.5rem 5rem 1.5rem;
+    }
+    img {
+      border-radius: 3rem 1.5rem 3rem 1.5rem;
+    }
+    .hero--paper[data-hero-route='researchers'] .hero-artwork::before {
+      display: none;
+    }
+    [data-hero-route='teams'] .hero-artwork::before {
+      background: var(--sage);
+      border-radius: 50% 1.5rem 50% 1.5rem;
+    }
+    [data-hero-route='organisations'] .hero-artwork::before {
+      background: var(--on-dark-muted);
+      opacity: 0.2;
+    }
+  }
+</style>

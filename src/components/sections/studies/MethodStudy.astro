@@ -1,0 +1,91 @@
+---
+import type { MethodStudy } from '@/content/lab-studies.schema';
+import '@/components/sections/studies/method-study.css';
+type Props = { content: MethodStudy; eyebrow?: string };
+const { content: c, eyebrow = c.eyebrow } = Astro.props;
+---
+
+<section
+  class="study method-study"
+  id="study-method"
+  data-study-speed="2"
+  aria-labelledby="method-study-title"
+>
+  <header class="study-heading">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2 id="method-study-title">{c.title}</h2>
+    <p>{c.intro}</p>
+  </header>
+  <div class="decision-root" data-study-step data-duration="3200">
+    <p class="branch-label">{c.diagnosis.label}</p>
+    <h3 data-focus>{c.diagnosis.title}</h3>
+    <p>{c.diagnosis.body}</p>
+    <p class="branch-question">{c.question}</p>
+    <svg
+      class="study-motion fork-graphic"
+      viewBox="0 0 500 120"
+      aria-hidden="true"
+    >
+      <path
+        class="fork-ghost"
+        d="M250 10v40Q250 65 225 65H70v40M250 50q0 15 25 15h155v40"
+      />
+      <path
+        class="ink"
+        pathLength="1"
+        data-fx="draw"
+        data-at="400"
+        data-for="2300"
+        d="M250 10v40Q250 65 225 65H70v40m-7-9 7 9 7-9"
+      />
+      <path
+        class="ink"
+        pathLength="1"
+        data-fx="draw"
+        data-at="400"
+        data-for="2300"
+        d="M250 10v40q0 15 25 15h155v40m-7-9 7 9 7-9"
+      />
+    </svg>
+    <span
+      class="mobile-method-stem study-motion"
+      aria-hidden="true"
+      data-fx="grow"
+      data-at="400"
+      data-for="1400"
+    />
+  </div>
+  <div class="method-branches">
+    <article class="simple-branch" data-study-step data-duration="2200">
+      <p class="branch-label">{c.alternative.label}</p>
+      <h3 data-focus>{c.alternative.title}</h3>
+      <p>{c.alternative.body}</p>
+      <div class="branch-end study-motion" aria-hidden="true">
+        <span data-fx="draw-line" data-at="800" data-for="900" />
+      </div>
+    </article>
+    <div class="conditional-branch">
+      <p class="branch-label condition">{c.condition}</p>
+      <ol class="method-path">
+        {c.steps.map((step, i) => (
+          <li data-study-step data-duration="2400">
+            <span
+              class="branch-stem study-motion"
+              aria-hidden="true"
+              data-fx="grow"
+              data-at="200"
+              data-for="1700"
+            />
+            <span class="branch-node" aria-hidden="true">
+              {i + 1}
+            </span>
+            <p class="branch-label">{step.label}</p>
+            <h3 data-focus>{step.title}</h3>
+            <p>{step.body}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="method-decision">{c.decision}</p>
+    </div>
+  </div>
+</section>

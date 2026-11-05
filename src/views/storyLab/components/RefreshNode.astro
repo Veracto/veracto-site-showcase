@@ -1,0 +1,46 @@
+---
+import type { RefreshNode } from '@/content/visualization-refresh.schema';
+type Props = { node: RefreshNode; compact?: boolean };
+const { node, compact = false } = Astro.props;
+const paths = {
+  source: ['M32 18h66v70H32Z', 'M44 34h42m-42 14h32m-32 14h40', 'M24 28v69h66'],
+  process: [
+    'M22 28h34v26H22Zm58 38h34v26H80Z',
+    'M56 41h41v25',
+    'M91 60l6 6 6-6',
+  ],
+  review: [
+    'M24 22h67v70H24Z',
+    'M37 38h35m-35 14h28m-28 14h35',
+    'M96 26v55m-7-8 7 8 7-8',
+  ],
+  manual: [
+    'M22 30q22-8 43 0 21-8 43 0v60q-23-7-43 0-21-7-43 0Z',
+    'M65 30v60',
+    'M33 44h20m-20 14h20m25-14h20m-20 14h20',
+  ],
+  ai: [
+    'M24 35h29v42H24Zm53 0h29v42H77Z',
+    'M53 46h24m-24 20h24',
+    'M58 52h14v8H58Z',
+  ],
+  stop: ['M38 20h52l18 18v52H38L20 72V38Z', 'M64 38v26', 'M64 77v1'],
+};
+---
+
+<article class:list={['refresh-node', { compact }]}>
+  <p class="refresh-label">{node.label}</p>
+  <div class="refresh-art" data-refresh-art aria-hidden="true">
+    <svg viewBox="0 0 130 110">
+      <path
+        class="refresh-wash"
+        d="M13 38Q29 2 77 10q44 9 42 48-7 39-55 44Q7 107 13 38Z"
+      />
+      {paths[node.icon].map((d) => (
+        <path class="refresh-ink" d={d} pathLength="1" />
+      ))}
+    </svg>
+  </div>
+  <h4>{node.title}</h4>
+  <p class="refresh-detail">{node.detail}</p>
+</article>

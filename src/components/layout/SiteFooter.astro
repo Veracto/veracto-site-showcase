@@ -1,0 +1,95 @@
+---
+import Container from '@/components/ui/Container.astro';
+import type { CallToAction } from '@/content/site.schema';
+
+type Props = {
+  brand: string;
+  tagline: string;
+  contactsLabel: string;
+  contacts: readonly CallToAction[];
+  copyright: string;
+  domain: string;
+};
+const { brand, tagline, contactsLabel, contacts, copyright, domain } =
+  Astro.props;
+---
+
+<footer class="site-footer">
+  <Container>
+    <div class="footer-primary">
+      <p class="brand">{brand}</p>
+      <address aria-label={contactsLabel}>
+        <!--email_off-->
+        {contacts.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
+        <!--/email_off-->
+      </address>
+    </div>
+    <div class="footer-meta">
+      <p>{tagline}</p>
+      <p>{copyright}</p>
+      <p>{domain}</p>
+    </div>
+  </Container>
+</footer>
+
+<style>
+  .site-footer {
+    --focus: var(--accent-soft);
+    background: var(--forest);
+    padding-block: 0.75rem;
+    color: var(--on-dark-muted);
+    font-size: var(--text-xs);
+  }
+  .footer-primary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+  }
+  .brand {
+    color: var(--paper);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.08em;
+    text-transform: lowercase;
+  }
+  address {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+    font-style: normal;
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    color: var(--paper);
+    font-size: 1rem;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+  .footer-meta {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1rem;
+    margin-top: 0.5rem;
+  }
+  .footer-meta p:first-child {
+    grid-column: 1 / -1;
+  }
+  @media (min-width: 48rem) {
+    .footer-meta {
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+    }
+    .footer-meta p:first-child {
+      grid-column: auto;
+    }
+  }
+</style>

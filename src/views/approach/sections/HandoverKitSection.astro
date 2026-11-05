@@ -1,0 +1,129 @@
+---
+import Container from '@/components/ui/Container.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import MotionRule from '@/components/ui/MotionRule.astro';
+import type { WorkingExample } from '@/content/examples.schema';
+
+type Props = { content: WorkingExample };
+const { content } = Astro.props;
+---
+
+<section
+  class="section handover-kit"
+  id="working-materials"
+  aria-labelledby="working-materials-title"
+  data-diagram="handover-kit"
+>
+  <Container>
+    <div class="introduction">
+      <SectionHeading
+        id="working-materials-title"
+        eyebrow={content.eyebrow}
+        title={content.title}
+        description={content.description}
+      />
+      <a href={content.next.href}>{content.next.label}</a>
+    </div>
+    <article aria-labelledby="working-document-title">
+      <header>
+        <p class="disclosure">{content.disclosure}</p>
+        <h3 id="working-document-title">{content.documentTitle}</h3>
+      </header>
+      <dl>
+        {content.fields.map((field, index) => (
+          <div class="sheet">
+            <span class="tab" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <dt>{field.label}</dt>
+            <dd>{field.value}</dd>
+            <MotionRule />
+          </div>
+        ))}
+      </dl>
+    </article>
+  </Container>
+</section>
+
+<style>
+  .handover-kit {
+    background: var(--sage);
+  }
+  .handover-kit :global(.container) {
+    display: grid;
+    gap: 3rem;
+  }
+  .introduction {
+    display: grid;
+    align-content: start;
+    gap: 2rem;
+    min-width: 0;
+  }
+  a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--forest);
+    width: fit-content;
+  }
+  article {
+    min-width: 0;
+    padding: clamp(1rem, 3vw, 2rem);
+    background: var(--paper);
+    border: 1px solid var(--forest);
+    border-radius: var(--radius-md);
+  }
+  header {
+    padding-bottom: 2rem;
+  }
+  .disclosure {
+    color: var(--muted);
+    font-size: var(--text-sm);
+    margin-bottom: 1rem;
+  }
+  dl {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .sheet {
+    position: relative;
+    min-width: 0;
+    padding: 1.25rem;
+    background: var(--document);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+  }
+  .tab {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 1rem;
+    background: var(--sage);
+    border-radius: 0.25rem 0.75rem 0.25rem 0.25rem;
+    font-size: var(--text-sm);
+  }
+  dt {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  dd {
+    margin: 0;
+    color: var(--muted);
+  }
+  .sheet :global(.motion-rule) {
+    inset: auto 1.25rem 0.75rem;
+  }
+  @media (min-width: 48rem) {
+    dl {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 68rem) {
+    .handover-kit {
+      --section-heading-size: clamp(1.85rem, 2.5vw, 2.75rem);
+    }
+    .handover-kit :global(.container) {
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      align-items: start;
+    }
+  }
+</style>

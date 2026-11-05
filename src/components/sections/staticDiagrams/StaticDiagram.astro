@@ -1,0 +1,96 @@
+---
+import BenefitCard from '@/components/ui/BenefitCard.astro';
+import Container from '@/components/ui/Container.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import StaticDiagramArtwork from '@/components/sections/staticDiagrams/StaticDiagramArtwork.astro';
+import type { StaticDiagramContent } from '@/content/static-diagrams.schema';
+type Props = { content: StaticDiagramContent };
+const { content } = Astro.props;
+---
+
+<section
+  id={content.id}
+  class:list={[
+    'static-diagram-section',
+    { showcase: content.artwork === 'workbench' },
+  ]}
+  aria-labelledby={`${content.id}-title`}
+>
+  <Container>
+    <SectionHeading
+      id={`${content.id}-title`}
+      eyebrow={content.eyebrow}
+      title={content.title}
+      description={content.description}
+    />
+    <StaticDiagramArtwork artwork={content.artwork} alt={content.alt} />
+    <ul class="diagram-captions">
+      {content.captions.map((caption) => (
+        <li>
+          <BenefitCard
+            title={caption.title}
+            description={caption.detail}
+            reference={caption.reference}
+          />
+        </li>
+      ))}
+    </ul>
+    {content.note && <p class="diagram-note">{content.note}</p>}
+    <slot />
+  </Container>
+</section>
+<style>
+  .static-diagram-section {
+    margin-block-start: 1rem;
+    padding-block: clamp(2rem, 5vw, 4rem);
+    scroll-margin-top: 6rem;
+  }
+  .diagram-captions {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 1.25rem;
+    margin-block: 0.75rem;
+  }
+  li {
+    min-width: 0;
+  }
+  .diagram-note {
+    color: var(--muted);
+  }
+  .diagram-note {
+    max-width: 60ch;
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+  }
+  .showcase {
+    background: var(--paper);
+  }
+  .showcase :global(.container) {
+    display: grid;
+    gap: 1rem;
+  }
+  .showcase .diagram-captions {
+    gap: 1.5rem;
+  }
+  .showcase li {
+    border-color: var(--line);
+  }
+  @media (min-width: 68rem) {
+    .showcase :global(.container) {
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 2rem;
+      align-items: center;
+    }
+    .showcase .diagram-captions,
+    .showcase .diagram-note {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (min-width: 48rem) {
+    .diagram-captions {
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      gap: 1rem;
+    }
+  }
+</style>

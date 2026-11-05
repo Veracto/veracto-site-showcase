@@ -1,0 +1,29 @@
+---
+import ApproachNavigation from '@/views/approach/sections/ApproachNavigation.astro';
+import SiteFrame from '@/components/layout/SiteFrame.astro';
+import StaticDiagram from '@/components/sections/staticDiagrams/StaticDiagram.astro';
+import { staticDiagrams as diagramsEn } from '@/content/en/static-diagrams';
+import { staticDiagrams as diagramsRu } from '@/content/en/static-diagrams';
+import ContentGridSection from '@/components/sections/ContentGridSection.astro';
+import PageCallToAction from '@/components/ui/PageCallToAction.astro';
+import PageIntroduction from '@/components/ui/PageIntroduction.astro';
+import type { ApproachPageDefinition } from '@/content/pages.schema';
+import type { SiteChrome } from '@/content/site.schema';
+
+type Props = { chrome: SiteChrome; page: ApproachPageDefinition };
+const { chrome, page } = Astro.props;
+const diagrams = chrome.locale === 'ru' ? diagramsRu : diagramsEn;
+---
+
+<SiteFrame chrome={chrome} currentPath={page.path}>
+  <PageIntroduction content={page.introduction} />
+  <ApproachNavigation content={page.navigation} />
+  <StaticDiagram content={diagrams.method} />
+  <ContentGridSection
+    content={page.principles}
+    id="evidence-rules"
+    tone="research"
+    columns={2}
+  />
+  <PageCallToAction content={page.callToAction} />
+</SiteFrame>

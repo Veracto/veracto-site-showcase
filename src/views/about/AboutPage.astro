@@ -1,0 +1,28 @@
+---
+import SiteFrame from '@/components/layout/SiteFrame.astro';
+import TeamSection from '@/components/sections/TeamSection.astro';
+import { teamPage as teamEn } from '@/content/en/team';
+import { teamPage as teamRu } from '@/content/en/team';
+import PageCallToAction from '@/components/ui/PageCallToAction.astro';
+import StatementSection from '@/components/sections/StatementSection.astro';
+import PageIntroduction from '@/components/ui/PageIntroduction.astro';
+import type { AboutPageDefinition } from '@/content/pages.schema';
+import type { SiteChrome } from '@/content/site.schema';
+
+type Props = { chrome: SiteChrome; page: AboutPageDefinition };
+const { chrome, page } = Astro.props;
+const team = chrome.locale === 'en' ? teamEn : teamRu;
+---
+
+<SiteFrame chrome={chrome} currentPath={page.path}>
+  <PageIntroduction content={page.introduction} />
+  <StatementSection content={page.reason} />
+  {team.groups.map((group) => (
+    <TeamSection
+      content={group}
+      controls={chrome.peopleNavigation}
+      specialisationLabel={chrome.peopleSpecialisationLabel}
+    />
+  ))}
+  <PageCallToAction id="contact" content={page.callToAction} />
+</SiteFrame>

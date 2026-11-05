@@ -1,0 +1,19 @@
+---
+type Props = { tone?: 'coral' | 'forest' };
+const { tone = 'coral' } = Astro.props;
+---
+
+<span class:list={['brand-symbol', tone]} aria-hidden="true"></span>
+
+<style>
+  .brand-symbol {
+    display: block;
+    width: 100%;
+    aspect-ratio: 420 / 340;
+    background: var(--coral);
+    mask: url('/brand-mark.svg') center / contain no-repeat;
+  }
+  .forest {
+    background: var(--forest);
+  }
+</style>

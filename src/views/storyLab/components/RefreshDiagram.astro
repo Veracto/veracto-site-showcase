@@ -1,0 +1,31 @@
+---
+import RefreshStory from '@/views/storyLab/components/RefreshStory.astro';
+import RefreshNode from '@/views/storyLab/components/RefreshNode.astro';
+import type {
+  RefreshCandidate,
+  RefreshPlayback,
+} from '@/content/visualization-refresh.schema';
+type Props = { candidate: RefreshCandidate; playback: RefreshPlayback };
+const { candidate: c, playback } = Astro.props;
+---
+
+<div
+  class:list={['refresh-diagram', `refresh-diagram--${c.id}`]}
+  data-refresh-diagram={c.id}
+>
+  <RefreshStory id={c.id} content={playback} />
+  <div class="refresh-nodes">
+    {c.nodes.map((node) => (
+      <RefreshNode node={node} compact={c.id === 'method'} />
+    ))}
+  </div>
+  <div class="refresh-bridge">
+    <p>{c.bridge}</p>
+    <ul>
+      {c.fields.map((field) => (
+        <li>{field}</li>
+      ))}
+    </ul>
+  </div>
+  <p class="refresh-note">{c.note}</p>
+</div>

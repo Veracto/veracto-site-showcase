@@ -1,0 +1,79 @@
+---
+import ButtonLink from '@/components/ui/ButtonLink.astro';
+import Container from '@/components/ui/Container.astro';
+import type { CallToAction, PageIntroduction } from '@/content/site.schema';
+
+type Props = { content: PageIntroduction & Partial<CallToAction> };
+const { content } = Astro.props;
+---
+
+<section class="statement section">
+  <Container>
+    <h2>{content.title}</h2>
+    <p class="description">{content.description}</p>
+    {content.href && content.label && (
+      <ButtonLink href={content.href} variant="secondary">
+        {content.label}
+      </ButtonLink>
+    )}
+  </Container>
+</section>
+
+<style>
+  .statement {
+    --focus: var(--accent-soft);
+    background: var(--forest);
+    border-radius: 3rem 3rem 0 0;
+    color: var(--on-authority);
+  }
+
+  .statement :global(.container) {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .eyebrow {
+    color: var(--brass-soft);
+  }
+
+  h2 {
+    max-width: 27ch;
+    color: var(--on-authority);
+    font-size: var(--text-section-prose);
+    line-height: var(--display-h2-leading);
+  }
+
+  .description {
+    max-width: 48rem;
+    color: var(--paper-muted);
+    font-size: var(--text-md);
+    line-height: 1.6;
+  }
+
+  :global(.button-link) {
+    width: max-content;
+    margin-top: 0.5rem;
+    border-color: color-mix(in srgb, var(--on-authority) 38%, transparent);
+    background: transparent;
+    color: var(--on-authority);
+  }
+
+  :global(.button-link:hover) {
+    background: var(--accent-soft);
+    color: var(--forest);
+  }
+  @media (min-width: 64rem) {
+    .statement :global(.container) {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      column-gap: 4rem;
+    }
+    .eyebrow {
+      grid-column: 1 / -1;
+    }
+    .description {
+      align-self: center;
+      border-left: 1px solid var(--control-line);
+      padding-left: 2rem;
+    }
+  }
+</style>

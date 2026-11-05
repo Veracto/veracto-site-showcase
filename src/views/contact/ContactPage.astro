@@ -1,0 +1,16 @@
+---
+import SiteFrame from '@/components/layout/SiteFrame.astro';
+import type { ContactPageDefinition } from '@/content/pages.schema';
+import type { SiteChrome } from '@/content/site.schema';
+import ContactDetailsSection from '@/views/contact/sections/ContactDetailsSection.astro';
+
+type Props = {
+  chrome: SiteChrome;
+  page: ContactPageDefinition;
+};
+const { chrome, page } = Astro.props;
+---
+
+<SiteFrame chrome={chrome} currentPath={page.path}>
+  <ContactDetailsSection content={page} />
+</SiteFrame>

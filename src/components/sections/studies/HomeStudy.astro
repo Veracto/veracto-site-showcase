@@ -1,0 +1,101 @@
+---
+import type { HomeStudy } from '@/content/lab-studies.schema';
+import '@/components/sections/studies/home-study.css';
+type Props = { content: HomeStudy; eyebrow?: string };
+const { content: c, eyebrow = c.eyebrow } = Astro.props;
+const silhouettes = [
+  'M20 20h245v126H20Z',
+  'M20 20h245v84q0 42-42 42H20Z',
+  'M62 20h203v126H20V62q0-42 42-42Z',
+  'M20 20h245v84q0 42-42 42H62q-42 0-42-42Z',
+];
+const icons = [
+  'M103 48h57v58h-57Zm12-9h57v58M112 66h30m-30 12h23',
+  'M90 59h91m-91 22h61m-61 22h80M193 51v58',
+  'M100 40h75v65h-75Zm12 18h43m-43 16h32M75 122h125M75 105v17m125-17v17',
+  'M93 51q28-9 49 0 22-9 49 0v63q-26-8-49 0-22-8-49 0Zm49 0v63',
+];
+const mobileHistory = [
+  '',
+  'M55 51h57m-57 9h39',
+  'M55 51h57m-57 9h39M55 82h140v28H55Z',
+  'M55 51h57m-57 9h39M55 82h140v28H55ZM207 75v42m-8-8 8 8 8-8',
+];
+const mobileAdditions = [
+  'M55 51h57m-57 9h39',
+  'M55 82h140v28H55Z',
+  'M207 75v42m-8-8 8 8 8-8',
+  'M55 122h175m-175 8h120',
+];
+---
+
+<section
+  class="study contour-study"
+  id="study-home"
+  data-study-speed="2.5"
+  aria-labelledby="home-study-title"
+>
+  <header class="study-heading">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2 id="home-study-title">{c.title}</h2>
+    <p>{c.intro}</p>
+  </header>
+  <ol class="contour-parts">
+    {c.parts.map((part, i) => (
+      <li data-study-step data-duration="3900">
+        <p class="part-label">{part.label}</p>
+        <h3 data-focus>{part.title}</h3>
+        <svg
+          class="study-motion contour-piece"
+          viewBox="0 0 285 170"
+          aria-hidden="true"
+        >
+          <g class="desktop-workpiece">
+            <path
+              class="piece-fill"
+              d={silhouettes[i]}
+              data-fx="assemble"
+              data-from={i % 2 ? '10,-8' : '-10,8'}
+              data-at="200"
+              data-for="1500"
+            />
+            <path
+              class="ink"
+              d={icons[i]}
+              pathLength="1"
+              data-fx="draw"
+              data-at="1900"
+              data-for="1500"
+            />
+          </g>
+          <g class="mobile-workpiece">
+            <path class="mobile-page" d="M32 23h221v122H32Z" />
+            <path class="mobile-history" d={mobileHistory[i]} />
+            <path
+              class="mobile-addition ink"
+              d={mobileAdditions[i]}
+              pathLength="1"
+              data-fx="draw"
+              data-at="500"
+              data-for="2400"
+            />
+          </g>
+        </svg>
+        <p class="part-body">{part.body}</p>
+      </li>
+    ))}
+  </ol>
+  <div class="contour-rule" data-study-step data-duration="2600">
+    <h3 data-focus>{c.change}</h3>
+    <p class="study-motion">
+      <span
+        class="rule-highlight"
+        data-fx="unfold"
+        data-at="700"
+        data-for="1400"
+        aria-hidden="true"
+      />
+      {c.rule}
+    </p>
+  </div>
+</section>

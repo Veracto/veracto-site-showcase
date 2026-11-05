@@ -1,0 +1,304 @@
+.refresh-page {
+  max-width: 76rem;
+  margin-inline: auto;
+  padding: 1.5rem 1.25rem 5rem;
+}
+.refresh-top,
+.refresh-comparison {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.refresh-top a,
+.refresh-comparison a {
+  color: var(--forest);
+  text-underline-offset: 0.25em;
+}
+.refresh-intro {
+  max-width: 58rem;
+  padding-block: 4rem 2rem;
+}
+.refresh-intro h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+.refresh-lead {
+  max-width: 48rem;
+  font-size: 1.15rem;
+  margin-block: 1.5rem;
+}
+.refresh-disclosure {
+  max-width: 45rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-left: 2px solid var(--muted);
+  padding-left: 1rem;
+}
+.refresh-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+  border-block: 1px solid var(--line);
+  padding-block: 1.25rem;
+}
+.refresh-index a {
+  font-size: 0.95rem;
+  color: var(--forest);
+}
+.refresh-candidate {
+  padding-block: 4rem;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 2rem;
+}
+.refresh-heading h2 {
+  max-width: 45rem;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+.refresh-assessment {
+  display: grid;
+  gap: 1rem;
+  margin-block: 1.5rem 2rem;
+}
+.refresh-assessment p {
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.refresh-assessment strong {
+  display: block;
+  color: var(--forest);
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+}
+.refresh-caption {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+.refresh-diagram {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1.75rem 1.75rem 0.5rem 1.75rem;
+  background: var(--sage);
+}
+.refresh-nodes {
+  display: grid;
+  gap: 1rem;
+}
+.refresh-node {
+  position: relative;
+  min-width: 0;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  background: var(--document);
+  border-radius: 1.25rem 1.25rem 0.35rem 1.25rem;
+}
+.refresh-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.refresh-art {
+  width: 8rem;
+  height: 6.75rem;
+  margin-block: 1rem;
+}
+.refresh-art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.refresh-wash {
+  fill: var(--sage);
+}
+.refresh-ink {
+  fill: none;
+  stroke: var(--forest);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.refresh-node h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+.refresh-detail {
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+}
+.refresh-bridge {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border-top: 1px solid var(--muted);
+}
+.refresh-bridge > p {
+  font-weight: 600;
+}
+.refresh-bridge ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  list-style: none;
+}
+.refresh-bridge li {
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--muted);
+  font-size: 0.9rem;
+}
+.refresh-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 0.5rem 1.25rem;
+}
+.refresh-comparison {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  justify-content: flex-start;
+}
+/* Each narrative keeps its own composition, rather than one generic pipeline. */
+.refresh-diagram--home {
+  background: var(--paper);
+}
+.refresh-diagram--home .refresh-node:first-child {
+  background: var(--canvas-soft);
+  border-radius: 2.5rem 1rem 1rem 1rem;
+}
+.refresh-diagram--home .refresh-node:last-child {
+  background: var(--accent-soft);
+  border-radius: 1rem 2.5rem 1rem 1rem;
+}
+.refresh-diagram--home .refresh-bridge li {
+  border: 1px solid var(--muted);
+  border-radius: 2rem;
+  padding: 0.35rem 0.8rem;
+}
+.refresh-diagram--research {
+  background: var(--canvas-soft);
+}
+.refresh-diagram--research .refresh-node {
+  box-shadow: 0.3rem 0.3rem 0 var(--document-shadow);
+  border-radius: 0.25rem 1.5rem 0.25rem 0.25rem;
+}
+.refresh-diagram--research .refresh-art {
+  width: 7rem;
+}
+.refresh-diagram--team .refresh-bridge {
+  background: var(--forest);
+  color: var(--paper);
+  border-radius: 0.35rem 1.5rem 0.35rem 1.5rem;
+}
+.refresh-diagram--team .refresh-bridge li {
+  border-color: var(--on-dark-muted);
+}
+.refresh-diagram--team .refresh-node:nth-child(2) .refresh-wash {
+  fill: var(--accent-soft);
+}
+.refresh-diagram--organisation {
+  background: var(--document);
+}
+.refresh-diagram--organisation .refresh-node {
+  border-radius: 0.5rem;
+  background: var(--paper);
+}
+.refresh-diagram--organisation .refresh-label {
+  border-bottom: 1px solid var(--muted);
+  padding-bottom: 0.7rem;
+}
+.refresh-diagram--organisation .refresh-bridge ul {
+  gap: 1rem;
+}
+.refresh-diagram--organisation .refresh-bridge li {
+  flex: 1 1 8rem;
+}
+.refresh-diagram--method {
+  background: var(--paper);
+}
+.refresh-diagram--method .refresh-node {
+  border-radius: 0.35rem 1.5rem 0.35rem 0.35rem;
+  border-top: 2px solid var(--forest);
+}
+.refresh-diagram--method .refresh-art {
+  width: 4rem;
+  height: 3.5rem;
+  margin-block: 0.7rem;
+}
+.refresh-diagram--method .refresh-node h4 {
+  font-size: 1.15rem;
+}
+.refresh-diagram--method .refresh-detail {
+  font-size: 0.9rem;
+}
+.refresh-diagram--handover .refresh-node:first-child {
+  border-radius: 2rem 2rem 0.5rem 0.5rem;
+}
+.refresh-diagram--handover .refresh-node:last-child {
+  border-color: var(--rust);
+}
+.refresh-diagram--handover .refresh-node:last-child .refresh-label {
+  color: var(--rust);
+}
+.refresh-diagram--handover .refresh-node:last-child .refresh-ink {
+  stroke: var(--rust);
+}
+@media (min-width: 48rem) {
+  .refresh-page {
+    padding-inline: 2.5rem;
+  }
+  .refresh-assessment {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .refresh-diagram {
+    padding: 1.5rem;
+  }
+  .refresh-nodes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .refresh-diagram--research .refresh-node:nth-child(2) {
+    margin-top: 2rem;
+  }
+  .refresh-diagram--handover .refresh-nodes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .refresh-diagram--handover .refresh-node:first-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    column-gap: 1.5rem;
+  }
+  .refresh-diagram--handover .refresh-node:first-child .refresh-art {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    margin-block: 0;
+  }
+  .refresh-diagram--handover .refresh-node:first-child > :not(.refresh-art) {
+    grid-column: 2;
+  }
+}
+.refresh-network {
+  width: 100%;
+  height: 5rem;
+  margin: 0 0 1.25rem;
+}
+.refresh-network .refresh-ink {
+  stroke-width: 2;
+}
+.refresh-point {
+  fill: var(--forest);
+}
+.refresh-diagram--home .refresh-node:last-child .refresh-label {
+  color: var(--forest);
+}

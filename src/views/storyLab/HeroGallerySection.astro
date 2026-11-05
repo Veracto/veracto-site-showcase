@@ -1,0 +1,95 @@
+---
+import type { HeroGalleryCopy, HeroRoute } from '@/content/hero-gallery.schema';
+type Props = { locale: 'en' | 'ru'; content: HeroGalleryCopy };
+const { locale, content } = Astro.props;
+const routes: HeroRoute[] = ['home', 'researchers', 'teams', 'organisations'];
+const prefix = locale === 'ru' ? '/ru' : '';
+---
+
+{routes.map((id) => (
+  <section
+    id={`hero-${id}`}
+    aria-labelledby={`title-${id}`}
+    data-hero-group={id}
+  >
+    <h2 id={`title-${id}`}>{content.groups[id].label}</h2>
+    <div class="candidate-grid">
+      {content.groups[id].variants.map((candidate, index) => (
+        <a
+          class="candidate-card"
+          data-hero-card={`${id}-${index + 1}`}
+          href={`${prefix}/visual-lab/heroes/${id}-${index + 1}/`}
+        >
+          <span class="number">0{index + 1} ↗</span>
+          <h3>{candidate.title}</h3>
+          <p>{candidate.name}</p>
+          <span class="open">{content.open} →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+))}
+<style>
+  section {
+    margin-block: 2rem 3rem;
+    scroll-margin-top: 1rem;
+  }
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+  .candidate-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  .candidate-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f5f0e3;
+    border: 1px solid var(--line);
+    border-radius: 1.5rem;
+    text-decoration: none;
+  }
+  .candidate-card:nth-child(2) {
+    background: #e7ecd8;
+  }
+  .candidate-card:nth-child(3) {
+    background: #103c2d;
+    color: #f5f0e3;
+  }
+  .number {
+    font-size: 1.25rem;
+  }
+  h3 {
+    color: inherit;
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    line-height: 1.2;
+  }
+  .open {
+    transition: opacity var(--motion-feedback) var(--motion-ease);
+    margin-top: auto;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+  .candidate-card:hover .open {
+    opacity: 0.75;
+  }
+  @media (min-width: 48rem) {
+    .candidate-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>
+
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    .open {
+      transition: none;
+    }
+  }
+  :global(:root[data-motion-disabled='true']) .open {
+    transition: none;
+  }
+</style>

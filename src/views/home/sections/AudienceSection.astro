@@ -1,0 +1,123 @@
+---
+import { Image } from 'astro:assets';
+import organisations from '@/assets/design-lab/organisation-decision.png';
+import researchers from '@/assets/consulting/research-sources-20261007.png';
+import teams from '@/assets/design-lab/team-protocol.png';
+import ButtonLink from '@/components/ui/ButtonLink.astro';
+import Container from '@/components/ui/Container.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import type { HomePageDefinition } from '@/content/pages.schema';
+
+type Props = { content: HomePageDefinition['audiences'] };
+const { content } = Astro.props;
+const artwork = {
+  organisation: organisations,
+  research: researchers,
+  'research-team': teams,
+};
+---
+
+<section
+  class="audiences section"
+  id="routes"
+  aria-labelledby="audiences-title"
+>
+  <Container>
+    <SectionHeading
+      id="audiences-title"
+      eyebrow={content.eyebrow}
+      title={content.title}
+      description={content.description}
+    />
+    <div class="audience-grid">
+      {content.items.map((item) => (
+        <article class={item.tone}>
+          <div class="route-artwork">
+            <Image
+              src={artwork[item.tone]}
+              widths={[384, 768, 1152]}
+              sizes="(min-width: 68rem) 28vw, (min-width: 48rem) 40vw, 90vw"
+              format="webp"
+              quality={95}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+          <ButtonLink href={item.href} variant="text">
+            {item.label}
+          </ButtonLink>
+        </article>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .audiences {
+    scroll-margin-top: 6rem;
+    background: var(--canvas);
+  }
+
+  .audiences :global(.container),
+  .audience-grid,
+  article {
+    grid-template-columns: minmax(0, 1fr);
+    display: grid;
+  }
+
+  .audiences :global(.container) {
+    gap: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .audience-grid {
+    gap: 2.5rem;
+  }
+
+  article {
+    min-height: 0;
+    grid-template-rows: auto auto auto auto;
+    gap: 1.25rem;
+    border: 0;
+    padding: 0;
+  }
+
+  .route-artwork {
+    background: var(--paper);
+    border-radius: 1.5rem;
+    overflow: hidden;
+  }
+  .route-artwork img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.5;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+
+  h3 {
+    max-width: 22ch;
+    font-size: 1.35rem;
+    line-height: 1.25;
+  }
+
+  p {
+    max-width: 34rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  :global(.button-link) {
+    align-self: end;
+    margin-top: auto;
+  }
+
+  @media (min-width: 48rem) {
+    .audience-grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    }
+  }
+</style>

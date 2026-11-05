@@ -1,0 +1,39 @@
+---
+import Container from '@/components/ui/Container.astro';
+import type { ApproachPageDefinition } from '@/content/pages.schema';
+type Props = { content: ApproachPageDefinition['navigation'] };
+const { content } = Astro.props;
+---
+
+<Container>
+  <nav class="approach-index" aria-label={content.label}>
+    <p class="eyebrow">{content.label}</p>
+    <ul>
+      {content.items.map((item) => (
+        <li>
+          <a href={item.href}>{item.label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</Container>
+
+<style>
+  .approach-index {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    list-style: none;
+    padding: 0;
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    color: var(--forest);
+  }
+</style>

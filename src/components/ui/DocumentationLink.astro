@@ -1,0 +1,49 @@
+---
+type Props = { href: string };
+const { href } = Astro.props;
+---
+
+<a class="documentation-link" href={href}>
+  <span>
+    <slot />
+  </span>
+  <span class="direction" aria-hidden="true">
+    ↗
+  </span>
+</a>
+
+<style>
+  .documentation-link {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 2.75rem;
+    margin-top: 0.5rem;
+    padding-block: 0.5rem;
+    color: var(--reference-ink, var(--forest));
+    font-size: var(--text-sm);
+    font-weight: 600;
+    line-height: 1.5;
+    text-decoration: none;
+  }
+  .documentation-link:visited {
+    color: var(--reference-ink, var(--forest));
+  }
+  .documentation-link > span:first-child {
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+  }
+  .direction {
+    flex-shrink: 0;
+  }
+  .documentation-link:hover {
+    color: var(--reference-hover, var(--forest));
+  }
+  .documentation-link:hover > span:first-child {
+    text-decoration-color: currentColor;
+  }
+</style>

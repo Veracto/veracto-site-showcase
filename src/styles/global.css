@@ -1,0 +1,190 @@
+@import './tokens.css';
+
+html {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  transition:
+    background-color var(--motion-feedback) var(--motion-ease),
+    color var(--motion-feedback) var(--motion-ease);
+}
+
+body {
+  overflow-wrap: anywhere;
+  background: var(--canvas);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+body.public-site {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+main {
+  isolation: isolate;
+}
+
+::selection {
+  background: var(--mist);
+  color: var(--navy-deep);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 0.3125rem;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--navy-deep);
+  font-family: var(--font-display);
+  hyphens: none;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+h1 {
+  font-weight: 700;
+  line-height: var(--display-h1-leading);
+  letter-spacing: var(--display-h1-tracking);
+}
+
+h2 {
+  font-weight: 600;
+  line-height: var(--display-h2-leading);
+  letter-spacing: var(--display-h2-tracking);
+}
+
+h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 1rem;
+  left: 1rem;
+  transform: translateY(-180%);
+  border-radius: 100vmax;
+  background: var(--navy-deep);
+  padding: 0.75rem 1rem;
+  color: var(--paper);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.section {
+  padding-block: clamp(2.5rem, 5vw, 5rem);
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.18em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    transition: none;
+  }
+}
+
+section {
+  position: relative;
+}
+
+@media (min-width: 48rem) {
+  section[id] {
+    scroll-margin-block-start: 12rem;
+  }
+}
+
+@media (min-width: 70rem) {
+  section[id] {
+    scroll-margin-block-start: 7rem;
+  }
+}
+
+.eyebrow {
+  color: var(--ink-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  text-transform: none;
+}
+
+/* Larger type and proportional spacing on wide screens; mobile starts at 1rem. */
+@media (min-width: 64rem) {
+  body.public-site {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  html {
+    font-size: clamp(1rem, calc(0.5rem + 0.833333vw), 1.25rem);
+  }
+}
+
+/* One feedback contract for links, buttons and native disclosures. */
+:where(a, button, summary) {
+  transition-property:
+    background-color, color, text-decoration-color, border-color, box-shadow,
+    transform, border-radius;
+  transition-duration: var(--motion-feedback);
+  transition-timing-function: var(--motion-ease);
+}
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(a, button, summary),
+  :root .site-header .nav-group summary::after {
+    transition: none;
+  }
+}
+:root[data-motion-disabled='true'] :where(a, button, summary),
+:root[data-motion-disabled='true'] .site-header summary::after {
+  transition: none;
+}
+
+/* The early head script releases this only after all used weights load. */
+.fonts-loading body {
+  opacity: 0;
+  animation: none;
+  pointer-events: none;
+}
+
+.fonts-loading .site-header .nav-group summary::after {
+  transition: none;
+}
+
+/* Navigation destinations receive focus without framing an entire section. */
+:where(section, main)[tabindex='-1']:focus-visible {
+  outline: none;
+}
+section[tabindex='-1']:focus :is(h1, h2):first-of-type,
+main[tabindex='-1']:focus > section:first-child h1 {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .menu-icon::before,
+  .site-header .menu-icon::after {
+    transition: none;
+  }
+}
+:root[data-motion-disabled='true'] .site-header .menu-icon::before,
+:root[data-motion-disabled='true'] .site-header .menu-icon::after {
+  transition: none;
+}

@@ -1,0 +1,30 @@
+---
+import RefreshGallerySection from '@/views/storyLab/sections/RefreshGallerySection.astro';
+import type { VisualizationRefresh } from '@/content/visualization-refresh.schema';
+type Props = { content: VisualizationRefresh; locale: 'en' | 'ru' };
+const { content: c, locale } = Astro.props;
+---
+
+<main class="refresh-page">
+  <nav class="refresh-top" aria-label={c.title}>
+    <a href={`${locale === 'ru' ? '/ru' : ''}/visual-lab/`}>← {c.back}</a>
+    <a
+      href={`${locale === 'en' ? '/ru' : ''}/visual-lab/refresh/`}
+      lang={locale === 'en' ? 'ru' : 'en'}
+    >
+      {c.language}
+    </a>
+  </nav>
+  <header class="refresh-intro">
+    <p class="eyebrow">{c.status}</p>
+    <h1>{c.title}</h1>
+    <p class="refresh-lead">{c.intro}</p>
+    <p class="refresh-disclosure">{c.disclosure}</p>
+  </header>
+  <nav class="refresh-index" aria-label={c.candidate}>
+    {c.candidates.map((candidate) => (
+      <a href={`#refresh-${candidate.id}`}>{candidate.name}</a>
+    ))}
+  </nav>
+  <RefreshGallerySection content={c} locale={locale} />
+</main>

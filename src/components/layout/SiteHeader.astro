@@ -1,0 +1,87 @@
+---
+import Container from '@/components/ui/Container.astro';
+import SiteControls from '@/components/layout/SiteControls.astro';
+import BrandMark from '@/components/ui/BrandMark.astro';
+import type { SiteChrome } from '@/content/site.schema';
+import '@/styles/components/site-header.css';
+import '@/styles/components/site-header-forest.css';
+type Props = {
+  chrome: SiteChrome;
+  currentPath: string;
+  alternatePath: string;
+  tone?: 'paper' | 'forest' | undefined;
+};
+const { chrome, currentPath, alternatePath, tone = 'paper' } = Astro.props;
+---
+
+<header
+  class:list={['site-header', tone === 'forest' && 'site-header--forest']}
+>
+  <Container>
+    <div class="bar">
+      <a
+        class="brand"
+        href={chrome.locale === 'en' ? '/' : '/ru/'}
+        aria-label={chrome.homeLabel}
+      >
+        <span class="brand-mark">
+          <BrandMark />
+        </span>
+        <span class="brand-copy">
+          <span>{chrome.brand}</span>
+          <small>{chrome.endorsement}</small>
+        </span>
+      </a>
+      <SiteControls chrome={chrome} alternatePath={alternatePath} />
+      <details class="primary-menu">
+        <summary aria-label={chrome.menuLabel}>
+          <span>{chrome.menuText}</span>
+          <span class="menu-icon" aria-hidden="true"></span>
+        </summary>
+        <nav aria-label={chrome.navigationLabel}>
+          <ul>
+            {chrome.navigation.map((item) =>
+              'items' in item ? (
+                <li class="nav-group">
+                  <details open>
+                    <summary>{item.label}</summary>
+                    <ul>
+                      {item.items.map((child) => (
+                        <li>
+                          <a
+                            href={child.href}
+                            aria-current={
+                              child.href === currentPath ? 'page' : undefined
+                            }
+                          >
+                            {child.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                </li>
+              ) : (
+                <li>
+                  <a
+                    href={item.href}
+                    aria-current={
+                      item.href === currentPath ? 'page' : undefined
+                    }
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ),
+            )}
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </Container>
+</header>
+
+<script>
+  import { initialiseSiteNavigation } from '@/scripts/site-navigation';
+  initialiseSiteNavigation();
+</script>

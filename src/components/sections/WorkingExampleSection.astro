@@ -1,0 +1,104 @@
+---
+import Container from '@/components/ui/Container.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import type { WorkingExample } from '@/content/examples.schema';
+
+type Props = { content: WorkingExample };
+const { content } = Astro.props;
+---
+
+<section
+  class="section working-example"
+  id="working-materials"
+  aria-labelledby="working-materials-title"
+>
+  <Container>
+    <div class="introduction">
+      <SectionHeading
+        id="working-materials-title"
+        eyebrow={content.eyebrow}
+        title={content.title}
+        description={content.description}
+      />
+      <a href={content.next.href}>{content.next.label}</a>
+    </div>
+    <article class="document" aria-labelledby="working-document-title">
+      <p class="disclosure">{content.disclosure}</p>
+      <h3 id="working-document-title">{content.documentTitle}</h3>
+      <dl>
+        {content.fields.map((field) => (
+          <div>
+            <dt>{field.label}</dt>
+            <dd>{field.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </article>
+  </Container>
+</section>
+
+<style>
+  .working-example {
+    background: var(--sage);
+  }
+  .working-example :global(.container) {
+    display: grid;
+    gap: 2.5rem;
+  }
+  .introduction {
+    display: grid;
+    align-content: start;
+    gap: 2rem;
+    min-width: 0;
+  }
+  a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--forest);
+    text-underline-offset: 0.25em;
+    width: fit-content;
+  }
+  .document {
+    min-width: 0;
+    background: var(--document);
+    border: 1px solid var(--line-strong);
+    border-radius: 1.5rem 1.5rem 0.35rem 1.5rem;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    box-shadow: 0.25rem 0.25rem 0 var(--document-shadow);
+  }
+  .disclosure {
+    color: var(--ink-muted);
+    font-size: var(--text-sm);
+    margin-bottom: 1.5rem;
+  }
+  h3 {
+    margin-bottom: 1.5rem;
+  }
+  dl {
+    display: grid;
+    gap: 1.25rem;
+  }
+  dl > div {
+    border-top: 1px solid var(--line);
+    padding-top: 1.25rem;
+  }
+  dt {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  dd {
+    margin: 0;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+  @media (min-width: 68rem) {
+    .working-example {
+      --section-heading-size: clamp(1.85rem, 2.5vw, 2.75rem);
+    }
+    .working-example :global(.container) {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      align-items: start;
+    }
+  }
+</style>

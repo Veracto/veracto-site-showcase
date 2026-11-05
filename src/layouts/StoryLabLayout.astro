@@ -1,0 +1,38 @@
+---
+import FontAssets from '@/components/layout/FontAssets.astro';
+import '@/styles/reset.css';
+import '@/styles/global.css';
+import '@/styles/page-transitions.css';
+type Props = { lang: string; title: string };
+const { lang, title } = Astro.props;
+const siteVersion = import.meta.env.PUBLIC_SITE_VERSION ?? 'local';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <FontAssets lang={lang} />
+    <meta name="site-version" content={siteVersion} />
+    <meta name="robots" content="noindex,nofollow" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg?v=veracto-coral-v2"
+    />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<script>
+  import { initialiseAnchorNavigation } from '@/scripts/anchor-navigation';
+  initialiseAnchorNavigation();
+  import { initialisePageTransitions } from '@/scripts/page-transitions';
+  initialisePageTransitions();
+</script>

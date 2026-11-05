@@ -1,0 +1,55 @@
+---
+import SiteFooter from '@/components/layout/SiteFooter.astro';
+import SiteHeader from '@/components/layout/SiteHeader.astro';
+import type { SiteChrome } from '@/content/site.schema';
+
+type Props = {
+  chrome: SiteChrome;
+  currentPath: string;
+  heroLayout?: 'viewport';
+  headerTone?: 'paper' | 'forest';
+};
+const { chrome, currentPath, heroLayout, headerTone } = Astro.props;
+const alternatePath =
+  chrome.locale === 'en'
+    ? `/ru${currentPath === '/' ? '/' : currentPath}`
+    : currentPath.replace(/^\/ru/, '') || '/';
+---
+
+<div
+  class:list={[
+    'header-frame',
+    heroLayout === 'viewport' && 'header-frame--cover',
+  ]}
+>
+  <SiteHeader
+    tone={headerTone}
+    chrome={chrome}
+    currentPath={currentPath}
+    alternatePath={alternatePath}
+  />
+</div>
+<main id="main-content">
+  <slot />
+</main>
+<SiteFooter
+  brand={chrome.brand}
+  tagline={chrome.footerTagline}
+  contactsLabel={chrome.footerContactsLabel}
+  contacts={chrome.footerContacts}
+  copyright={chrome.copyright}
+  domain={chrome.domain}
+/>
+
+<style>
+  .header-frame {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .header-frame--cover {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 20;
+  }
+</style>

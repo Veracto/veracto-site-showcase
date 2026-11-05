@@ -1,0 +1,67 @@
+---
+import Container from '@/components/ui/Container.astro';
+import EditorialCard from '@/components/ui/EditorialCard.astro';
+import type { NumberedItem } from '@/content/site.schema';
+
+type Props = { label: string; sections: readonly NumberedItem[] };
+const { label, sections } = Astro.props;
+---
+
+<section class="privacy section" aria-label={label}>
+  <!--email_off-->
+  <Container>
+    {sections.map((item) => (
+      <EditorialCard>
+        <span>{item.number}</span>
+        <h2>{item.title}</h2>
+        <p>{item.description}</p>
+      </EditorialCard>
+    ))}
+  </Container>
+  <!--/email_off-->
+</section>
+
+<style>
+  .privacy {
+    background: var(--canvas);
+  }
+
+  .privacy :global(.container),
+  .privacy :global(.card) {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  span {
+    color: var(--ink-muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+  }
+
+  h2 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    font-size: var(--text-lg);
+    line-height: 1.25;
+  }
+
+  p {
+    max-width: 65ch;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  @media (min-width: 48rem) {
+    .privacy :global(.container) {
+      max-width: 44rem;
+    }
+  }
+  .privacy :global(.card) {
+    border: 0;
+    border-top: 1px solid var(--line-strong);
+    border-radius: 0;
+    padding-inline: 0;
+    padding-block: 2rem;
+  }
+</style>

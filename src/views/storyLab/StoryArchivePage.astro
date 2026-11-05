@@ -1,0 +1,50 @@
+---
+import NarrativeStory from '@/components/sections/NarrativeStory.astro';
+import type {
+  StoryContent,
+  StoryId,
+  StoryLabels,
+} from '@/content/stories.schema';
+import '@/views/storyLab/lab-shell.css';
+type Props = {
+  locale: 'en' | 'ru';
+  stories: Record<StoryId, StoryContent>;
+  labels: StoryLabels;
+  copy: {
+    title: string;
+    archiveTitle: string;
+    archiveIntro: string;
+    archiveLanguageHref: string;
+    language: string;
+    backToCurrent: string;
+  };
+};
+const { locale, stories, labels, copy } = Astro.props;
+---
+
+<main class="cinema">
+  <div class="cinema-top">
+    <a href={locale === 'ru' ? '/ru/visual-lab/' : '/visual-lab/'}>
+      veracto / narrative laboratory
+    </a>
+    <a href={copy.archiveLanguageHref} lang={locale === 'en' ? 'ru' : 'en'}>
+      {copy.language}
+    </a>
+  </div>
+  <p class="eyebrow">ORGANIC INTELLIGENCE / NARRATIVE MOTION</p>
+  <h1>{copy.archiveTitle}</h1>
+  <p class="intro-copy">{copy.archiveIntro}</p>
+  <nav aria-label={copy.archiveTitle}>
+    {Object.values(stories).map((story) => (
+      <a href={`#story-${story.id}`}>{story.placement}</a>
+    ))}
+  </nav>
+  {Object.values(stories).map((story) => (
+    <NarrativeStory content={story} labels={labels} />
+  ))}
+  <footer>
+    <a href={locale === 'ru' ? '/ru/visual-lab/' : '/visual-lab/'}>
+      {copy.backToCurrent}
+    </a>
+  </footer>
+</main>

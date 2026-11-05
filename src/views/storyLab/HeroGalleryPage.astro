@@ -1,0 +1,29 @@
+---
+import HeroGallerySection from '@/views/storyLab/HeroGallerySection.astro';
+import type { HeroGalleryCopy } from '@/content/hero-gallery.schema';
+import '@/views/storyLab/lab-shell.css';
+type Props = { locale: 'en' | 'ru'; content: HeroGalleryCopy };
+const { locale, content } = Astro.props;
+---
+
+<main class="cinema">
+  <div class="cinema-top">
+    <a href={locale === 'ru' ? '/ru/visual-lab/' : '/visual-lab/'}>
+      {content.back}
+    </a>
+    <a
+      href={locale === 'ru' ? '/visual-lab/heroes/' : '/ru/visual-lab/heroes/'}
+      lang={locale === 'ru' ? 'en' : 'ru'}
+    >
+      {content.language}
+    </a>
+  </div>
+  <h1>{content.title}</h1>
+  <p class="intro-copy">{content.intro}</p>
+  <nav class="lab-index" aria-label={content.title}>
+    {Object.entries(content.groups).map(([id, group]) => (
+      <a href={`#hero-${id}`}>{group.label} · 3</a>
+    ))}
+  </nav>
+  <HeroGallerySection content={content} locale={locale} />
+</main>

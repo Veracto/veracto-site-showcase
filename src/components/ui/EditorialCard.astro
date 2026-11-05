@@ -1,0 +1,53 @@
+---
+type Props = {
+  id?: string;
+  variant?: 'paper' | 'soft' | 'navy' | 'accent';
+  class?: string;
+};
+
+const { id, variant = 'paper', class: className } = Astro.props;
+---
+
+<article id={id} class:list={['card', `card--${variant}`, className]}>
+  <slot />
+</article>
+
+<style>
+  .card {
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    padding: 1.7rem;
+  }
+
+  .card--paper {
+    background: var(--paper);
+  }
+
+  .card--soft {
+    background: var(--paper-deep);
+  }
+
+  .card--navy {
+    --focus: var(--accent-soft);
+    border-color: color-mix(in srgb, var(--on-authority) 20%, transparent);
+    background: var(--authority-field);
+    color: var(--on-authority);
+  }
+
+  .card--navy :global(h2),
+  .card--navy :global(h3),
+  .card--navy :global(h4) {
+    color: var(--on-authority);
+  }
+
+  .card--navy :global(p) {
+    color: var(--paper-muted);
+  }
+
+  .card--accent {
+    border-color: color-mix(in srgb, var(--brass) 55%, transparent);
+    background: var(--sage);
+  }
+</style>

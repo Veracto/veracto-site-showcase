@@ -1,0 +1,10 @@
+.astro/
+.gstack/
+dist/
+node_modules/
+coverage/
+playwright-report/
+test-results/
+.playwright-cli/
+output/
+package-lock.json

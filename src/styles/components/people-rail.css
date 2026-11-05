@@ -1,0 +1,59 @@
+.people-rail {
+  min-width: 0;
+}
+.people-track {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  gap: 2.5rem;
+}
+@media (min-width: 48rem) {
+  .people-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+@media (min-width: 70rem) {
+  .people-track {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .people-track:has(> .person:nth-child(4):last-child) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.people-track .person[hidden],
+.people-toggle[hidden] {
+  display: none;
+}
+.people-directory {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
+.people-toggle {
+  margin-top: 1.5rem;
+  padding: 1rem 1.4rem;
+  min-height: 2.75rem;
+  border: 1px solid var(--forest);
+  border-radius: 999rem;
+  background: var(--forest);
+  color: var(--paper);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+.people-toggle:hover {
+  background: var(--paper);
+  color: var(--forest);
+}
+@media (min-width: 48rem) {
+  .people-directory {
+    display: none;
+  }
+}

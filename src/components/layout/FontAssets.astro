@@ -1,0 +1,25 @@
+---
+import latin400 from '@fontsource/manrope/files/manrope-latin-400-normal.woff2?url';
+import latin500 from '@fontsource/manrope/files/manrope-latin-500-normal.woff2?url';
+import latin600 from '@fontsource/manrope/files/manrope-latin-600-normal.woff2?url';
+import latin700 from '@fontsource/manrope/files/manrope-latin-700-normal.woff2?url';
+import cyrillic400 from '@fontsource/manrope/files/manrope-cyrillic-400-normal.woff2?url';
+import cyrillic500 from '@fontsource/manrope/files/manrope-cyrillic-500-normal.woff2?url';
+import cyrillic600 from '@fontsource/manrope/files/manrope-cyrillic-600-normal.woff2?url';
+import cyrillic700 from '@fontsource/manrope/files/manrope-cyrillic-700-normal.woff2?url';
+import '@/styles/fonts.css';
+import readinessScript from '@/scripts/font-readiness.js?url&no-inline';
+type Props = { lang: string };
+const { lang } = Astro.props;
+const latin = [latin400, latin500, latin600, latin700];
+const fonts =
+  lang === 'ru'
+    ? [...latin, cyrillic400, cyrillic500, cyrillic600, cyrillic700]
+    : latin;
+---
+
+{fonts.map((href) => (
+  <link rel="preload" href={href} as="font" type="font/woff2" crossorigin />
+))}
+
+<script is:inline src={readinessScript}></script>

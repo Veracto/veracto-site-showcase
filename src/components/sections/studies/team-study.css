@@ -1,0 +1,161 @@
+.handoff-roles {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+.handoff-role {
+  min-width: 0;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+  position: relative;
+}
+.handoff-role:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  height: 1.25rem;
+  border-left: 1px solid var(--forest);
+}
+.role-name {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+.role-dot {
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid var(--forest);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.handoff-role:nth-child(2) {
+  color: var(--rust);
+}
+.handoff-role:nth-child(2) h3 {
+  color: var(--rust);
+}
+.handoff-track {
+  width: 100%;
+  height: 6rem;
+  margin: 0.65rem 0;
+}
+.route-ink,
+.packet {
+  display: none;
+}
+.mobile-route-ink {
+  color: var(--forest);
+}
+.handoff-role:nth-child(2) .mobile-route-ink {
+  color: var(--rust);
+}
+.mobile-packet {
+  fill: var(--document);
+  stroke: var(--forest);
+  stroke-width: 2;
+}
+.handoff-role:nth-child(2) .mobile-packet {
+  stroke: var(--rust);
+}
+.artifact-page,
+.artifact-ghost,
+.return-slip {
+  fill: var(--document);
+  stroke: var(--forest);
+  stroke-width: 1.5;
+}
+.artifact-page {
+  transform-origin: left center;
+}
+.artifact-ghost {
+  fill: transparent;
+  stroke: var(--line);
+  stroke-dasharray: 4 6;
+}
+.return-slip {
+  fill: var(--paper);
+  stroke: var(--rust);
+}
+.study .source-gap,
+.study .return-mark {
+  stroke: var(--rust);
+}
+.study .source-gap {
+  stroke-dasharray: 0.08 0.05;
+}
+.study .source-added {
+  stroke: var(--forest);
+  stroke-width: 3;
+}
+.limit-tab {
+  fill: var(--lime);
+  stroke: var(--forest);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.packet path:first-child {
+  fill: var(--document);
+}
+.packet {
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+.exchange-label {
+  font-size: 0.875rem;
+  margin-bottom: 0.8rem;
+}
+.role-note {
+  color: var(--muted);
+}
+.team-protocol {
+  background: var(--sage);
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border-radius: 2rem 0.4rem 2rem 0.4rem;
+  margin-top: 2rem;
+}
+.protocol-fields {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+.protocol-fields li {
+  position: relative;
+  padding: 0.65rem 0.85rem;
+}
+.field-outline {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--forest);
+  border-radius: 0.2rem;
+  pointer-events: none;
+}
+@container (min-width: 48rem) {
+  .handoff-roles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .handoff-role h3 {
+    min-height: 4rem;
+  }
+  .handoff-role:not(:last-child)::after,
+  .study .mobile-handoff-direction {
+    display: none;
+  }
+  .route-ink,
+  .packet {
+    display: block;
+  }
+  .handoff-track {
+    height: 10rem;
+  }
+}

@@ -1,0 +1,37 @@
+---
+import SiteFrame from '@/components/layout/SiteFrame.astro';
+import PageCallToAction from '@/components/ui/PageCallToAction.astro';
+import type { HomePageDefinition } from '@/content/pages.schema';
+import type { SiteChrome } from '@/content/site.schema';
+import { teamPage as enTeam } from '@/content/en/team';
+import { teamPage as ruTeam } from '@/content/en/team';
+import AudienceSection from '@/views/home/sections/AudienceSection.astro';
+import IllustratedHero from '@/components/sections/IllustratedHero.astro';
+import TrustSection from '@/views/home/sections/TrustSection.astro';
+import MarketEvidenceSection from '@/components/sections/MarketEvidenceSection.astro';
+import { workflowEvidence as evidenceEn } from '@/content/en/market-evidence';
+import { workflowEvidence as evidenceRu } from '@/content/en/market-evidence';
+
+type Props = { chrome: SiteChrome; page: HomePageDefinition };
+const { chrome, page } = Astro.props;
+const team = chrome.locale === 'en' ? enTeam : ruTeam;
+---
+
+<SiteFrame
+  heroLayout="viewport"
+  chrome={chrome}
+  currentPath={chrome.locale === 'en' ? '/' : '/ru/'}
+>
+  <IllustratedHero
+    content={page.hero}
+    route="home"
+    primaryCta={page.hero.primaryCta}
+    secondaryCta={page.hero.secondaryCta}
+  />
+  <AudienceSection content={page.audiences} />
+  <MarketEvidenceSection
+    content={chrome.locale === 'ru' ? evidenceRu : evidenceEn}
+  />
+  <TrustSection content={page.trust} founders={team.groups[0].items} />
+  <PageCallToAction id="contact" content={page.callToAction} />
+</SiteFrame>

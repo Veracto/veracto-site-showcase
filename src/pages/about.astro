@@ -1,0 +1,16 @@
+---
+import { aboutPage } from '@/content/en/about';
+import { chrome, locale } from '@/content/en/site';
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import AboutPage from '@/views/about/AboutPage.astro';
+---
+
+<SiteLayout
+  title={aboutPage.meta.title}
+  description={aboutPage.meta.description}
+  siteName={chrome.brand}
+  lang={locale}
+  skipLinkLabel={chrome.skipLinkLabel}
+>
+  <AboutPage chrome={chrome} page={aboutPage} />
+</SiteLayout>

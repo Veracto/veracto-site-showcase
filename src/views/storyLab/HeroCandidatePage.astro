@@ -1,0 +1,50 @@
+---
+import HeroCandidate from '@/views/storyLab/HeroCandidate.astro';
+import type { HeroGalleryCopy, HeroRoute } from '@/content/hero-gallery.schema';
+import '@/views/storyLab/lab-shell.css';
+type Props = {
+  locale: 'en' | 'ru';
+  content: HeroGalleryCopy;
+  route: HeroRoute;
+  index: number;
+};
+const { locale, content, route, index } = Astro.props;
+const prefix = locale === 'ru' ? '/ru' : '';
+const group = content.groups[route];
+const candidate = group.variants[index]!;
+---
+
+<main class="cinema">
+  <div class="cinema-top">
+    <a href={`${prefix}/visual-lab/heroes/#hero-${route}`}>
+      ← {content.catalogue}
+    </a>
+    <a
+      href={`${locale === 'ru' ? '' : '/ru'}/visual-lab/heroes/${route}-${index + 1}/`}
+      lang={locale === 'ru' ? 'en' : 'ru'}
+    >
+      {content.language}
+    </a>
+  </div>
+  <h1>{group.label}</h1>
+  <nav class="lab-index" aria-label={content.compare}>
+    {group.variants.map((variant, i) => (
+      <a
+        href={`${prefix}/visual-lab/heroes/${route}-${i + 1}/`}
+        aria-current={i === index ? 'page' : undefined}
+      >
+        {variant.name}
+      </a>
+    ))}
+  </nav>
+  <HeroCandidate
+    candidate={candidate}
+    route={route}
+    index={index}
+    locale={locale}
+    primary={content.primary}
+    secondary={content.secondary}
+    contact={content.contact}
+    eyebrow={route === 'home' ? content.eyebrow : group.label}
+  />
+</main>

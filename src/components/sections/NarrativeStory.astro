@@ -1,0 +1,59 @@
+---
+import type { StoryContent, StoryLabels } from '@/content/stories.schema';
+import ResearchArtwork from '@/components/ui/story-art/ResearchArtwork.astro';
+import TeamArtwork from '@/components/ui/story-art/TeamArtwork.astro';
+import OrganisationArtwork from '@/components/ui/story-art/OrganisationArtwork.astro';
+import HomeArtwork from '@/components/ui/story-art/HomeArtwork.astro';
+import MethodArtwork from '@/components/ui/story-art/MethodArtwork.astro';
+import HandoverArtwork from '@/components/ui/story-art/HandoverArtwork.astro';
+import '@/components/sections/narrative-story.css';
+type Props = { content: StoryContent; labels: StoryLabels; compact?: boolean };
+const { content, labels, compact = false } = Astro.props;
+const artworks = {
+  research: ResearchArtwork,
+  team: TeamArtwork,
+  organisation: OrganisationArtwork,
+  home: HomeArtwork,
+  method: MethodArtwork,
+  handover: HandoverArtwork,
+};
+const Artwork = artworks[content.id];
+---
+
+<section
+  class:list={['film', { 'film-compact': compact }]}
+  id={`story-${content.id}`}
+  data-story={content.id}
+  aria-labelledby={`story-${content.id}-title`}
+>
+  <header>
+    <div>
+      <p class="eyebrow">{content.placement}</p>
+      <h2 id={`story-${content.id}-title`}>{content.title}</h2>
+    </div>
+    <p>{content.description}</p>
+  </header>
+  <figure>
+    <Artwork />
+    <ul class="object-key">
+      {content.objects.map((label) => (
+        <li>{label}</li>
+      ))}
+    </ul>
+    <figcaption>{labels.disclosure}</figcaption>
+  </figure>
+  <p class="reduced-note">{labels.reduced}</p>
+  <ol class="beats">
+    {content.beats.map((beat, i) => (
+      <li>
+        <h3 class="beat-title">
+          {i + 1}. {beat.title}
+        </h3>
+        <p>{beat.description}</p>
+      </li>
+    ))}
+  </ol>
+</section>
+<script>
+  import '@/scripts/story-player';
+</script>

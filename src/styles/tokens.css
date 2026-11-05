@@ -1,0 +1,89 @@
+:root {
+  color-scheme: light;
+  --paper: #f5f0e3;
+  --forest: #103c2d;
+  --muted: #496354;
+  --lime: #d9ff80;
+  --canvas-soft: #f0ece2;
+  --ink-secondary: #385244;
+  --accent-soft: #b8d8c7;
+  --coral: #ff7058;
+  --rust: #a93224;
+  --chart-blue: #35658a;
+  --sage: #e7ecd8;
+  --document: #fffcf4;
+  --document-shadow: #dfe5d4;
+  --on-coral: #092b1e;
+  --on-dark-muted: #d4dfd3;
+  --line: #103c2d45;
+  --canvas: var(--canvas-soft);
+  --raised: var(--document);
+  --paper-deep: var(--sage);
+  --paper-muted: var(--on-dark-muted);
+  --ink: var(--forest);
+  --ink-muted: var(--ink-secondary);
+  --ink-soft: var(--ink-secondary);
+  --navy: var(--forest);
+  --navy-deep: var(--forest);
+  --authority-field: var(--forest);
+  --on-authority: var(--paper);
+  --oxblood: var(--rust);
+  --brass: var(--rust);
+  --brass-soft: var(--accent-soft);
+  --mist: var(--sage);
+  --focus: var(--forest);
+  --evidence-blue: var(--forest);
+  --adoption-violet: var(--forest);
+  --verification-green: var(--forest);
+  --caution-amber: var(--rust);
+  --research-wash: var(--sage);
+  --organisation-wash: var(--document);
+  --control-line: var(--muted);
+  --line-strong: var(--forest);
+  --font-sans: 'Manrope', Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --display-h1-leading: 1.02;
+  --display-h1-tracking: -0.045em;
+  --display-h2-leading: 1.08;
+  --display-h2-tracking: -0.035em;
+  --text-xs: 0.8rem;
+  --text-sm: 0.95rem;
+  --text-md: clamp(1rem, 1.7vw, 1.2rem);
+  --text-lg: 1.35rem;
+  --text-xl: 2rem;
+  --text-2xl: clamp(2.7rem, 5.5vw, 5.7rem);
+  --text-hero: clamp(3.1rem, 7.8vw, 8rem);
+  --text-hero-prose: clamp(2.4rem, 5vw, 5rem);
+  --text-section-prose: clamp(2rem, 4vw, 4rem);
+  --container: 82rem;
+  --radius-sm: 1.5rem 1.5rem 0.35rem 1.5rem;
+  --radius-md: 2rem 2rem 0.5rem 2rem;
+  --radius-lg: 3rem;
+  --document-offset: 0.65rem;
+  --shadow-soft: var(--document-offset) var(--document-offset) 0
+    var(--document-shadow);
+  --motion-feedback: 160ms;
+  --motion-detail: 320ms;
+  --motion-structure: 560ms;
+  --motion-expression: 800ms;
+  --motion-stagger: 60ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-growth: 0.65;
+  --motion-accent-growth: 0.94;
+  --motion-feedback-scale: 0.97;
+  --motion-distance: 0.5rem;
+  --motion-clearance: 0.5rem;
+  --motion-paper-distance: 0.25rem;
+}
+body.public-site {
+  --text-xs: 0.9375rem;
+  --text-sm: 1.0625rem;
+  --text-md: clamp(1.125rem, 1.7vw, 1.2rem);
+}
+@media (min-width: 64rem) {
+  body.public-site {
+    --text-xs: 0.8rem;
+    --text-sm: 0.95rem;
+    --text-md: clamp(1rem, 1.7vw, 1.2rem);
+  }
+}

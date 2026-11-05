@@ -1,0 +1,127 @@
+---
+import type { HandoverStudy } from '@/content/lab-studies.schema';
+import '@/components/sections/studies/handover-study.css';
+type Props = { content: HandoverStudy; eyebrow?: string };
+const { content: c, eyebrow = c.eyebrow } = Astro.props;
+---
+
+<section
+  class="study handover-study"
+  id="study-handover"
+  data-study-speed="2"
+  aria-labelledby="handover-study-title"
+>
+  <header class="study-heading">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2 id="handover-study-title">{c.title}</h2>
+    <p>{c.intro}</p>
+  </header>
+  <div class="manual-composition">
+    <aside class="exception-slip" data-study-step data-duration="2900">
+      <p class="manual-label">{c.exception.label}</p>
+      <h3 data-focus>{c.exception.title}</h3>
+      <p>{c.exception.body}</p>
+      <svg
+        class="study-motion case-file"
+        viewBox="0 0 300 165"
+        aria-hidden="true"
+      >
+        <path
+          class="case-sheet"
+          data-fx="unfold"
+          data-at="100"
+          data-for="1050"
+          d="M22 15h235v134H22Z"
+        />
+        <path
+          class="case-lines ink"
+          pathLength="1"
+          data-fx="draw"
+          data-at="450"
+          data-for="850"
+          d="M48 47h143M48 63h106"
+        />
+        <path
+          class="missing-source ink"
+          pathLength="1"
+          data-fx="draw"
+          data-at="1150"
+          data-for="900"
+          d="M48 90h184v33H48Z"
+        />
+        <path
+          class="hold-mark"
+          data-fx="stamp"
+          data-at="2050"
+          data-for="450"
+          d="M250 87a25 25 0 1 0 0 50 25 25 0 0 0 0-50Zm-12 25h24"
+        />
+      </svg>
+      <svg
+        class="mobile-exception-link study-motion"
+        viewBox="0 0 300 65"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          class="ink"
+          d="M257 5C235 5 230 52 28 52m-10-8 10 8 10-8"
+          pathLength="1"
+          data-fx="draw"
+          data-at="1800"
+          data-for="650"
+        />
+      </svg>
+    </aside>
+    <div class="working-manual">
+      <p class="manual-title">{c.manual}</p>
+      <ol>
+        {c.rules.map((rule, i) => (
+          <li data-study-step data-duration="2700">
+            <span
+              class="manual-leaf study-motion"
+              data-fx="unfold"
+              data-at="100"
+              data-for="950"
+              aria-hidden="true"
+            />
+            <span
+              class="rule-tab"
+              aria-hidden="true"
+              data-fx="stamp"
+              data-at="900"
+              data-for="450"
+            />
+            <p class="manual-label">{rule.label}</p>
+            <h3 data-focus>{rule.title}</h3>
+            <p>{rule.body}</p>
+            <svg
+              class="study-motion rule-glyph"
+              viewBox="0 0 42 42"
+              aria-hidden="true"
+            >
+              <path
+                class="ink"
+                pathLength="1"
+                data-fx="draw"
+                data-at="1450"
+                data-for="700"
+                d={
+                  i === 0
+                    ? 'M11 5h19v31H11Zm5 8h9m-9 7h9m-9 7h6'
+                    : i === 1
+                      ? 'M7 9h28v24H7Zm7 12h14'
+                      : 'M21 6a7 7 0 1 0 0 14 7 7 0 0 0 0-14ZM9 36c0-9 5-13 12-13s12 4 12 13'
+                }
+              />
+            </svg>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+  <div class="next-attempt">
+    <h3>{c.attempt}</h3>
+    <p>{c.open}</p>
+  </div>
+</section>

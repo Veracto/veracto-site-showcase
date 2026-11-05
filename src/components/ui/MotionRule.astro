@@ -1,0 +1,16 @@
+<span class="motion-rule" data-motion="draw" aria-hidden="true"></span>
+
+<script>
+  import '@/scripts/motion';
+</script>
+
+<style>
+  .motion-rule {
+    position: absolute;
+    inset: auto 0 -1px;
+    height: 1px;
+    background: var(--motion-rule-color, var(--line));
+    transform-origin: left center;
+    pointer-events: none;
+  }
+</style>

@@ -1,0 +1,114 @@
+---
+import generated from '@/assets/design-lab/research-connected.webp';
+import imageLayout from '@/assets/design-lab/image-hero-layout.webp';
+import researchers from '@/assets/design-lab/researchers-hero-concept.webp';
+import teams from '@/assets/design-lab/teams-hero-concept.webp';
+import organisations from '@/assets/design-lab/organisations-hero-concept.webp';
+import type { HeroExplorationsCopy } from '@/content/hero-explorations.schema';
+
+type Props = { content: HeroExplorationsCopy; locale: 'en' | 'ru' };
+const { content, locale } = Astro.props;
+const concepts = [
+  { id: 'image', asset: generated },
+  { id: 'researchers', asset: researchers },
+  { id: 'teams', asset: teams },
+  { id: 'organisations', asset: organisations },
+] as const;
+---
+
+<section id="hero-explorations" aria-labelledby="hero-explorations-title">
+  <h2 id="hero-explorations-title">{content.title}</h2>
+  <p class="gallery-link">
+    <a
+      href={locale === 'ru' ? '/ru/visual-lab/heroes/' : '/visual-lab/heroes/'}
+    >
+      {content.galleryLink}
+    </a>
+  </p>
+  <p class="explorations-intro">{content.description}</p>
+  <div class="explorations-grid">
+    {concepts.map(({ id, asset }) => (
+      <article class="hero-concept" data-hero-concept={id}>
+        <h3>{content.concepts[id].title}</h3>
+        <p>{content.concepts[id].description}</p>
+        <a
+          draggable="false"
+          href={asset.src}
+          aria-label={`${content.openImage}: ${content.concepts[id].title}`}
+        >
+          <img
+            draggable="false"
+            src={asset.src}
+            width={asset.width}
+            height={asset.height}
+            alt={content.concepts[id].alt}
+            loading={id === 'image' ? 'eager' : 'lazy'}
+          />
+        </a>
+        <div class="concept-links">
+          <a href={asset.src}>{content.openImage}</a>
+          {id === 'image' && <a href={imageLayout.src}>{content.openLayout}</a>}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  section {
+    margin-block: 2rem 4rem;
+    scroll-margin-top: 1rem;
+  }
+  h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+  }
+  .explorations-intro {
+    max-width: 48rem;
+    margin-block: 1rem 2rem;
+    color: var(--muted);
+  }
+  .explorations-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  .hero-concept {
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 1.5rem;
+  }
+  h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+  .hero-concept > p {
+    margin-bottom: 1rem;
+    color: var(--muted);
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 1rem;
+  }
+  .concept-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 0.75rem;
+  }
+  .concept-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+  @media (min-width: 48rem) {
+    .explorations-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .hero-concept:first-child {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

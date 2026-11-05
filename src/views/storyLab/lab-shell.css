@@ -1,0 +1,52 @@
+.cinema {
+  max-width: 82rem;
+  margin: auto;
+  padding: 1.25rem clamp(1.25rem, 4vw, 3rem) 4rem;
+}
+.cinema a {
+  color: var(--forest);
+  text-decoration-color: var(--line);
+  text-underline-offset: 0.25em;
+}
+.cinema-top a,
+.cinema nav a,
+.cinema footer a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+}
+.cinema-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+.cinema-top > a:last-child {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.cinema h1 {
+  font-size: clamp(2.1rem, 5vw, 4.5rem);
+  max-width: 19ch;
+}
+.cinema .intro-copy {
+  max-width: 48rem;
+  margin: 1.5rem 0;
+  color: var(--muted);
+}
+.cinema nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+.cinema .disclosure {
+  margin: 1rem 0;
+}
+.cinema footer {
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+}
+.cinema * {
+  overflow-wrap: anywhere;
+}

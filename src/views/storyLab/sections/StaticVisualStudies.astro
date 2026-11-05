@@ -1,0 +1,127 @@
+---
+import { Image } from 'astro:assets';
+import type { StaticVisuals } from '@/content/static-visuals.schema';
+import processImage from '@/assets/design-lab/static-studies/process-original.png';
+import organisationImage from '@/assets/design-lab/static-studies/organisation-original.png';
+import researchImage from '@/assets/design-lab/static-studies/research-original.png';
+type Props = { content: StaticVisuals };
+const { content } = Astro.props;
+const images = {
+  process: processImage,
+  organisation: organisationImage,
+  research: researchImage,
+};
+---
+
+{content.studies.map((study) => (
+  <section
+    id={study.id}
+    class="static-study"
+    aria-labelledby={`${study.id}-title`}
+  >
+    <div class="landing-composition">
+      <div>
+        <p class="eyebrow">{study.label}</p>
+        <h2 id={`${study.id}-title`}>{study.heading}</h2>
+        <p class="description">{study.description}</p>
+      </div>
+      <figure>
+        <Image
+          src={images[study.id]}
+          alt={study.alt}
+          widths={[384, 768, 1152, 1536]}
+          sizes="(min-width: 48rem) 55vw, 100vw"
+          format="webp"
+          quality={98}
+          draggable="false"
+        />
+        <figcaption>
+          <ol>
+            {study.steps.map((step) => (
+              <li>{step}</li>
+            ))}
+          </ol>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="study-note">{study.note}</p>
+    <details>
+      <summary>{content.proof}</summary>
+      <div class="alpha-proof">
+        <Image
+          src={images[study.id]}
+          alt={study.alt}
+          width={768}
+          format="webp"
+          quality={98}
+          draggable="false"
+        />
+      </div>
+    </details>
+  </section>
+))}
+
+<style>
+  .static-study {
+    padding-block: 3rem;
+    border-top: 1px solid var(--line);
+    margin-top: 2rem;
+    scroll-margin-top: 2rem;
+  }
+  .landing-composition {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+  h2 {
+    font-size: clamp(1.8rem, 3.4vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+  .description {
+    color: var(--muted);
+    margin-top: 1.5rem;
+  }
+  figure {
+    margin: 0;
+    min-width: 0;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+  }
+  ol {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .study-note {
+    max-width: 48rem;
+    color: var(--muted);
+    margin-block: 2rem 1rem;
+    font-size: 0.9rem;
+  }
+  summary {
+    cursor: pointer;
+    padding-block: 0.75rem;
+  }
+  .alpha-proof {
+    background: var(--forest);
+    padding: 1rem;
+    border-radius: 1.5rem;
+    margin-top: 1rem;
+  }
+  @media (min-width: 48rem) {
+    .landing-composition {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 3rem;
+    }
+  }
+</style>

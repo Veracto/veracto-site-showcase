@@ -1,0 +1,53 @@
+---
+import RefreshDiagram from '@/views/storyLab/components/RefreshDiagram.astro';
+import type { VisualizationRefresh } from '@/content/visualization-refresh.schema';
+import '@/views/storyLab/refresh.css';
+import { refreshPlayback as playbackEn } from '@/content/en/refresh-playback';
+import { refreshPlayback as playbackRu } from '@/content/en/refresh-playback';
+type Props = { content: VisualizationRefresh; locale: 'en' | 'ru' };
+const { content: c, locale } = Astro.props;
+const prefix = locale === 'ru' ? '/ru' : '';
+---
+
+<div class="refresh-gallery">
+  {c.candidates.map((candidate) => (
+    <section
+      class="refresh-candidate"
+      id={`refresh-${candidate.id}`}
+      aria-labelledby={`refresh-title-${candidate.id}`}
+    >
+      <header class="refresh-heading">
+        <p class="eyebrow">{candidate.name}</p>
+        <h2 id={`refresh-title-${candidate.id}`}>{candidate.title}</h2>
+      </header>
+      <div class="refresh-assessment">
+        <p>
+          <strong>{c.assessment}</strong>
+          {candidate.assessment}
+        </p>
+        <p>
+          <strong>{c.proposal}</strong>
+          {candidate.proposal}
+        </p>
+      </div>
+      <h3 class="refresh-caption">{c.candidate}</h3>
+      <RefreshDiagram
+        candidate={candidate}
+        playback={locale === 'ru' ? playbackRu : playbackEn}
+      />
+      <nav class="refresh-comparison" aria-label={candidate.name}>
+        <a href={`${prefix}/visual-lab/#${candidate.currentId}`}>
+          {c.current}
+          <span aria-hidden="true"> ↗</span>
+        </a>
+        <a href={`${prefix}${candidate.route}`}>
+          {c.context}
+          <span aria-hidden="true"> ↗</span>
+        </a>
+      </nav>
+    </section>
+  ))}
+</div>
+<script>
+  import '@/views/storyLab/scripts/refresh-motion';
+</script>
