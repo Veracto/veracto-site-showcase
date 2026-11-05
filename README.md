@@ -2,7 +2,7 @@
 
 A bilingual website for an AI consulting practice, designed around three audiences: companies, individual researchers and research teams. Each route explains how Veracto can help and gives visitors a clear next step.
 
-**My role:** As Veracto co-founder, I worked on the product and delivery of the site. [Explore the bilingual preview](https://timsmykov.github.io/veracto-site-showcase/) · [Read the case study](docs/case-study.md).
+**My role:** As Veracto co-founder, I worked on the product and delivery of the site. [Explore the bilingual preview](https://veracto.github.io/veracto-site-showcase/) · [Read the case study](docs/case-study.md).
 
 ![Veracto desktop homepage](preview-1280.png)
 
@@ -10,7 +10,7 @@ The wider project includes other co-founders, advisors and experts; the people s
 
 ## Explore
 
-- [Bilingual portfolio preview](https://timsmykov.github.io/veracto-site-showcase/)
+- [Bilingual portfolio preview](https://veracto.github.io/veracto-site-showcase/)
 - [Original business website](https://veracto.ai/)
 - [Product decisions](docs/case-study.md)
 - [Verification](docs/verification.md)
