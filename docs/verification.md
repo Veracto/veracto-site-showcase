@@ -4,6 +4,6 @@
 - Astro/TypeScript diagnostics, ESLint and static production build pass.
 - Twenty-eight main pages/redirects and their referenced local assets pass static verification with English/Russian language expectations.
 - Public preview packaging rewrites deployment paths and disables analytics controls in generated HTML; original application source remains unchanged.
-- Browser checks cover both locales and the language switch at phone/desktop widths before final acceptance.
+- Public GitHub Pages was checked in both locales at phone/desktop widths (402/1280 pixels). The language switch works, with no horizontal overflow or broken images. No analytics requests were made.
 
 The public build lockfile includes compatible dependency fixes from the initial preparation. Moderate development-tool advisories remain; no complete security audit is claimed. Original private source and production services are independent of this preview.
